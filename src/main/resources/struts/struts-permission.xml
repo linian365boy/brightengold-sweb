@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="permission" extends="sweb" namespace="/admin/sys">
+		<action name="user_*" class="userController" method="{1}">
+			<result name="list">/admin/sys/user/list.jsp</result>
+			<result name="detail">/admin/sys/user/detail.jsp</result>
+			<result name="update">/admin/sys/user/update.jsp</result>
+			<result name="toList" type="redirect">/admin/sys/user_list.do?pageNo=${pageNo}&amp;pageSize=${pageSize}</result>
+		</action>
+		<action name="role_*" class="roleController" method="{1}">
+			<result name="list">/admin/sys/role/list.jsp</result>
+			<result name="update">/admin/sys/role/update.jsp</result>
+			<result name="toList" type="redirect">/admin/sys/role_list.do?pageNo=${pageNo}&amp;pageSize=${pageSize}</result>
+		</action>
+		
+		<action name="menu_*" class="menuController" method="{1}"/>
+		
+		<action name="log_*" class="logController" method="{1}">
+			<result name="list">/admin/sys/log/list.jsp</result>
+		</action>
+		
+		<action name="gennerate_*" class="gennerateController" method="{1}">
+			<result name="html">/admin/sys/html/gennerate.jsp</result>
+		</action>
+		
+		<action name="company_*" class="companyController" method="{1}">
+			<result name="detail">/admin/sys/company/detail.jsp</result>
+			<result name="toDetail" type="redirect">/admin/sys/company_detail.do</result>
+		</action>
+		
+		<action name="gennerate_*" class="gennerateController" method="{1}">
+			<result name="html">/admin/sys/html/gennerate.jsp</result>
+			<result name="index">/index.jsp</result>
+			<result name="aboutUs">/about.jsp</result>
+			<result name="contactUs">/contact.jsp</result>
+			<result name="news">/news.jsp</result>
+			<result name="feedback">/feedback.jsp</result>
+			<result name="product">/product.jsp</result>
+		</action>
+	</package>
+	
+	<package name="goods" extends="sweb" namespace="/admin/goods">
+		<action name="category_*" class="categoryController" method="{1}">
+			<result name="list">/admin/goods/category/list.jsp</result>
+			<result name="update">/admin/goods/category/update.jsp</result>
+			<result name="toList" type="redirect">/admin/goods/category_list.do?pageNo=${pageNo}&amp;pageSize=${pageSize}</result>
+		</action>
+		<action name="product_*" class="productController" method="{1}">
+			<result name="list">/admin/goods/product/list.jsp</result>
+			<result name="update">/admin/goods/product/update.jsp</result>
+			<result name="toList" type="redirect">/admin/goods/product_list.do?pageNo=${pageNo}&amp;pageSize=${pageSize}</result>
+		</action>
+	</package>
+	
+	<package name="news" extends="sweb" namespace="/admin/news">
+		<action name="news_*" class="newsController" method="{1}">
+			<result name="list">/admin/news/list.jsp</result>
+			<result name="update">/admin/news/update.jsp</result>
+			<result name="details">/admin/news/details.jsp</result>
+			<result name="toList" type="redirect">/admin/news/news_list.do?pageNo=${pageNo}&amp;pageSize=${pageSize}</result>
+		</action>
+	</package>
+	
+	<package name="feedback" extends="sweb" namespace="/admin/feedback">
+		<action name="feedback_*" class="feedbackController" method="{1}">
+			<result name="list">/admin/feedback/list.jsp</result>
+			<result name="detail">/admin/feedback/detail.jsp</result>
+			<result name="toList" type="redirect">/admin/feedback/feedback_list.do?pageNo=${pageNo}&amp;pageSize=${pageSize}</result>
+		</action>
+	</package>
+	
+</struts>
