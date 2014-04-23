@@ -103,9 +103,9 @@ public class CategoryController extends ActionSupport implements ModelDriven<Cat
 			}else{
 				content.append("名称："+temp.getEnName());
 			}
-			if(temp.getParent()!=null&&!temp.getParent().equals(model.getParent())){
+			if(temp.getParent()!=null&&!(temp.getParent().equals(model.getParent()))){
 				content.append("一级分类由\""+temp.getParent().getEnName()+"\"修改为\""+model.getParent().getEnName()+"\"");
-			}else if(temp.getParent()==null&&parentIds!=null){
+			}else if(temp.getParent()==null&&parentIds!=null&&!("0".equals(parentIds))){
 				content.append("一级分类由\"无\"修改为\""+model.getParent().getEnName()+"\"");
 			}else{
 				if(temp.getParent()!=null){
@@ -121,7 +121,7 @@ public class CategoryController extends ActionSupport implements ModelDriven<Cat
 		return "toList";
 	}
 	
-	public void existUser(){
+	public void existCategory(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = null;
 		PrintWriter out = null;

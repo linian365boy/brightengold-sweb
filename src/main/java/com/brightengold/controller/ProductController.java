@@ -35,7 +35,7 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 	@Autowired
 	private CategoryService categoryService;
 	private PageRainier<Product> page;
-	private Integer pageSize = 10;
+	private Integer pageSize = 8;
 	private Integer pageNo = 1;
 	private Product model = new Product();
 	private File photo;
