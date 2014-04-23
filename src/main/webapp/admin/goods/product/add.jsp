@@ -62,6 +62,8 @@
 <jsp:include page="/admin/commons/header.jsp"/>
 	<jsp:include page="/admin/commons/left.jsp">
 		<jsp:param value="6" name="menuId"/>
+		<jsp:param value="menuName" name="商品管理"/>
+		<jsp:param value="menuSubName" name="新增商品"/>
 	</jsp:include>
 	<section id="main" class="column">
 		<article class="module width_full">
