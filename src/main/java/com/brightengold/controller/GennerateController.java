@@ -29,7 +29,7 @@ public class GennerateController extends ActionSupport{
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/sys/gennerate_toHome.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-		if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath("/"),loginUser)){
+		if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath("/"),loginUser.getUsername())){
 			MsgUtil.setMsg("succss", "恭喜您，生成Index页面成功！");
 		}else{
 			MsgUtil.setMsg("error", "对不起，生成Index页面失败！");
@@ -49,7 +49,7 @@ public class GennerateController extends ActionSupport{
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/sys/gennerate_toAboutUs.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-		if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath("/"),loginUser)){
+		if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath("/"),loginUser.getUsername())){
 			MsgUtil.setMsg("succss", "恭喜您，生成About Us页面成功！");
 		}else{
 			MsgUtil.setMsg("error", "对不起，生成About Us页面失败！");
@@ -69,7 +69,7 @@ public class GennerateController extends ActionSupport{
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/sys/gennerate_toContactUs.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-		if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath("/"),loginUser)){
+		if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath("/"),loginUser.getUsername())){
 			MsgUtil.setMsg("succss", "恭喜您，生成Contact Us页面成功！");
 		}else{
 			MsgUtil.setMsg("error", "对不起，生成Contact Us页面失败！");
@@ -89,7 +89,7 @@ public class GennerateController extends ActionSupport{
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/sys/gennerate_toNews.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-		if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath("/"),loginUser)){
+		if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath("/"),loginUser.getUsername())){
 			MsgUtil.setMsg("succss", "恭喜您，生成News页面成功！");
 		}else{
 			MsgUtil.setMsg("error", "对不起，生成News页面失败！");
@@ -110,7 +110,7 @@ public class GennerateController extends ActionSupport{
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/sys/gennerate_toFeedback.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-		if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath("/"),loginUser)){
+		if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath("/"),loginUser.getUsername())){
 			MsgUtil.setMsg("succss", "恭喜您，生成Feedback页面成功！");
 		}else{
 			MsgUtil.setMsg("error", "对不起，生成Feedback页面失败！");
@@ -130,7 +130,7 @@ public class GennerateController extends ActionSupport{
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/sys/gennerate_toProduct.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-		if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath("/"),loginUser)){
+		if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath("/"),loginUser.getUsername())){
 			MsgUtil.setMsg("succss", "恭喜您，生成Product页面成功！");
 		}else{
 			MsgUtil.setMsg("error", "对不起，生成Product页面失败！");

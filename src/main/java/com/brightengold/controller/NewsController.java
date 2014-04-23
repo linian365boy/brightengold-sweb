@@ -147,7 +147,7 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 				String url=basePath+"/admin/news/"+model.getId();
 				HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
 				JsonEntity entity = new JsonEntity();
-				if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath(model.getUrl()),loginUser)){
+				if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath(model.getUrl()),loginUser.getUsername())){
 					model.setPublishDate(new Date());
 					LogUtil.getInstance().log(LogType.PUBLISH, "标题："+model.getTitle());
 					if(newsService.saveNews(model)!=null){
