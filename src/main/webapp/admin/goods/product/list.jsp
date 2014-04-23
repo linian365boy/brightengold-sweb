@@ -23,7 +23,7 @@
 		
 	var del = function(obj){
 		var productId = $(obj).attr("name");
-		art.dialog.confirm('确定删除此商品',function(){
+		art.dialog.confirm('确定删除此商品？',function(){
 			var url = '${ctx}admin/goods/product_del.do?pageNo=${pageNo}&id='+productId;
 			window.location.href=url;
 		});
@@ -31,7 +31,7 @@
 	
 	var publish = function(obj){
 		var productId = $(obj).attr("name");
-		art.dialog.confirm('确定发布此商品',function(){
+		art.dialog.confirm('确定发布此商品？',function(){
 			var url = '${ctx}admin/goods/product_publish.do?pageNo=${pageNo}&id='+productId;
 			window.location.href=url;
 		});
@@ -80,7 +80,7 @@
 						title="${product.enName }" alt="${product.enName }" 
 						name="picUrl" width="50" height="50"/>
 					</td>
-					<td><a href="${ctx }admin/goods/product/${product.id}" title="${ product.enName}">${product.enName }</a></td>
+					<td><span title="${ product.enName}">${product.enName }</span></td>
 					<td>${product.category.enName }</td>
 					<td>${product.hot?"<span class='label label-danger' title='热门'>热门</span>":"<span class='label label-primary' title='非热门'>非热门</span>" }</td>
 					<td>${product.publish?"<span class='label label-info' title='发布'>发布</span>":"<span class='label label-default' title='未发布'>未发布</span>" }</td>

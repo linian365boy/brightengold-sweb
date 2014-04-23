@@ -39,7 +39,7 @@
 							var smenuName = smenu.attr("text");
 							var smenuUrl = smenu.attr("url");
 							var id = smenu.attr("id");
-							str+="<li class='icn_categories'><a title="+smenuName+" href='${ctx}"+smenuUrl+"'>"+smenuName+"</a></li>";
+							str+="<li class='icn_"+id+"'><a title="+smenuName+" href='${ctx}"+smenuUrl+"'>"+smenuName+"</a></li>";
 						}
 						str+="</ul>";
 					};
@@ -87,7 +87,7 @@
 										var smenuName = smenu.attr("text");
 										var smenuUrl = smenu.attr("url");
 										var id = smenu.attr("id");
-										str+="<li class='icn_categories'><a title="+smenuName+" href='${ctx}"+smenuUrl+"'>"+smenuName+"</a></li>";
+										str+="<li class='icn_"+id+"'><a title="+smenuName+" href='${ctx}"+smenuUrl+"'>"+smenuName+"</a></li>";
 									}
 									str+="</ul>";
 								};
@@ -121,7 +121,7 @@
 		</div>
 	</section><!-- end of secondary bar -->
 	
-	<aside id="sidebar" class="column" style="height: 602px;">
+	<aside id="sidebar" class="column" style="height: 100%;">
 		<%-- 
 		<h3>商品管理</h3>
 		<ul class="toggle">

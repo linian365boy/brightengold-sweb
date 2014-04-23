@@ -12,14 +12,8 @@
  <script type="text/javascript" src="${ctx }resources/js/ckEditor/lang/zh-cn.js"></script>
  <script type="text/javascript" src="${ctx }resources/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.metadata.js"></script>
-<style type="text/css">
-	label.error{
-	background:url(/resources/images/x.png) no-repeat 0px 0px;
-	padding-left:18px;
-	color: red;
-	width:150px;
-} 
-</style>
+<link rel="stylesheet" type="text/css"
+	href="${ctx }resources/css/style.css" />
 <title>添加新闻</title>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -64,25 +58,47 @@
 		</header>
 		<div class="tab_container">
 		<div id="tab1" class="tab_content">
-		<form action="${ctx }admin/news/news_add.do" class="form-horizontal" id="form" method="post">
-            <label for="title" style="padding-left: 10px;">标题：</label>
-            <input id="title" name="title" class="span3"  type="text"  placeholder="标题"/>
-             <br />
-             <fieldset>
-					<label>摘要</label>
-					<textarea rows="3" name="introduce"></textarea>
-			</fieldset>
-             <label for="keyWords" style="padding-left: 10px;">关键字（多个以英文;隔开）：</label>
-            <input id="keyWords" class="span3" name="keyWords"  type="text"
-                        tabindex="1" placeholder="关键字"/>
-             <br />
-            <div id="label"><label for="priority" style="padding-left: 10px;">优先值（越大排名越前）：</label>
-            <input id="priority" name="priority" placeholder="优先值" type="text" tabindex="1" /></div>
-             <br />
-            <div id="label"><label for="content" style="padding-left: 10px;">内容：</label>
-            <textarea id="content" name="content" class="ckeditor"></textarea></div>
-            <br/>
-            <input type="submit" id="button" value="提交" class="btn btn-primary"/>
+		<form role="form" action="${ctx }admin/news/news_add.do" class="form-horizontal" id="form" method="post">
+			<div class="form-group">
+	            <label for="title" class="col-sm-3 control-label">标题</label>
+				<div class="col-sm-4">
+		            <input class="form-control" id="title" name="title" type="text"  placeholder="标题"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="introduce" class="col-sm-3 control-label">摘要</label>
+				<div class="col-sm-6">
+				<textarea class="form-control" rows="3" name="introduce"></textarea>
+				</div>
+			</div>
+			
+			<div class="form-group">
+	            <label for="keyWords" class="col-sm-3 control-label">关键字（多个以英文;隔开）</label>
+				<div class="col-sm-4">
+		            <input id="keyWords" class="form-control" name="keyWords" type="text" placeholder="关键字"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+	            <label for="priority" class="col-sm-3 control-label">优先值（越大排名越前）</label>
+				<div class="col-sm-4">
+		            <input id="priority" class="form-control" name="priority" type="text" placeholder="优先值"/>
+				</div>
+			</div>
+			
+			<div class="form-group">
+	            <label for="content" class="col-sm-3 control-label">内容</label>
+				<div class="col-sm-8">
+		            <textarea id="content" class="ckeditor form-control" name="content"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-sm-offset-3 col-sm-10">
+					<button type="submit" class="btn btn-info">提交</button>&nbsp;&nbsp;&nbsp;
+            	&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-default">重置</button>
+				</div>
+			</div>
           </form>
           </div>
           </div>

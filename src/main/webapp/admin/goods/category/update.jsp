@@ -34,7 +34,7 @@
 			messages:{
 				"enName":{
 					required:"商品分类不能为空",
-					remote:"该商品分类已存在，请更换！"
+					remote:"分类已存在，请更换！"
 				}
 			}
 	});
