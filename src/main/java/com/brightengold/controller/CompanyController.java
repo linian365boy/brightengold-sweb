@@ -63,7 +63,6 @@ public class CompanyController extends ActionSupport implements ModelDriven<Comp
 				model.setPhonePic(temp.getPhonePic());
 			}
 			model.setCreateDate(temp.getCreateDate());
-			model = companyService.save(model);
 			StringBuilder content = new StringBuilder();
 			if(!temp.getName().equals(model.getName())){
 				content.append("公司名称由\""+temp.getName()+"\"修改为\""+model.getName()+"\"");
@@ -77,6 +76,7 @@ public class CompanyController extends ActionSupport implements ModelDriven<Comp
 			if(!temp.getTelPhone().equals(model.getTelPhone())){
 				content.append("公司联系方式由\""+temp.getTelPhone()+"\"修改为\""+model.getTelPhone()+"\"");
 			}
+			model = companyService.save(model);
 			MsgUtil.setMsgUpdate("success");
 			LogUtil.getInstance().log(LogType.EDIT, content.toString());
 		}catch(Exception e){
