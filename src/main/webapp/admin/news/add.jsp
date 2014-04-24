@@ -16,17 +16,16 @@
 	href="${ctx }resources/css/style.css" />
 <title>添加新闻</title>
 <script type="text/javascript">
+	var valiResult;
 	$(document).ready(function(){
-		$("#form").validate({
+		valiResult = $("#form").validate({
+			meta:"validate",
 			rules:{
 				"title":{
 					required:true
 				},
 				"priority":{
 					number:true
-				},
-				"content":{
-					required:true
 				}
 			},
 			messages:{
@@ -35,13 +34,25 @@
 				},
 				"priority":{
 					number:"优先值为数字！"
-				},
-				"content":{
-					required:"内容不能为空！"
 				}
 			}
 		});
 	});
+	
+	function doSubmit(){
+		CKEDITOR.instances.content.updateElement();
+		var content = $("#content").val();
+		var length = $.trim(content).length;
+		if(length<=0){
+			$("#contentSpan").show();
+		}
+		if(valiResult.form()&&length>0){
+			$("#contentSpan").hide();
+			$("#form").submit();
+			return true;
+		}
+		return false;
+	}
 </script>
 </head>
 <body>
@@ -91,11 +102,12 @@
 	            <label for="content" class="col-sm-3 control-label">内容</label>
 				<div class="col-sm-8">
 		            <textarea id="content" class="ckeditor form-control" name="content"></textarea>
+		            <span id="contentSpan" style="background: url(/resources/images/x.png) no-repeat 0px 0px;color:red;padding-left:18px;display: none;">内容不能为空！</span>
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-3 col-sm-10">
-					<button type="submit" class="btn btn-info">提交</button>&nbsp;&nbsp;&nbsp;
+					<button type="button" onclick="return doSubmit();" class="btn btn-info">提交</button>&nbsp;&nbsp;&nbsp;
             	&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-default">重置</button>
 				</div>
 			</div>

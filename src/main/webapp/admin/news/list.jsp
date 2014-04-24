@@ -25,7 +25,7 @@
 		//purview
 		var purview = function(obj){
 			var newsId = $(obj).attr("name");
-			var url = '${ctx}admin/news/news_view.do?id='+newsId;
+			var url = '${ctx}admin/news/news_detail.do?id='+newsId;
 			window.open(url);
 		};
 		//publish
