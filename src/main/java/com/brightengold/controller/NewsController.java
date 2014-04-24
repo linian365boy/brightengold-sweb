@@ -46,16 +46,16 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 		return "list";
 	}
 	
-	public String add(News news, HttpServletRequest request){
-		if(news.getPriority()==null){
-			news.setPriority(0);
+	public String add(){
+		if(model.getPriority()==null){
+			model.setPriority(0);
 		}
-		news.setClicks(0);
-		news.setCreateDate(new Date());
-		news.setUrl("views/html/news/"+Tools.getRndFilename()+".html");
-		newsService.saveNews(news);
+		model.setClicks(0);
+		model.setCreateDate(new Date());
+		model.setUrl("views/html/news/"+Tools.getRndFilename()+".html");
+		newsService.saveNews(model);
 		MsgUtil.setMsgAdd("success");
-		LogUtil.getInstance().log(LogType.ADD,"标题："+news.getTitle());
+		LogUtil.getInstance().log(LogType.ADD,"标题："+model.getTitle());
 		return "toList";
 	}
 	
