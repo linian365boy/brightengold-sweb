@@ -101,6 +101,14 @@
 	</c:choose>
     </head>
     <body>
+    <%
+		if(request.getParameter("menuId")!=null){
+			WebApplicationContext app = ContextLoader.getCurrentWebApplicationContext();
+			MenuServiceImpl menuService = (MenuServiceImpl)app.getBean("menuService");
+			Menu menu = menuService.loadMenuById(Long.parseLong(request.getParameter("menuId")));
+			session.setAttribute("menu", menu);
+		}
+	%>
 <section id="secondary_bar">
 		<div class="user">
 			<p><sec:authentication property="principal.realName"/>(<sec:authentication property="principal.username"/>)</p>
@@ -111,7 +119,7 @@
 			<a href="${ctx }admin">首页</a> 
 			<c:if test="${!empty param.menuName}">
 				<div class="breadcrumb_divider"></div>
-				<a href="#" class="${!empty param.menuSubName?'current':'' }">${param.menuName }</a>
+				<a href="${!empty menu?menu.}" class="${!empty param.menuSubName?'current':'' }">${param.menuName }</a>
 			</c:if>
 			<c:if test="${!empty param.menuSubName }">
 				<div class="breadcrumb_divider"></div>
@@ -153,14 +161,6 @@
 		</footer>
 	</aside><!-- end of sidebar -->
 	
-	<%
-		if(request.getParameter("menuId")!=null){
-			WebApplicationContext app = ContextLoader.getCurrentWebApplicationContext();
-			MenuServiceImpl menuService = (MenuServiceImpl)app.getBean("menuService");
-			Menu menu = menuService.loadMenuById(Long.parseLong(request.getParameter("menuId")));
-			session.setAttribute("menu", menu);
-		}
-	%>
 	<script type="text/javascript">
   	if(typeof(str)!='undefined'){
   		$("#footer").before(str);
