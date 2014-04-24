@@ -10,8 +10,8 @@
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.metadata.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="${ctx }resources/css/style.css" />
+<link href="${ctx }resources/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="${ctx }resources/css/style.css" />
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$.getJSON("${ctx}admin/sys/role_getRolesByAjax.do",function(returnJson){
@@ -24,6 +24,9 @@
 		});
 		
 		$("#form").validate({
+			 errorPlacement: function(error, element) {
+			        error.appendTo( element.siblings("span"));
+			 },
 			rules:{
 				"username":{
 					required:true,
@@ -61,25 +64,34 @@
 	</script>
 </head>
 <body>
-	<form id="form" action="${ctx }admin/sys/user_add.do" method="post" target="_parent">
-            <div id="label"><label for="username">用户名：</label></div>
-            <input id="username" name="username"  type="text"  autocomplete="off"
-                        tabindex="1"/>
-             <br />
-
-            <div id="label"><label for="password">密码： </label></div>
-            <input style="width: 149px;" name="password" autocomplete="off" class="{required:true,messages:{required:'密码不能为空'}}" type="password"
-                        tabindex="3" />
-             <br />
-            <div id="label"><label for="realName">姓名：</label></div>
-            <input name="realName" class="{required:true,messages:{required:'姓名不能为空'}}"
-            type="text" tabindex="4" />
-             <br />
-            <div id="label"><label for="role">角色分配：</label></div>
-            <select name="role" id="roles" style="width: 158px; margin-left: 0px;margin-bottom: 5px;">
-              <%--<option value="0">=====角色分配=====</option>--%>
-             </select>
-             <br />
+	<form id="form" class="form-horizontal" action="${ctx }admin/sys/user_add.do" method="post" target="_parent">
+            <div class="form-group">
+            	<label for="username" class="col-xs-2 control-label">用户名</label>
+            	<div class="col-xs-4">
+            		<input id="username" class="form-control" name="username" placeholder="用户名"  type="text"  autocomplete="off"/>
+            	</div>
+			</div>
+			
+            <div class="form-group">
+            	<label for="password" class="col-xs-2 control-label">密码 </label>
+            	<div class="col-xs-4">
+            		<input name="password" class="form-control" autocomplete="off" type="password"/>
+            	</div>
+            </div>
+            
+            <div class="form-group">
+            	<label for="realName" class="col-xs-2 control-label">姓名</label>
+            	<div class="col-xs-4">
+	            	<input name="realName" class="form-control" type="text" id="realName"/>
+            	</div>
+            </div>
+            
+            <div id="label">
+            	<label for="role">角色分配：</label>
+	            <select name="role" id="roles" style="width: 158px; margin-left: 0px;margin-bottom: 5px;">
+	              <%--<option value="0">=====角色分配=====</option>--%>
+	             </select>
+             </div>
 			<div id="label"><label for="status">状态：</label></div>
             	<input type="checkbox" name="enabled"/>
             <span>（勾选表示启用此账号，否则禁用）</span>

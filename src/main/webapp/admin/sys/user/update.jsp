@@ -10,10 +10,10 @@
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.metadata.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="${ctx }resources/css/style.css" />
+<link rel="stylesheet" type="text/css" href="${ctx }resources/css/style.css" />
 <script type="text/javascript">
-	$("#form").validate({
+	$(document).ready(function(){
+		$("#form").validate({
 			rules:{
 				"username":{
 					required:true,
@@ -37,8 +37,8 @@
 					remote:"用户名已存在"
 				}
 			}
+		});
 	});
-
 </script>
 </head>
 <body>

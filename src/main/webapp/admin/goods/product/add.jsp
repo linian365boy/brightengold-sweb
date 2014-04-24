@@ -33,7 +33,7 @@
 				},
 				"photo":{
 					required:"商品图片不能为空！",
-					isImgFile:"请上传jpg|jpeg|bmp|gif图片格式文件!"
+					isImgFile:"请上传jpg|jpeg|bmp|gif|png图片格式文件!"
 				}
 			}
 		});

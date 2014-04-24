@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@include file="../../../commons/include.jsp" %>
+<%@include file="/commons/include.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -10,9 +10,6 @@
 <script type="text/javascript" src="${ctx}resources/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx}resources/js/jquery.metadata.js"></script>
 <link rel="stylesheet" type="text/css" href="${ctx}resources/css/style.css" />
-<!--[if IE]>
-<link rel="stylesheet" type="text/css" href="css/ie-sucks.css" />
-<![endif]-->
 <script type="text/javascript">
 	$(function(){
 		$("#form").validate({
