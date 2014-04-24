@@ -24,9 +24,6 @@
 		});
 		
 		$("#form").validate({
-			 errorPlacement: function(error, element) {
-			        error.appendTo( element.siblings("span"));
-			 },
 			rules:{
 				"username":{
 					required:true,
@@ -65,42 +62,52 @@
 </head>
 <body>
 	<form id="form" class="form-horizontal" action="${ctx }admin/sys/user_add.do" method="post" target="_parent">
-            <div class="form-group">
-            	<label for="username" class="col-xs-2 control-label">用户名</label>
-            	<div class="col-xs-4">
-            		<input id="username" class="form-control" name="username" placeholder="用户名"  type="text"  autocomplete="off"/>
+            <div class="form-group" style="width:550px;">
+            	<label for="username" class="col-xs-3 control-label" style="text-align: right;">用户名</label>
+            	<div class="col-xs-8">
+            		<input id="username" class="form-control" style="width:55%;" name="username" placeholder="用户名"  type="text"  autocomplete="off"/>
             	</div>
 			</div>
 			
-            <div class="form-group">
-            	<label for="password" class="col-xs-2 control-label">密码 </label>
-            	<div class="col-xs-4">
-            		<input name="password" class="form-control" autocomplete="off" type="password"/>
+            <div class="form-group" style="width:550px;">
+            	<label for="password" class="col-xs-3 control-label" style="text-align: right;">密码 </label>
+            	<div class="col-xs-8">
+            		<input name="password" class="form-control" style="width:55%;" autocomplete="off" type="password"/>
             	</div>
             </div>
             
-            <div class="form-group">
-            	<label for="realName" class="col-xs-2 control-label">姓名</label>
-            	<div class="col-xs-4">
-	            	<input name="realName" class="form-control" type="text" id="realName"/>
+            <div class="form-group" style="width:550px;">
+            	<label for="realName" class="col-xs-3 control-label" style="text-align: right;">姓名</label>
+            	<div class="col-xs-8">
+	            	<input name="realName" class="form-control" style="width:55%;" placeholder="姓名" type="text" id="realName"/>
             	</div>
             </div>
             
-            <div id="label">
-            	<label for="role">角色分配：</label>
-	            <select name="role" id="roles" style="width: 158px; margin-left: 0px;margin-bottom: 5px;">
+            <div class="form-group" style="width:550px;">
+            	<label for="role" class="col-xs-3 control-label" style="text-align: right;">角色分配</label>
+            	<div class="col-xs-8">
+	            <select name="role" id="roles" style="width:55%;" class="form-control">
 	              <%--<option value="0">=====角色分配=====</option>--%>
 	             </select>
+	             </div>
              </div>
-			<div id="label"><label for="status">状态：</label></div>
-            	<input type="checkbox" name="enabled"/>
-            <span>（勾选表示启用此账号，否则禁用）</span>
-            <br/>
-            <input type="hidden" value="${param.pageNo }" name="pageNo"/>
-            <div class="aui_buttons" style="width:388px;">
-              <button class="aui_state_highlight" type="submit">提交</button>
-              <button type="reset">重置</button>
+             <div class="form-group" style="width:550px;">
+            	<div class="col-xs-offset-3 col-sm-3">
+					<div class="checkbox">
+						<label>
+		            	<input type="checkbox" name="enabled"/>是否启用账号
+		            	</label>
+					</div>
+			</div>
             </div>
+            
+            <input type="hidden" value="${param.pageNo }" name="pageNo"/>
+            <div class="form-group" style="width:550px;">
+            	<div class="col-xs-offset-3 col-sm-3">
+             		<button class="btn btn-info" type="submit">提交</button>&nbsp;&nbsp;&nbsp;
+             		&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-default">重置</button>
+             	</div>
+             </div>
           </form>
 </body>
 </html>

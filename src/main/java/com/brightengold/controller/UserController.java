@@ -37,7 +37,6 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 	private PageRainier<User> page;
 	private Integer pageSize = 10;
 	private Integer pageNo = 1;
-	private String username;
 	
 	public String list(){
 		page = userService.findAllUser(pageNo, pageSize, true);
@@ -65,8 +64,8 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 	}
 	
 	public String detail(){
-		if(username!=null&&username!=""){
-			model = userService.loadUserByName(username);
+		if(model.getUsername()!=null&&model.getUsername()!=""){
+			model = userService.loadUserByName(model.getUsername());
 		}
 		return "detail";
 	}
@@ -125,14 +124,14 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 		PrintWriter out = null;
 		try {
 			String name = request.getParameter("u");		//name为空表示添加，否则为编辑
-			if(username!=null){
+			if(model.getUsername()!=null){
 				response.setContentType("text/html;charset=UTF-8");
 				out = response.getWriter();
 				//如果没有修改username
-				if(username.equals(name)){
+				if(model.getUsername().equals(name)){
 					out.print(true);	//true表示可用
 				}else{
-					User u = userService.loadUserByName(username);
+					User u = userService.loadUserByName(model.getUsername());
 					if(u!=null){
 						out.print(false);
 					}else{
@@ -233,14 +232,6 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 	@Override
 	public User getModel() {
 		return model;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
 	}
 
 }

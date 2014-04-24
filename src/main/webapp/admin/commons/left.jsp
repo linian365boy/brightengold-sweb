@@ -119,11 +119,16 @@
 			<a href="${ctx }admin">首页</a> 
 			<c:if test="${!empty param.menuName}">
 				<div class="breadcrumb_divider"></div>
-				<a href="${!empty menu?menu.url:'#'}" class="${!empty param.menuSubName?'current':'' }">${param.menuName }</a>
-			</c:if>
-			<c:if test="${!empty param.menuSubName }">
-				<div class="breadcrumb_divider"></div>
-				<a class="current">${param.menuSubName }</a>
+				<c:choose>
+					<c:when test="${empty param.menuSubName }">
+						<a class="current">${param.menuName }</a>
+					</c:when>
+					<c:otherwise>
+						<a href="${ctx }${menu.url}">${param.menuName }</a>
+						<div class="breadcrumb_divider"></div>
+						<a class="current">${param.menuSubName }</a>
+					</c:otherwise>
+				</c:choose>
 			</c:if>
 			</article>
 		</div>

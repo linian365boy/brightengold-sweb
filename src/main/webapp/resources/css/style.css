@@ -33,6 +33,10 @@ p{
 	display:inline;
 }
 
+form{
+	margin-top: 20px;
+}
+
 form#form label.error{
 	background:url(/resources/images/x.png) no-repeat 0px 0px;
 	display: inline;

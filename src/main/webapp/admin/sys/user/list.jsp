@@ -49,8 +49,8 @@
 			art.dialog.open(url,{
 				title:'添加用户',
 				id:'tianjia',
-				width: 450,
-				height: 190,
+				width: 560,
+				height: 290,
 				resize: false
 			});
 		};

@@ -13,8 +13,7 @@
 <script type="text/javascript" src="${ctx }resources/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.metadata.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/validatePlugin/jquery.validatePlugin.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="${ctx }resources/css/style.css" />
+<link rel="stylesheet" type="text/css" href="${ctx }resources/css/style.css" />
 	<script type="text/javascript">
 	$(document).ready(function(){
 		$("#form").validate({
@@ -80,16 +79,15 @@
 
             <div class="form-group">
             	<label for="photo" class="col-sm-2 control-label">商品图片</label>
-            	<div class="col-sm-10">
+            	<div class="col-sm-4">
 	            	<input type="file" name="photo"/>
             	</div>
             </div>
             
             <div class="form-group">
             	<label for="category" class="col-sm-2 control-label">商品分类</label>
-            	<div class="col-sm-10">
-            	<select class="form-control" name="parentC" id="parentCs"  
-            	style="width: 158px; margin-left: 0px;margin-bottom: 5px;">
+            	<div class="col-sm-4">
+            	<select class="form-control" name="parentC" id="parentCs">
             	</select>
             	</div>
             </div>
