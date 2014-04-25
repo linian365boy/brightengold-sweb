@@ -17,8 +17,7 @@
 		art.dialog.open(url,{
 			title:'编辑分类信息',
 			id:'bianji',
-			width:450,
-			height:140,
+			width:500,
 			resize: false
 			});
 		};
@@ -28,15 +27,14 @@
 			art.dialog.open(url,{
 				title:'添加商品分类',
 				id:'tianjia',
-				width: 450,
-				height: 140,
+				width: 500,
 				resize: false
 			});
 		};
 		
 		var del = function(obj){
 			var categoryId = $(obj).attr("name");
-			art.dialog.confirm('确定删除此分类',function(){
+			art.dialog.confirm('确定删除此分类？',function(){
 				var url = '${ctx}admin/goods/category_del.do?pageNo=${pageNo}&id='+categoryId;
 				window.location.href=url;
 			});
