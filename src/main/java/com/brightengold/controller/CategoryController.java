@@ -99,14 +99,23 @@ public class CategoryController extends ActionSupport implements ModelDriven<Cat
 				model.setParent(categoryService.loadCategoryById(Integer.parseInt(parentIds)));
 			}
 			if(!temp.getEnName().equals(model.getEnName())){
-				content.append("名称由\""+temp.getEnName()+"\"修改为\""+model.getEnName()+"\"");
+				content.append("名称由\""+temp.getEnName()+"\"修改为\""+model.getEnName()+"\" ");
 			}else{
 				content.append("名称："+temp.getEnName());
 			}
 			if(temp.getParent()!=null&&!(temp.getParent().equals(model.getParent()))){
-				content.append("一级分类由\""+temp.getParent().getEnName()+"\"修改为\""+model.getParent().getEnName()+"\"");
+				if(model.getParent()!=null){
+					content.append("一级分类由\""+temp.getParent().getEnName()+"\"修改为\""+model.getParent().getEnName()+"\"");
+				}else{
+					content.append("一级分类由\""+temp.getParent().getEnName()+"\"修改为\"根节点\"");
+				}
 			}else if(temp.getParent()==null&&parentIds!=null&&!("0".equals(parentIds))){
-				content.append("一级分类由\"无\"修改为\""+model.getParent().getEnName()+"\"");
+				if(temp.getChildren()!=null&&temp.getChildren().size()<=0){
+					content.append("一级分类由\"根节点\"修改为\""+model.getParent().getEnName()+"\"");
+				}else{
+					MsgUtil.setMsg("error", "该分类下已有子分类，不能变更商品分类级别！");
+					return "toList";
+				}
 			}else{
 				if(temp.getParent()!=null){
 					content.append("一级分类："+temp.getParent().getEnName());
