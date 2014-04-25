@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@include file="../../../commons/include.jsp" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,6 +13,8 @@
 <link href="${ctx }resources/css/bootstrap.min.css" rel="stylesheet"/>
  <%@include file="/admin/commons/jsCss.jsp" %>
 <script src="${ctx}resources/js/jquery-1.8.3.js" type="text/javascript"></script>
+<link href="${ctx }resources/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="${ctx}resources/css/style.css" />
 <script type="text/javascript">
 	$(document).ready(function() {
 		$.getJSON("${ctx}admin/sys/role_getRolesByAjax.do", function(data) {
@@ -118,27 +120,35 @@
 				<div id="infobox">
 					<div id="box">
 						<div style="width:500px;height:650px; text-align:left;">
-							<form action="${ctx }sys/role/role_distribute.do" id="actionForm" method="post">
-								<label for="street">选择角色：</label>
-								<select id="roles" onchange="change(this);">
-									<option value="0">--请选择--</option>
-								</select> <br />
-								<label for="country">选择权限： </label> <br />
-								<fieldset style="width:500px;border:0;">
-									<div style="padding: 10px;">
+							<form class="form-horizontal" action="${ctx }admin/sys/role_distribute.do" id="actionForm" method="post">
+								<div class="form-group">
+									<label for="roles" class="col-sm-3 control-label">选择角色</label>
+									<div class="col-sm-4">
+										<select id="roles" class="form-control" onchange="change(this);">
+											<option value="0">--请选择--</option>
+										</select> 
+									</div>
+								</div>
+								<div class="form-group">
+									<label for="tree" class="col-sm-3 control-label">选择权限 </label> 
+									<div class="col-sm-4">
 										<div class="demo">
 											<div style="width: 500px; height: 500px; overflow: auto;">
 												<div id="tree" ></div>
 											</div>
 										</div>
 									</div>
-								</fieldset>
+								</div>
 								<input type="hidden" name="name" id="name"/>
 								<%--包括所有被选中的菜单与资源 --%>
 								<input type="hidden" name="str" id="str"/>
 								<%--很诡异的一个错误，下面这个input的type不能为submit，否则在IE下会出现提交两次的结果 --%>
-								<input type="button" class="btn btn-danger" id="button" value="确认分配" onclick="return sub();" />
+								<div class="form-group">
+									<div class="col-sm-offset-3 col-sm-10">
+									<input type="button" class="btn btn-danger" id="button" value="确认分配" onclick="return sub();" />
 								<%--&nbsp;&nbsp; <input type="reset" id="button"value="重置" />--%>
+									</div>
+								</div>
 							</form>
 							<br />
 						</div>

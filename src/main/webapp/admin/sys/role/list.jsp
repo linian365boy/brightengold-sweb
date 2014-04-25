@@ -18,8 +18,7 @@
 		art.dialog.open(url,{
 			title:'编辑角色信息',
 			id:'bianji',
-			width:450,
-			height:140,
+			width:500,
 			resize: false
 			});
 		};
@@ -29,8 +28,7 @@
 			art.dialog.open(url,{
 				title:'添加角色',
 				id:'tianjia',
-				width: 450,
-				height: 140,
+				width: 500,
 				resize: false
 			});
 		};

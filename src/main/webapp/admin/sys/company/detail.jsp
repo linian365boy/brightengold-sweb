@@ -108,8 +108,8 @@
 
 			<div class="form-group">
 				<label for="introduce" class="col-sm-2 control-label">公司介绍</label>
-				<div class="col-sm-4">
-            		<textarea rows="3" class="form-control" id="introduce" name="introduce">${model.introduce }</textarea>
+				<div class="col-sm-6">
+            		<textarea rows="8" class="form-control" id="introduce" name="introduce">${model.introduce }</textarea>
             	</div>
 			</div>
 			

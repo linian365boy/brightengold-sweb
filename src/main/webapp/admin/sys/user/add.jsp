@@ -10,6 +10,7 @@
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.metadata.js"></script>
+<script type="text/javascript" src="${ctx }resources/js/validatePlugin/jquery.validatePlugin.js"></script>
 <link href="${ctx }resources/css/bootstrap.min.css" rel="stylesheet"/>
 <link rel="stylesheet" type="text/css" href="${ctx }resources/css/style.css" />
 	<script type="text/javascript">
@@ -27,6 +28,8 @@
 			rules:{
 				"username":{
 					required:true,
+					chrnum:true,
+					rangelength:[1,12],
 					remote:{
 						type:'POST',
 						url:'${ctx}admin/sys/user_existUser.do',
@@ -38,22 +41,28 @@
 					}
 				},
 				"password":{
-					required:true
+					required:true,
+					rangelength:[6,12]
 				},
 				"realName":{
-					required:true
+					required:true,
+					rangelength:[1,5]
 				}
 			},
 			messages:{
 				"username":{
-					required:"用户名不能为空",
-					remote:"用户名已存在"
+					required:"账号不能为空",
+					chrnum:"账号需数字、字母",
+					remote:"账号已存在",
+					rangelength:jQuery.format("账号长度在{0}与{1}之间")
 				},
 				"password":{
-					required:"密码不能为空"
+					required:"密码不能为空",
+					rangelength:jQuery.format("密码长度在{0}与{1}之间")
 				},
 				"realName":{
-					required:"姓名不能为空"
+					required:"姓名不能为空",
+					rangelength:jQuery.format("姓名字数在{0}与{1}之间")
 				}
 			}
 		});
@@ -62,36 +71,36 @@
 </head>
 <body>
 	<form id="form" class="form-horizontal" action="${ctx }admin/sys/user_add.do" method="post" target="_parent">
-            <div class="form-group" style="width:550px;">
-            	<label for="username" class="col-xs-3 control-label" style="text-align: right;">用户名</label>
-            	<div class="col-xs-8">
+            <div class="form-group" style="width:500px;">
+            	<label for="username" class="col-xs-3 control-label" style="text-align: right;">账号</label>
+            	<div class="col-xs-9">
             		<input id="username" class="form-control" style="width:55%;" name="username" placeholder="用户名"  type="text"  autocomplete="off"/>
             	</div>
 			</div>
 			
-            <div class="form-group" style="width:550px;">
+            <div class="form-group" style="width:500px;">
             	<label for="password" class="col-xs-3 control-label" style="text-align: right;">密码 </label>
-            	<div class="col-xs-8">
+            	<div class="col-xs-9">
             		<input name="password" class="form-control" style="width:55%;" autocomplete="off" type="password"/>
             	</div>
             </div>
             
-            <div class="form-group" style="width:550px;">
+            <div class="form-group" style="width:500px;">
             	<label for="realName" class="col-xs-3 control-label" style="text-align: right;">姓名</label>
-            	<div class="col-xs-8">
+            	<div class="col-xs-9">
 	            	<input name="realName" class="form-control" style="width:55%;" placeholder="姓名" type="text" id="realName"/>
             	</div>
             </div>
             
-            <div class="form-group" style="width:550px;">
+            <div class="form-group" style="width:500px;">
             	<label for="role" class="col-xs-3 control-label" style="text-align: right;">角色分配</label>
-            	<div class="col-xs-8">
+            	<div class="col-xs-9">
 	            <select name="role" id="roles" style="width:55%;" class="form-control">
 	              <%--<option value="0">=====角色分配=====</option>--%>
 	             </select>
 	             </div>
              </div>
-             <div class="form-group" style="width:550px;">
+             <div class="form-group" style="width:500px;">
             	<div class="col-xs-offset-3 col-sm-3">
 					<div class="checkbox">
 						<label>
@@ -102,7 +111,7 @@
             </div>
             
             <input type="hidden" value="${param.pageNo }" name="pageNo"/>
-            <div class="form-group" style="width:550px;">
+            <div class="form-group" style="width:500px;">
             	<div class="col-xs-offset-3 col-sm-3">
              		<button class="btn btn-info" type="submit">提交</button>&nbsp;&nbsp;&nbsp;
              		&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-default">重置</button>

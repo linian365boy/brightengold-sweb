@@ -8,26 +8,40 @@
 <title>用户详情</title>
 </head>
 <body>
-		<form id="form" action="..." method="post">
-			<div id="label"><label for="username">用户名：</label>
-            	<input type="text"   disabled="disabled" id="inputyc" value="${model.username }"/>
+		<form id="form" class="form-horizontal" action="..." method="post">
+			<div class="form-group">
+				<label for="username" class="col-xs-5 control-label">账号</label>
+				<div class="col-xs-6">
+            	<input type="text" class="form-control"  disabled="disabled" id="inputyc" value="${model.username }"/>
+            	</div>
             </div>
-            <div id="label"><label for="realName">姓名：</label>
-	            <input type="text" disabled="disabled" id="inputyc" value="${model.realName }"/>
+            
+            <div class="form-group">
+            	<label for="realName" class="col-xs-5 control-label">姓名</label>
+            	<div class="col-xs-6">
+	            <input type="text" class="form-control" disabled="disabled" id="inputyc" value="${model.realName }"/>
+	            </div>
             </div>
-			<div id="label"> <label for="role">账户是否可用：</label>
+            
+			<div class="form-group"> 
+				<label for="role" class="col-xs-5 control-label">是否可用</label>
+				<div class="col-xs-6">
 				<c:choose>
 					<c:when test="${model.enabled }">
-						 <input type="text" disabled="disabled" id="inputyc" value="可用"/>
+						 <input class="form-control" type="text" disabled="disabled" id="inputyc" value="可用"/>
 					</c:when>
 					<c:otherwise>
-						 <input type="text" disabled="disabled" id="inputyc" value="禁用"/>
+						 <input class="form-control" type="text" disabled="disabled" id="inputyc" value="禁用"/>
 					</c:otherwise>
 				</c:choose>
+				</div>
 			</div>
-			<div id="label"> <label for="role">账户最近关闭日期：</label>
-				<input type="text" id="inputyc" disabled="disabled"
+			<div class="form-group"> 
+				<label for="role" class="col-xs-5 control-label">最近关闭日期</label>
+				<div class="col-xs-6">
+				<input type="text" class="form-control" id="inputyc" disabled="disabled"
 				value="<fmt:formatDate value='${model.lastCloseDate}' type='date'/>"/>
+				</div>
 			</div>
 		</form>
 </body>

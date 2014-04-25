@@ -38,8 +38,8 @@
 		art.dialog.open(url,{
 			title:'编辑员工信息',
 			id:'bianji',
-			width:450,
-			height:180,
+			width:500,
+			height:280,
 			resize: false
 			});
 		};
@@ -49,8 +49,8 @@
 			art.dialog.open(url,{
 				title:'添加用户',
 				id:'tianjia',
-				width: 560,
-				height: 290,
+				width: 500,
+				height: 320,
 				resize: false
 			});
 		};
@@ -111,7 +111,7 @@
 			<thead> 
 				<tr> 
     				<th >序号</th>
-                	<th >员工号</th>
+                	<th >账号</th>
 	                <th >姓名</th>
 					<th >角色</th>
 					<th >状态</th>

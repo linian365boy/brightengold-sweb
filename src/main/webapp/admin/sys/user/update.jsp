@@ -10,6 +10,8 @@
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.metadata.js"></script>
+<script type="text/javascript" src="${ctx }resources/js/validatePlugin/jquery.validatePlugin.js"></script>
+<link href="${ctx }resources/css/bootstrap.min.css" rel="stylesheet"/>
 <link rel="stylesheet" type="text/css" href="${ctx }resources/css/style.css" />
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -17,6 +19,8 @@
 			rules:{
 				"username":{
 					required:true,
+					chrnum:true,
+					rangelength:[1,12],
 					remote:{
 						type:'POST',
 						url:'${ctx}admin/sys/user_existUser.do',
@@ -29,12 +33,22 @@
 							}
 						}
 					}
+				},
+				"realName":{
+					required:true,
+					rangelength:[1,5]
 				}
 			},
 			messages:{
 				"username":{
-					required:"用户名不能为空",
-					remote:"用户名已存在"
+					required:"账号不能为空！",
+					chrnum:"账号需数字、字母！",
+					remote:"账号已存在！",
+					rangelength:jQuery.format("账号长度在{0}与{1}之间")
+				},
+				"realName":{
+					required:"姓名不能为空！",
+					rangelength:jQuery.format("姓名字数在{0}与{1}之间！")
 				}
 			}
 		});
@@ -42,50 +56,64 @@
 </script>
 </head>
 <body>
-	<form id="form" action="${ctx}admin/sys/user_update.do" method="post" target="_parent">
-            <div id="label"><label for="username">员工号：</label></div>
-            <input id="username" name="username" value="${model.username }" type="text"
-                        tabindex="1"/>
-             <br />
-
-            <div id="label"><label for="realName">姓名：</label></div>
-            <input name="realName" value="${model.realName }" class="{required:true,messages:{required:'姓名不能为空'}}"
-            type="text" tabindex="4" />
-             <br />
-            <div id="label"><label for="role">角色分配：</label></div>
-            <c:forEach items="${model.roles }" var="myRole">
-            	<c:if test="${myRole.name ne 'ROLE_DEFAULT' }">
-            		<c:set var="mr" value="${myRole.name }" scope="page"/>
-            	</c:if>
-            </c:forEach>
-
-            <select name="role" id="roles" style="width: 158px;margin-left: 0px;margin-bottom: 5px;">
-            	<c:forEach items="${rolesAjax }" var="r">
-            		<option value="${r[0] }"
-            			<c:if test="${r[0] eq mr }">
-            				selected="selected"
-            			</c:if>
-            		>
-            			${r[1] }
-            		</option>
-            	</c:forEach>
-            </select>
-            <br/>
-			<div id="label"><label for="status">状态：</label></div>
+	<form id="form" class="form-horizontal" action="${ctx}admin/sys/user_update.do" method="post" target="_parent">
+            <div class="form-group" style="width:500px;">
+            	<label for="username" class="col-xs-3 control-label" style="text-align: right;">账号</label>
+            	<div class="col-xs-9">
+	            	<input id="username" class="form-control" style="width:55%;" name="username" value="${model.username }" type="text"/>
+            	</div>
+			</div>
+			
+            <div class="form-group" style="width:500px;">
+            	<label for="realName" class="col-xs-3 control-label" style="text-align: right;">姓名</label>
+            	<div class="col-xs-9">
+            		<input name="realName" class="form-control" style="width:55%;" value="${model.realName }" type="text"/>
+            	</div>
+             </div>
+             <c:forEach items="${model.roles }" var="myRole">
+	            	<c:if test="${myRole.name ne 'ROLE_DEFAULT' }">
+	            		<c:set var="mr" value="${myRole.name }" scope="page"/>
+	            	</c:if>
+	            </c:forEach>
+            <div class="form-group" style="width:500px;">
+            	<label for="role" class="col-xs-3 control-label" style="text-align: right;">角色分配</label>
+            	<div class="col-xs-9">
+	            <select name="role" id="roles" style="width:55%;" class="form-control">
+	            	<c:forEach items="${rolesAjax }" var="r">
+	            		<option value="${r[0] }"
+	            			<c:if test="${r[0] eq mr }">
+	            				selected="selected"
+	            			</c:if>
+	            		>
+	            			${r[1] }
+	            		</option>
+	            	</c:forEach>
+	            </select>
+	            </div>
+            </div>
+			<div class="form-group" style="width:500px;">
+				<div class="col-xs-offset-3 col-sm-3">
+					<div class="checkbox">
+						<label>
             	<input type="checkbox" name="enabled"
            		<c:choose>
 			 		<c:when test="${model.enabled }">
 			 			checked="checked"
 			 		</c:when>
 			 	</c:choose>
-			 />
-            <span>（勾选表示启用此账号，否则禁用）</span>
-            <br/>
+			 />是否启用账号
+			 </label>
+			 </div>
+			 </div>
+            </div>
+            
             <input type="hidden" name="id" value="${model.id }"/>
             <input type="hidden" name="pageNo" value="${pageNo }"/>
-            <div class="aui_buttons" style="width:388px;">
-              <button class="aui_state_highlight" type="submit">提交</button>
-              <button type="reset">重置</button>
+            <div class="form-group" style="width:500px;">
+            <div class="col-xs-offset-3 col-sm-3">
+              <button class="btn btn-info" type="submit">提交</button>&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-default">重置</button>
+            </div>
             </div>
           </form>
 </body>

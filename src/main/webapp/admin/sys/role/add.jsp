@@ -10,12 +10,8 @@
 <script type="text/javascript" src="${ctx}resources/js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="${ctx}resources/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx}resources/js/jquery.metadata.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="${ctx}resources/css/style.css" />
-
-<!--[if IE]>
-<link rel="stylesheet" type="text/css" href="css/ie-sucks.css" />
-<![endif]-->
+<link href="${ctx }resources/css/bootstrap.min.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="${ctx}resources/css/style.css" />
 <script type="text/javascript">
 	$(document).ready(function(){
 		$(function(){
@@ -36,16 +32,19 @@
 </script>
 </head>
 <body>
-		<form id="form" action="${ctx}admin/sys/role_add.do" method="post" target="_parent">
-            <fieldset >
-            <div id="label"><label for="desc">角色： </label></div>
-            <input name="desc" type="text"
-                        tabindex="3" id="desc"/><br />
-            </fieldset>
+		<form id="form" class="form-horizontal" action="${ctx}admin/sys/role_add.do" method="post" target="_parent">
+			 <div class="form-group" style="width:500px;">
+            	<label for="desc" class="col-xs-3 control-label" style="text-align: right;">角色 </label>
+            	<div class="col-xs-9">
+            		<input name="desc" class="form-control" style="width:55%;" type="text" id="desc"/>
+            	</div>
+            </div>
             <input type="hidden" value="${param.pageNo }" name="pageNo"/>
-          	 <div class="aui_buttons">
-          		 <button class=" aui_state_highlight" type="submit">提交</button>
-              	 <button type="reset">重置</button>
+          	 <div class="form-group" style="width:500px;">
+            	<div class="col-xs-offset-3 col-sm-3">
+          		 <button class="btn btn-info" type="submit">提交</button>&nbsp;&nbsp;&nbsp;
+              	&nbsp;&nbsp;&nbsp;<button type="reset" class="btn btn-default">重置</button>
+            	</div>
             </div>
          </form>
 </body>
