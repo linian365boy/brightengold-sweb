@@ -29,6 +29,13 @@
 		});
 	};
 	
+	//purview
+	var purview = function(obj){
+		var productId = $(obj).attr("name");
+		var url = '${ctx}admin/goods/product_detail.do?id='+productId;
+		window.open(url);
+	};
+	
 	var publish = function(obj){
 		var productId = $(obj).attr("name");
 		art.dialog.confirm('确定发布此商品？',function(){
@@ -88,6 +95,8 @@
 					<td>
 						<input type="image" name="${product.id }" onclick="update(this);"
 						src="${ctx }resources/images/icn_edit.png" title="修改"/>
+						<input type="image" name="${product.id }" onclick="purview(this);" 
+						src="${ctx }resources/images/icn_preview.png" title="预览"/>&nbsp;
 						<input type="image" name="${product.id }" onclick="publish(this);" 
 						src="${ctx }resources/images/icn_publish.png" title="发布"/>&nbsp;
 						<input type="image" name="${product.id }" onclick="del(this);" 

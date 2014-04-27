@@ -34,7 +34,7 @@
 			$.get("${ctx}admin/news/news_checkPub.do?id="+newsId,function(rs){
 				if(rs==1){
 					art.dialog.confirm('此新闻已发布，确定重新发布？',function(){
-						$.getJSON("${ctx}admin/news/news_publish.do?pageNo=${pageNo}&id="+newsId,function(data){
+						$.getJSON("${ctx}admin/news/news_publishNews.do?pageNo=${pageNo}&id="+newsId,function(data){
 							var json = $(data);
 							var dialog = art.dialog({
 								id:"publish",
@@ -51,7 +51,7 @@
 				}else{
 					art.dialog.confirm('确定发布此新闻？',function(){
 						var newsId = $(obj).attr("name");
-						$.getJSON("${ctx}admin/news/news_publish.do?pageNo=${pageNo}&id="+newsId,function(data){
+						$.getJSON("${ctx}admin/news/news_publishNews.do?pageNo=${pageNo}&id="+newsId,function(data){
 							var json = $(data);
 							var dialog = art.dialog({
 								id:"publish",

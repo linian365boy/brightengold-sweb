@@ -135,9 +135,30 @@
             </div>
             
             <div class="form-group">
-            	<label for="telPhone" class="col-sm-2 control-label">联系方式</label>
+            	<label for="person" class="col-sm-2 control-label">公司联系人</label>
+            	<div class="col-sm-4">
+	            	<input id="person" class="form-control" name="person" value="${model.person }"/>
+            	</div>
+            </div>
+            
+            <div class="form-group">
+            	<label for="mobile" class="col-sm-2 control-label">Mobile联系方式</label>
+            	<div class="col-sm-4">
+            	<input id="mobile" class="form-control" name="mobile" value="${model.mobile }"/>
+            	</div>
+            </div>
+            
+            <div class="form-group">
+            	<label for="telPhone" class="col-sm-2 control-label">Tel联系方式</label>
             	<div class="col-sm-4">
             	<input id="telPhone" class="form-control" name="telPhone" value="${model.telPhone }"/>
+            	</div>
+            </div>
+            
+            <div class="form-group">
+            	<label for="fax" class="col-sm-2 control-label">fax传真</label>
+            	<div class="col-sm-4">
+            	<input id="fax" class="form-control" name="fax" value="${model.fax }"/>
             	</div>
             </div>
             
