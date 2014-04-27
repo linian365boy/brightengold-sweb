@@ -133,7 +133,7 @@ ul,li,ol{ list-style:none;}
 #etw_hot_products ul{ width:100%; height:auto; float:left;}
 #etw_hot_products ul ol{width:186px; height:auto; float:left; margin-right:36px; _margin-right:25px; padding-bottom:22px;}
 #etw_hot_products ul ol.hot_2,#etw_hot_products ul ol.hot_5{margin-right:0;}
-#etw_hot_products ul ol li.hotproductsphotos img{width:186px; height:auto; float:left; border:5px #fff solid;}
+#etw_hot_products ul ol li.hotproductsphotos img{width:186px; height:126px; float:left; border:5px #fff solid;}
 #etw_hot_products ul ol li.hotproductsphotos img:hover{ border:5px #e29024 solid;} 
 #etw_hot_products ul ol li.hotproductsname{ width:96%; height:auto; float:left; color:black;}
 #etw_hot_products ul ol li.hotproductsname a{ line-height:20px; color:black; display:block; font-weight:bold; padding:10px 0;}
