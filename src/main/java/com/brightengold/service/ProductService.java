@@ -1,10 +1,19 @@
 package com.brightengold.service;
 
+import java.util.List;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Path;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
 import cn.rainier.nian.utils.PageRainier;
@@ -39,5 +48,61 @@ public class ProductService {
 	public void delProduct(Product product) {
 		productDao.delete(product);
 	}
+	
+	public List<Product> findProductByCategory(Integer categoryId){
+		return productDao.findProductByCategory(categoryId);
+	}
+	
+	/**
+	 * 最新推荐
+	 * @param flag flag 为true表示index页面，否则就是分页页面
+	 * @return
+	 */
+	public PageRainier<Product> findLastestProducts(boolean flag,Integer pageNo,Integer pageSize){
+		if(flag){
+			pageNo = 1;
+			pageSize = 30;
+		}
+		Page<Product> productsPage = productDao.findAll(getLastestProductsSpeci(),new PageRequest(pageNo-1, pageSize, new Sort(Direction.DESC, "createDate")));
+		PageRainier<Product> page = new PageRainier<Product>(productsPage.getTotalElements(),1,6);
+		page.setResult(productsPage.getContent());
+		return page;
+	}
+	
+	private Specification<Product> getLastestProductsSpeci(){
+		return new Specification<Product>() {
+			@Override
+			public Predicate toPredicate(Root<Product> root,
+					CriteriaQuery<?> query, CriteriaBuilder cb) {
+				Path<String> path = root.get("publish");
+				return cb.equal(path, true);
+			}
+		};
+	}
+	
+	/**
+	 * 热门商品
+	 * @param flag flag 为true表示index页面，否则就是分页页面
+	 * @return
+	 */
+	public PageRainier<Product> findHotProducts(boolean flag,Integer pageNo,Integer pageSize){
+		if(flag){
+			pageNo = 1;
+			pageSize = 6;
+		}
+		Page<Product> productsPage = productDao.findAll(getHotProductsSpeci(),new PageRequest(pageNo-1, pageSize, new Sort(Direction.DESC,"createDate")));
+		PageRainier<Product> page = new PageRainier<Product>(productsPage.getTotalElements(),1,6);
+		page.setResult(productsPage.getContent());
+		return page;
+	}
 
+	private Specification<Product> getHotProductsSpeci() {
+		return new Specification<Product>() {
+			@Override
+			public Predicate toPredicate(Root<Product> root,
+					CriteriaQuery<?> query, CriteriaBuilder cb) {
+				return cb.and(cb.equal(root.get("publish"),true),cb.equal(root.get("hot"),true));
+			}
+		};
+	}
 }

@@ -49,6 +49,12 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 			model.setAccountNonLocked(true);
 			//日志记录
 			Role role = roleService.loadRoleByName(request.getParameter("role"));
+			String enabled = request.getParameter("enabled");
+			if(enabled!=null){
+				model.setEnabled(true);
+			}else{
+				model.setEnabled(false);
+			}
 			Role defaultR = roleService.findDefault();
 			List<Role> roles = new ArrayList<Role>();
 			roles.add(role);		//设置用户选择的权限

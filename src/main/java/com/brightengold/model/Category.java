@@ -36,6 +36,10 @@ public class Category implements Serializable{
 	 */
 	private Category parent;
 	/**
+	 * 分类跳转url，静态页面使用
+	 */
+	private String url;
+	/**
 	 * 产品创建日期
 	 */
 	private Date createDate;
@@ -116,5 +120,10 @@ public class Category implements Serializable{
 	public void setTemp2(String temp2) {
 		this.temp2 = temp2;
 	}
-	
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
+	}
 }

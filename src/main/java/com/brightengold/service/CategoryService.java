@@ -56,6 +56,10 @@ public class CategoryService {
 	public boolean checkHasChildren(Category temp) {
 		return categoryDao.checkHasChildren(temp)>0?true:false;
 	}
+
+	public List<Category> findParentCategory() {
+		return categoryDao.findParentCats();
+	}
 	
 	
 }

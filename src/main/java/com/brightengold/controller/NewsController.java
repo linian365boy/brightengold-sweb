@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -96,6 +97,7 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 			newsService.updateClicks(model);
 			return "details";
 		}
+		MsgUtil.setMsg(ERROR, "对不起，新闻不存在！");
 		return "toList";
 	}
 	
@@ -117,23 +119,31 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 	}
 	
 	public void checkPub(){
+		PrintWriter writer = null;
 		try {
+			HttpServletResponse response = ServletActionContext.getResponse();
+			response.setContentType("text/html; charset=UTF-8");
+			writer = response.getWriter();
 			if(model.getId()!=null){
 				model = newsService.loadNews(model.getId());
 				if(model!=null){
 					if(model.getPublishDate()!=null){
-						ServletActionContext.getResponse().getWriter().write("1");
+						writer.write("1");
 					}else{
-						ServletActionContext.getResponse().getWriter().write("-1");
+						writer.write("-1");
 					}
 				}else{
-					ServletActionContext.getResponse().getWriter().write("0");
+					writer.write("0");
 				}
 			}else{
-				ServletActionContext.getResponse().getWriter().write("0");
+				writer.write("0");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		}finally{
+			if(writer!=null){
+				writer.close();
+			}
 		}
 	}
 	
@@ -144,7 +154,7 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 				model = newsService.loadNews(model.getId());
 				User loginUser = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 				String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();				
-				String url=basePath+"/admin/news/"+model.getId();
+				String url=basePath+"/admin/news/news_detail.do?id="+model.getId();
 				HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
 				JsonEntity entity = new JsonEntity();
 				if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath(model.getUrl()),loginUser.getUsername())){

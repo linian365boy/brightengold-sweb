@@ -4,20 +4,29 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+
 import cn.rainier.nian.model.User;
 import cn.rainier.nian.utils.PageRainier;
+
+import com.brightengold.model.Category;
+import com.brightengold.model.Company;
 import com.brightengold.model.Product;
 import com.brightengold.service.CategoryService;
+import com.brightengold.service.CompanyService;
 import com.brightengold.service.LogUtil;
 import com.brightengold.service.MsgUtil;
 import com.brightengold.service.ProductService;
+import com.brightengold.util.HTMLGenerator;
 import com.brightengold.util.LogType;
 import com.brightengold.util.Tools;
 import com.opensymphony.xwork2.ActionSupport;
@@ -41,12 +50,14 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 	private File photo;
 	private String photoContentType;
 	private String photoFileName;
+	@Autowired
+	private CompanyService companyService;
 	
 	public String list(){
 		page = productService.findAll(pageNo, pageSize);
 		return "list";
 	}
-	
+
 	public String updatePre() {
 		if (model.getId() != null) {
 			model = productService.loadProductById(model.getId());
@@ -62,6 +73,12 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 			if(model.getId()!=null){
 				Product tempProduct = productService.loadProductById(model.getId());
 				String categoryId = request.getParameter("parents");
+				String hot = request.getParameter("hot");
+				if(hot!=null){
+					model.setHot(true);
+				}else{
+					model.setHot(false);
+				}
 				if(photo!=null){
 					String realPath = request.getSession().getServletContext().getRealPath("/resources/upload/products");
 					String newFileName = realPath+"/"+Tools.getRndFilename()+Tools.getExtname(getPhotoFileName());
@@ -93,6 +110,12 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 		StringBuilder sb = new StringBuilder();
 		try {
 			String categoryId = request.getParameter("parentC");
+			String hot = request.getParameter("hot");
+			if(hot!=null){
+				model.setHot(true);
+			}else{
+				model.setHot(false);
+			}
 			model.setCategory(categoryService.loadCategoryById(Integer.parseInt(categoryId)));
 			String realPath = request.getSession().getServletContext().getRealPath("/resources/upload/products");
 			String newFileName = realPath+"/"+Tools.getRndFilename()+Tools.getExtname(getPhotoFileName());
@@ -100,6 +123,7 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 			String url = newFileName.substring(realPath.lastIndexOf("upload"));
 			model.setPicUrl(url.replace("\\", "/"));
 			model.setPublish(false);
+			model.setUrl("views/html/product/"+Tools.getRndFilename()+".html");
 			model.setCreateDate(new Date());
 			model.setCreateUser(u);
 			productService.saveProduct(model);
@@ -124,11 +148,34 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 		return "toList";
 	}
 	
+	public String detail(){
+		if(model.getId()!=null){
+			HttpServletRequest request = ServletActionContext.getRequest();
+			model = productService.loadProductById(model.getId());
+			Company company = companyService.loadCompany();
+			List<Category> parentCats = categoryService.findParentCategory();
+			request.setAttribute("company", company);
+			request.setAttribute("parentCats", parentCats);
+			return "detail";
+		}
+		MsgUtil.setMsg(ERROR, "对不起，商品不存在！");
+		return "toList";
+	}
+	
 	public String publish(){
 		if(model.getId()!=null){
 			Product temp = productService.loadProductById(model.getId());
 			if(!checkPub(temp)){
-				temp.setPublish(true);
+				HttpServletRequest request = ServletActionContext.getRequest();
+				User loginUser = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+				String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();				
+				String url=basePath+"/admin/goods/product_detail.do?id="+model.getId();
+				HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
+				if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath(temp.getUrl()),loginUser.getUsername())){
+					temp.setPublish(true);
+				}else{
+					temp.setPublish(false);
+				}
 				productService.saveProduct(temp);
 				MsgUtil.setMsg("success", "产品发布成功！");
 			}else{

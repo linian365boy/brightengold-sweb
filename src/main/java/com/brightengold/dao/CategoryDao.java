@@ -12,11 +12,13 @@ import com.brightengold.model.Category;
 
 public interface CategoryDao extends AbstractDao<Category, Integer>{
 	
-	@Query("select c.id,c.enName from Category c where c.parent = null")
+	@Query("select c.id,c.enName from Category c where c.parent is null")
 	List<Object[]> findParentByAjax();
 	@Query("select c from Category c where c.enName = :enName")
 	Category loadCateByName(@Param("enName") String enName);
 	@Query("select count(id) from Category c where c.parent is :category")
 	long checkHasChildren(@Param("category") Category category);
+	@Query("select c from Category c where c.parent is null")
+	List<Category> findParentCats();
 	
 }

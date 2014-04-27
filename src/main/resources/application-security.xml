@@ -16,6 +16,7 @@
   	
   		<http pattern="/resources/**" security="none"/>
 	    <http pattern="/admin/login.jsp*" security="none"/>
+	    <http pattern="/views/html/**" security="none"/>
 	    <http pattern="/403.jsp*" security="none"/>
 
     <http auto-config="false" request-matcher="regex" use-expressions="true">

@@ -28,6 +28,18 @@ public class Company implements Serializable{
 	 */
 	private String telPhone;
 	/**
+	 * 公司手机联系方式
+	 */
+	private String mobile;
+	/**
+	 * 传真
+	 */
+	private String fax;
+	/**
+	 * 公司联系人
+	 */
+	private String person;
+	/**
 	 * 公司地址
 	 */
 	private String address;
@@ -86,7 +98,7 @@ public class Company implements Serializable{
 	public void setTelPhone(String telPhone) {
 		this.telPhone = telPhone;
 	}
-	@Column(length=40)
+	@Column(length=140)
 	public String getAddress() {
 		return address;
 	}
@@ -150,6 +162,24 @@ public class Company implements Serializable{
 	}
 	public void setPhonePic(String phonePic) {
 		this.phonePic = phonePic;
+	}
+	public String getPerson() {
+		return person;
+	}
+	public void setPerson(String person) {
+		this.person = person;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getFax() {
+		return fax;
+	}
+	public void setFax(String fax) {
+		this.fax = fax;
 	}
 	
 }
