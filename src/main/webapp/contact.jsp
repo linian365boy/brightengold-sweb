@@ -16,16 +16,16 @@
 </style>
 </head>
 <body>
-	<jsp:include page="commons/top.html"></jsp:include>
-<jsp:include page="commons/menu.html"></jsp:include>
+	<jsp:include page="commons/top.jsp"></jsp:include>
+<jsp:include page="commons/menu.jsp"></jsp:include>
 <div class="clear"></div>
 <div id="container"> 
   <div id="center"> 
   <div style="left: 100px ! important;" class="Z_TypeList" id="Z_TypeList">
     <h1 class="title">Product categories<s class="btn_group bleft"><a class="bleft"></a><a class="bright"></a></s></h1>
-    <jsp:include page="commons/left.html"></jsp:include>
+    <jsp:include page="commons/left.jsp"></jsp:include>
      <div class="footerlist">
-     <jsp:include page="commons/contact.html"></jsp:include>
+     <jsp:include page="commons/contact.jsp"></jsp:include>
      </div>
   </div>
   <script type="text/javascript" src="${ctx }resources/js/jquery.tmailsider.js"></script>
@@ -50,6 +50,6 @@
   <div class="clear"></div>
   </div>
   <div class="clear" id="etwclear"></div>
-  <jsp:include page="commons/bottom.html"></jsp:include>
+  <jsp:include page="commons/bottom.jsp"></jsp:include>
 </body>
 </html>
