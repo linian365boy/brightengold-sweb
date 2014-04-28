@@ -64,7 +64,7 @@ public class ProductService {
 			pageSize = 30;
 		}
 		Page<Product> productsPage = productDao.findAll(getLastestProductsSpeci(),new PageRequest(pageNo-1, pageSize, new Sort(Direction.DESC, "createDate")));
-		PageRainier<Product> page = new PageRainier<Product>(productsPage.getTotalElements(),1,6);
+		PageRainier<Product> page = new PageRainier<Product>(productsPage.getTotalElements(),pageNo,pageSize);
 		page.setResult(productsPage.getContent());
 		return page;
 	}
