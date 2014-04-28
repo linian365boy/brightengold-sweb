@@ -36,12 +36,12 @@
 <div id="etw_right"> 
 <div class="clear"></div>
 <div id="etw_instruction" class="cer">
-<p>Factory add: Wanggang Industrial Park, Longjiang Town, Shunde District, Foshan city, Guangdong Province, China</p>
-<p>Office add: The Fifth Floor, Block B, Sunlink Kitchen Cabinet and Lighting City, Lecong, Shunde District, Foshan City, Guangdong Province, China </p>
-<p>Tel: +86-***</p>
-<p>Fax: +86-***</p>
-<p>Email: brightengold@hotmail.com</p>
-<p>Website: Http://www.brightengold.com </p>
+<p>Office add: ${company.address }</p>
+<p>Tel: ${company.telPhone }</p>
+<p>Mobile: ${company.mobile }</p>
+<p>Fax: ${company.fax }</p>
+<p>Email: ${company.email }</p>
+<p>Website: ${company.website } </p>
 </div>
 <div class="clear"></div>
 </div>

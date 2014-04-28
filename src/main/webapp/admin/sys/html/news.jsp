@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@include file="/commons/include.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,7 +11,6 @@
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
 <title>News|Brightengold Furniture</title>
 <style type="text/css">
-#etw_banner{background:url() no-repeat;}
 .left{ margin:0 50px 30px 0;}
 #etw_con .left,#etw_con .left1{width:100%; margin:0px;}
 </style>
@@ -37,16 +37,12 @@
 	<div class="clear"></div>
 	<div id="etw_instruction" class="cer">
 	<ul class="news2">
-	 <li><a href="http://www.zzsky.cn" id="n1">>> 欢迎访问中国站长天空</a><a id="n2">2008-07-19</a></li>
-	 <li><a href="http://www.zzsky.cn" id="n1">>> 欢迎访问中国站长天空</a><a id="n2">2008-07-19</a></li>
-	 <li><a href="http://www.zzsky.cn" id="n1">>> 欢迎访问中国站长天空</a><a id="n2">2008-07-19</a></li>
-	 <li><a href="http://www.zzsky.cn" id="n1">>> 欢迎访问中国站长天空</a><a id="n2">2008-07-19</a></li>
-	 <li><a href="http://www.zzsky.cn" id="n1">>> 欢迎访问中国站长天空</a><a id="n2">2008-07-19</a></li>
-	 <li><a href="http://www.zzsky.cn" id="n1">>> 欢迎访问中国站长天空</a><a id="n2">2008-07-19</a></li>
-	 <li><a href="http://www.zzsky.cn" id="n1">>> 欢迎访问中国站长天空</a><a id="n2">2008-07-19</a></li>
-	 <li><a href="http://www.zzsky.cn" id="n1">>> 欢迎访问中国站长天空</a><a id="n2">2008-07-19</a></li>
-	 <li><a href="http://www.zzsky.cn" id="n1">>> 欢迎访问中国站长天空</a><a id="n2">2008-07-19</a></li>
-	 <li><a href="http://www.zzsky.cn" id="n1">>> 欢迎访问中国站长天空</a><a id="n2">2008-07-19</a></li>
+	<c:forEach items="${newsPage.result }" var="news" varStatus="status">
+		 <li>
+		 <a href="${ctx }${news.url}" id="n1">>> ${news.title }</a>
+		 <a id="n2">${news.publishDate }</a>
+		 </li>
+	</c:forEach>
 	</ul>
 	<div id="pageDiv">
 	 <ul id="pagination-flickr">

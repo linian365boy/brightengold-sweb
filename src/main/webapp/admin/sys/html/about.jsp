@@ -36,14 +36,8 @@
 <div id="etw_right"> 
 	<div class="clear"></div>
 	<div id="etw_instruction" class="cer">
-<p>Streamlined contours and subtle elegance have defined GELAIMEI as a leader in contemporary furniture design. We are a large-scale Chinese manufacturer that specializes in the niche market for mid to high-end hotel and restaurant furniture. Our most popular products include the sofa suite, dining chair, dining table, chaise sofa, wooden door, console cabinet, and the hotel bedroom furniture set. Design and customization options are available. Through 3D diagrams and detailed renderings, we can show you exactly how a piece of furniture will fit with the target environment.</p>
-<p>GELAIMEI was incorporated in 2002. Our modern workshops are equipped with imported equipment such as the high-precision sander, hi-tech wood drying device, and the high-speed automatic bench saw. Also at our disposal are nationally advanced processing machinery, e.g., pollution-free automatic spray painting equipment. Complete sets of central dust removal and anti-pollutant instruments have been installed in our production workshops. This setup exhibits the perfect integration between modern machinery and traditional workmanship. </p>
-<p>Our production facilities span 80,000 square meters and are operated by a dedicated staff of 500. All operations are conducted in adherence with the ISO9001 International Quality System standard. Additionally, we have passed the certification of both the ISO14001 International Environment Management System and the ISO18001 Occupational Health &amp; Safety System. </p>
-<p>The combination of state-of-the-art techniques, ergonomic design concepts, and premium raw materials has allowed us to create beautifully crafted furniture that are just as much a work of art as they are functional. We produce roughly 12,000 sets of premium hotel furniture every year. Our sofa suites, dining tables, and other high quality products are exported worldwide to regions including the Americas, Southeast Asia, and the Middle East. </p>
-<p>We have a team of professional designers that are not only adept with production techniques and design software but also highly knowledgeable in the field of color and material science. The experts on this team possess outstanding spatial awareness. Guided by passion and ingenuity, they are entirely committed to satisfying customer requirements while maintaining high fashion standards. </p>
-<p>In the eleven years since conception we have completed many projects worldwide, the majority of which involves 3-star hotels or better. Our clientele include well-known franchises such as the Arabian Park Concord Hotels &amp; Resorts, the Egyptian Baron Hotels &amp; Resorts, as well as the Chinese Sheraton Hotel, Renaissance Hotel, and St. Regis Hotel. Their feedback regarding our products has been nothing short of stellar. </p>
-<p>Our enormous development potential is complemented by strict material screening and a proficient production team. We have the experience needed to satisfy your requirements. By choosing GELAIMEI, you are making an investment in fashion and a commitment to quality.</p><div class="clear"></div>
-</div>
+	${company.introduce }
+	</div>
 <div class="clear"></div>
 </div>
   <div class="clear"></div>

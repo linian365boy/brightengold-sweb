@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@include file="/commons/include.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -38,107 +39,20 @@
 <div id="productsformat">
 <div class="productsformat_sub">
 <ul>
-<li>
-<ol >
-<li class="etw_pro_img">
-<a href="http://www.glmfurniture.com/product-2-hotel-bedroom-furniture-set-en/155476">
-<img src="${ctx}resources/test/H-70456-hot03.jpg" title="Hotel Bedroom Furniture Set"></a>
-</li>
-<li class="etw_pro_name">
-<a href="http://www.glmfurniture.com/product-2-hotel-bedroom-furniture-set-en/155476">Hotel Bedroom Furniture Set</a>
-<p>It
- is a perfect mixture of art, high technology, individual pursuit and 
-Chinese traditional culture essence, revealing affinity and sense of 
-belonging, and also affording you thorough relaxation.</p>
- <a href="http://www.glmfurniture.com/product-2-hotel-bedroom-furniture-set-en/155476" class="more">View Details &gt;&gt;</a>
- </li>
-</ol>
- </li>
-<li>
-                <ol><li class="etw_pro_img"><a href="http://www.glmfurniture.com/product-1-1-dining-table-en/155475"><img src="${ctx}resources/test/H-70467-hot01.jpg" title="Dining Table"></a></li><li class="etw_pro_name"><a href="http://www.glmfurniture.com/product-1-1-dining-table-en/155475">Dining Table</a><p>It
- enjoys great demand and high fame in Europe, America, Africa, Southeast
- Asia, Middle East, and other countries. Generally, it comes with 
-various dimensions and appearances to satisfy the requirements of 
-different customer groups.</p>
-                <a href="http://www.glmfurniture.com/product-1-1-dining-table-en/155475" class="more">View Details &gt;&gt;</a></li></ol></li>
-                <li><ol><li class="etw_pro_img"><a href="http://www.glmfurniture.com/product-1-2-dining-chair-en/155477"><img src="${ctx}resources/test/H-70483-hot02.jpg" title="Dining Chair"></a></li><li class="etw_pro_name"><a href="http://www.glmfurniture.com/product-1-2-dining-chair-en/155477">Dining Chair</a><p>Superior
- solid wood frame and high-density anti-flaming foam are used for 
-sturdiness and durability. Generally, our products are exported to 
-India, Middle East, Southeast Asia and other regions, used in hotels, 
-families ...</p>
-                <a href="http://www.glmfurniture.com/product-1-2-dining-chair-en/155477" class="more">View Details &gt;&gt;</a></li></ol></li>
-                <li><ol><li class="hotproductsphotos"><a href="http://www.glmfurniture.com/product-3-1-sofa-suite-en/155481"><img src="${ctx}resources/test/H-70487-hot04.jpg" title="Sofa Suite"></a></li><li class="etw_pro_name"><a href="http://www.glmfurniture.com/product-3-1-sofa-suite-en/155481">Sofa Suite</a><p>This
- product is designed with appropriate depth, width and back radian, 
-allowing for extreme sitting or lying comfort. Its armrests in 
-curvaceous presence reveal infinite grace and liberality. Besides, 
-custom finish and dimension are available.</p>
-                <a href="http://www.glmfurniture.com/product-3-1-sofa-suite-en/155481" class="more">View Details &gt;&gt;</a></li></ol></li>
-                <li><ol><li class="etw_pro_img"><a href="http://www.glmfurniture.com/product-3-2-chaise-sofa-en/155478"><img src="${ctx}resources/test/H-70484-hot05.jpg" title="Chaise Sofa"></a></li><li class="etw_pro_name"><a href="http://www.glmfurniture.com/product-3-2-chaise-sofa-en/155478">Chaise Sofa</a><p>The
- lady sofa boasts graceful curve and elegant poise, suited for 
-star-rated hotels. It incorporates high-quality solid wood, foam and 
-fabric finish, designed in compliance with ergonomics. You will feel at 
-home with the company of it.</p>
-                <a href="http://www.glmfurniture.com/product-3-2-chaise-sofa-en/155478" class="more">View Details &gt;&gt;</a></li></ol></li>
-                <li>
-                <ol>
-                <li class="etw_pro_img">
-                <a href="http://www.glmfurniture.com/product-4-1-console-cabinet-en/155455">
-                <img src="${ctx}resources/test/H-70482-hot06.jpg" title="Console Cabinet"></a></li>
-                <li class="etw_pro_name">
-                <a href="http://www.glmfurniture.com/product-4-1-console-cabinet-en/155455">Console Cabinet</a>
-                <p>The
- console cabinet is a piece of indispensable furniture for hotels, which
- is not used in large quantity but can greatly improve image and grade 
-of hotels. It is deeply loved by customers from Europe, America, Africa,
- Middle East and Southeast Asia.</p>
-                <a href="http://www.glmfurniture.com/product-4-1-console-cabinet-en/155455" class="more">View Details &gt;&gt;</a>
-                </li>
-                </ol></li>
-                <li>
-                <ol>
-                <li class="etw_pro_img">
-                <a href="http://www.glmfurniture.com/product-4-1-console-cabinet-en/155455">
-                <img src="${ctx}resources/test/H-70482-hot06.jpg" title="Console Cabinet"></a></li>
-                <li class="etw_pro_name">
-                <a href="http://www.glmfurniture.com/product-4-1-console-cabinet-en/155455">Console Cabinet</a>
-                <p>The
- console cabinet is a piece of indispensable furniture for hotels, which
- is not used in large quantity but can greatly improve image and grade 
-of hotels. It is deeply loved by customers from Europe, America, Africa,
- Middle East and Southeast Asia.</p>
-                <a href="http://www.glmfurniture.com/product-4-1-console-cabinet-en/155455" class="more">View Details &gt;&gt;</a>
-                </li>
-                </ol></li><li>
-                <ol>
-                <li class="etw_pro_img">
-                <a href="http://www.glmfurniture.com/product-4-1-console-cabinet-en/155455">
-                <img src="${ctx}resources/test/H-70482-hot06.jpg" title="Console Cabinet"></a></li>
-                <li class="etw_pro_name">
-                <a href="http://www.glmfurniture.com/product-4-1-console-cabinet-en/155455">Console Cabinet</a>
-                <p>The
- console cabinet is a piece of indispensable furniture for hotels, which
- is not used in large quantity but can greatly improve image and grade 
-of hotels. It is deeply loved by customers from Europe, America, Africa,
- Middle East and Southeast Asia.</p>
-                <a href="http://www.glmfurniture.com/product-4-1-console-cabinet-en/155455" class="more">View Details &gt;&gt;</a>
-                </li>
-                </ol></li>
-                <li>
-                <ol>
-                <li class="etw_pro_img">
-                <a href="http://www.glmfurniture.com/product-4-1-console-cabinet-en/155455">
-                <img src="${ctx}resources/test/H-70482-hot06.jpg" title="Console Cabinet"></a></li>
-                <li class="etw_pro_name">
-                <a href="http://www.glmfurniture.com/product-4-1-console-cabinet-en/155455">Console Cabinet</a>
-                <p>The
- console cabinet is a piece of indispensable furniture for hotels, which
- is not used in large quantity but can greatly improve image and grade 
-of hotels. It is deeply loved by customers from Europe, America, Africa,
- Middle East and Southeast Asia.</p>
-                <a href="http://www.glmfurniture.com/product-4-1-console-cabinet-en/155455" class="more">View Details &gt;&gt;</a>
-                </li>
-                </ol></li>
-                </ul>
+<c:forEach items="${pages.result }" var="product" varStatus="status">
+	<li><ol ><li class="etw_pro_img">
+	<a href="${ctx }${product.url}">
+	<img src="/resources/${product.picUrl }" width="186px" height="126px" title="${product.enName }">
+	</a>
+	</li><li class="etw_pro_name">
+	<a href="${product.url }">${product.enName }</a>
+	<p>${product.introduce }</p>
+	 <a href="${product.url }" class="more">View Details &gt;&gt;</a>
+	 </li>
+	</ol>
+	 </li>
+</c:forEach>
+               </ul>
 				</div>
                 </div>
                 <div>
