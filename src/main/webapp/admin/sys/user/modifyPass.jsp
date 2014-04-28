@@ -1,35 +1,36 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ include file="/commons/include.jsp" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>华夏银行CPP即时查询系统</title>
-<link rel="stylesheet" type="text/css"
-	href="${ctx }resources/css/style.css" />
-<!--[if IE]>
-<link rel="stylesheet" type="text/css" href="css/ie-sucks.css" />
-<![endif]-->
+<%-- <link href="${ctx }resources/css/bootstrap.min.css" rel="stylesheet"/> --%>
 </head>
 <body>
 		<br/>
-		<form id="form" action="${ctx }admin/sys/user/user_modifyPass.do" method="post" target="_parent">
-            <fieldset >
-            <div id="labelmm"><label for="oldPassword">原密码：</label></div>
-            <input name="oldPassword" id="oldPassword" type="password"
-                        tabindex="1" />
-            <span id="oldText"></span> <br />
-            <div id="labelmm"><label for="newPassword">新密码： </label></div>
-            <input name="newPassword1" id="newPassword1" type="password"
-                        tabindex="2" />
-            <span id="new1Text"></span> <br />
-           <div id="labelmm"><label for="newPassword2">确认密码： </label></div>
-            <input name="newPassword2" id="newPassword2" type="password"
-                        tabindex="3"/>
-            <span id="new2Text"></span> <br />
-            </fieldset>
+		<form id="form" class="form-horizontal" action="${ctx }admin/sys/user/user_modifyPass.do" method="post" target="_parent">
+			<div class="form-group">
+            	<label for="oldPassword" class="col-xs-4 control-label" >原密码</label>
+            	<div class="col-xs-8">
+            		<input id="oldPassword" class="form-control" name="oldPassword" placeholder="原密码"  type="password"  autocomplete="off"/>
+            	</div>
+			</div>
+			
+			<div class="form-group">
+            	<label for="newPassword1" class="col-xs-4 control-label" >新密码</label>
+            	<div class="col-xs-8">
+            		<input id="newPassword1" class="form-control"  name="newPassword1" placeholder="新密码"  type="password" />
+            	</div>
+			</div>
+			
+			<div class="form-group">
+            	<label for="newPassword2" class="col-xs-4 control-label" >确认密码</label>
+            	<div class="col-xs-8">
+            		<input id="newPassword2" class="form-control" name="newPassword2" placeholder="确认密码"  type="password" />
+            	</div>
+			</div>
           </form>
-
 </body>
 </html>

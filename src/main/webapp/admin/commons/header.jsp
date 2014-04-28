@@ -26,6 +26,7 @@
 		function modifyPass(){
 			art.dialog.load('${ctx}/admin/sys/user/modifyPass.jsp',{
 				title: '修改密码',
+				width:350,
 				id: 'modify',
 				resize: false,
 				ok:function(){
