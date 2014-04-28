@@ -4,15 +4,15 @@
 <div id="menu_top">
 <a class="link_menu" href="${ctx }index.html">Home Page<br>
 </a>
-<a class="link_menu" href="${ctx }about.jsp">About Us<br>
+<a class="link_menu" href="${ctx }about.html">About Us<br>
 </a>
-<a class="link_menu" href="${ctx }product.jsp">Products<br>
+<a class="link_menu" href="${ctx }product.html">Products<br>
 </a>
-<a class="link_menu" href="${ctx }news.jsp">News<br>
+<a class="link_menu" href="${ctx }news.html">News<br>
 </a>
-<a class="link_menu" href="${ctx }feedback.jsp">Feedback<br>
+<a class="link_menu" href="${ctx }feedback.html">Feedback<br>
 </a>
-<a class="link_menu" href="${ctx }contact.jsp">Contact Us
+<a class="link_menu" href="${ctx }contact.html">Contact Us
 <br>
 </a>
 </div>
