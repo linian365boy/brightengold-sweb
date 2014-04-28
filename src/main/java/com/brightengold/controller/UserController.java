@@ -5,17 +5,25 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.catalina.util.MD5Encoder;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+
 import cn.rainier.nian.model.Role;
 import cn.rainier.nian.model.User;
 import cn.rainier.nian.service.impl.RoleServiceImpl;
 import cn.rainier.nian.service.impl.UserServiceImpl;
 import cn.rainier.nian.utils.PageRainier;
+
 import com.brightengold.service.LogUtil;
 import com.brightengold.service.MsgUtil;
 import com.brightengold.util.LogType;
@@ -193,6 +201,49 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 			LogUtil.getInstance().log(LogType.NSUBSCTIBE, model.getUsername()+"被注销了");
 		}
 		return "toList";
+	}
+	
+	public String modifyPass(){
+		String actionMsg = null;
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User u = (User) authentication.getPrincipal();
+		String oldPassword = ServletActionContext.getRequest().getParameter(
+				"oldPassword");
+		String newPassword1 = ServletActionContext.getRequest().getParameter(
+				"newPassword1");
+		String newPassword2 = ServletActionContext.getRequest().getParameter(
+				"newPassword2");
+		String password = null;
+		PrintWriter out = null;
+		HttpServletResponse response = null;
+		actionMsg = "恭喜您，密码修改成功！";
+		try {
+			response = ServletActionContext.getResponse();
+			response.setContentType("text/html");
+			out = response.getWriter();
+			if (new Md5PasswordEncoder().encodePassword(oldPassword, null).equals(u.getPassword())) {
+				if (newPassword1 != null && newPassword1.trim().length() > 0
+						&& newPassword2 != null && newPassword2.trim().length() > 0
+						&& newPassword1.equals(newPassword2)) {
+					password = new Md5PasswordEncoder().encodePassword(newPassword1,null);
+					userService.changePassword(oldPassword, password, authentication);
+					
+				}else{
+					actionMsg = "两次输入的新密码不一致，修改失败！";
+				}
+			}else{
+				actionMsg = "原密码输入错误，修改失败！";
+			}
+			out.write(actionMsg);
+			out.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+			if(out!=null){
+				out.close();
+			}
+		}
+		return null;
 	}
 
 	public PageRainier<User> getPage() {
