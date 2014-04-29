@@ -24,7 +24,8 @@
 	</header> <!-- end of header bar -->
 	<script type="text/javascript">
 		function modifyPass(){
-			art.dialog.load('${ctx}/admin/sys/user/modifyPass.jsp',{
+			var flag = false;
+			var modifyDialog = art.dialog.load('${ctx}/admin/sys/user/modifyPass.jsp',{
 				title: '修改密码',
 				width:350,
 				id: 'modify',
@@ -40,7 +41,21 @@
 										id:'xgmm',
 										title:'提示消息'
 									});
+							if(res==1){
+								res = "恭喜您，密码修改成功！";
+							}else if(res==-1){
+								res = "两次输入的新密码不一致，修改失败！";
+							}else if(res==-2){
+								res = "原密码输入错误，修改失败！";
+							}else if(res==-3){
+								res = "新密码长度需在6-12位之间！";
+							}else if(res==-4){
+								res = "新密码需字母、数字组成！";
+							}
 							dialog.content("<span style='color:red;'>"+res+"</span>").time(2);
+							if(res==1){
+								modifyDialog.close();
+							}
 						},
 						error:function(res){
 							art.dialog({
@@ -50,6 +65,7 @@
 							});
 						}
 					});
+					return flag;
 				},
 				cancel:true
 			},false);

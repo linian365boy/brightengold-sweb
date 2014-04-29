@@ -5,8 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>华夏银行CPP即时查询系统</title>
-<%-- <link href="${ctx }resources/css/bootstrap.min.css" rel="stylesheet"/> --%>
+<title>修改密码</title>
 </head>
 <body>
 		<br/>

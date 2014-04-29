@@ -6,6 +6,7 @@
 <head>
 	<meta charset="utf-8"/>
 	<title>Brightengold</title>
+	<link href="${ctx }resources/css/bootstrap.min.css" rel="stylesheet"/>
 	<jsp:include page="commons/jsCss.jsp"/>
 </head>
 

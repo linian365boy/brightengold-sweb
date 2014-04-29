@@ -12,10 +12,10 @@
 
 <script type="text/javascript">
 	var detail = function(id){
-		var myDialog = art.dialog({
+		/* var myDialog = art.dialog({
 			id:'detail',
 			title:'反馈详情',
-			width:500,
+			width:400,
 			resize: false
 		});
 		jQuery.ajax({
@@ -28,7 +28,9 @@
 				myDialog.content("连接失败");
 				myDialog.time(2.5);
 			}
-		});
+		}); */
+		
+		window.location.href='${ctx}admin/feedback/feedback_detail.do?id='+id;
 	}
 	
 		var del = function(obj){
