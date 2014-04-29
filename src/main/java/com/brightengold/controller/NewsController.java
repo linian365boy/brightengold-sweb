@@ -18,6 +18,7 @@ import cn.rainier.nian.utils.PageRainier;
 
 import com.brightengold.model.JsonEntity;
 import com.brightengold.model.News;
+import com.brightengold.service.DicTypeService;
 import com.brightengold.service.LogUtil;
 import com.brightengold.service.MsgUtil;
 import com.brightengold.service.NewsService;
@@ -41,6 +42,8 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 	private Integer pageSize = 10;
 	private Integer pageNo = 1;
 	private News model = new News();
+	@Autowired
+	private DicTypeService dicTypeService;
 	
 	public String list(){
 		page = newsService.findAll(pageNo, pageSize);
@@ -155,9 +158,12 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 				User loginUser = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 				String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();				
 				String url=basePath+"/admin/news/news_detail.do?id="+model.getId();
+				String path = this.getClass().getClassLoader().getResource("common.properties").getPath();
 				HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
 				JsonEntity entity = new JsonEntity();
-				if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath(model.getUrl()),loginUser.getUsername())){
+				if(htmlGenerator.createHtmlPage(url,
+						request.getSession().getServletContext().getRealPath(model.getUrl()),
+						loginUser.getUsername(),dicTypeService.getDicType("p").getValue())){
 					model.setPublishDate(new Date());
 					LogUtil.getInstance().log(LogType.PUBLISH, "标题："+model.getTitle());
 					if(newsService.saveNews(model)!=null){

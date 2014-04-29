@@ -23,6 +23,7 @@ import com.brightengold.model.Company;
 import com.brightengold.model.Product;
 import com.brightengold.service.CategoryService;
 import com.brightengold.service.CompanyService;
+import com.brightengold.service.DicTypeService;
 import com.brightengold.service.LogUtil;
 import com.brightengold.service.MsgUtil;
 import com.brightengold.service.ProductService;
@@ -52,6 +53,8 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 	private String photoFileName;
 	@Autowired
 	private CompanyService companyService;
+	@Autowired
+	private DicTypeService dicTypeService;
 	
 	public String list(){
 		page = productService.findAll(pageNo, pageSize);
@@ -171,7 +174,11 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 				String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();				
 				String url=basePath+"/admin/goods/product_detail.do?id="+model.getId();
 				HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-				if(htmlGenerator.createHtmlPage(url,request.getSession().getServletContext().getRealPath(temp.getUrl()),loginUser.getUsername())){
+				String path = this.getClass().getClassLoader().getResource("common.properties").getPath();
+				if(htmlGenerator.createHtmlPage(url,
+						request.getSession().getServletContext().getRealPath(temp.getUrl()),
+						loginUser.getUsername(),
+						dicTypeService.getDicType("p").getValue())){
 					temp.setPublish(true);
 				}else{
 					temp.setPublish(false);

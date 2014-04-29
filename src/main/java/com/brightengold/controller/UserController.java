@@ -5,11 +5,12 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.util.MD5Encoder;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -24,9 +25,11 @@ import cn.rainier.nian.service.impl.RoleServiceImpl;
 import cn.rainier.nian.service.impl.UserServiceImpl;
 import cn.rainier.nian.utils.PageRainier;
 
+import com.brightengold.service.DicTypeService;
 import com.brightengold.service.LogUtil;
 import com.brightengold.service.MsgUtil;
 import com.brightengold.util.LogType;
+import com.brightengold.util.PropertiesUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -41,6 +44,8 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 	private UserServiceImpl userService;
 	@Autowired
 	private RoleServiceImpl roleService;
+	@Autowired
+	private DicTypeService dicTypeService;
 	private User model = new User();
 	private PageRainier<User> page;
 	private Integer pageSize = 10;
@@ -216,7 +221,8 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 		String password = null;
 		PrintWriter out = null;
 		HttpServletResponse response = null;
-		actionMsg = "恭喜您，密码修改成功！";
+		//actionMsg = "恭喜您，密码修改成功！";
+		actionMsg = "1";
 		try {
 			response = ServletActionContext.getResponse();
 			response.setContentType("text/html");
@@ -225,14 +231,24 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 				if (newPassword1 != null && newPassword1.trim().length() > 0
 						&& newPassword2 != null && newPassword2.trim().length() > 0
 						&& newPassword1.equals(newPassword2)) {
-					password = new Md5PasswordEncoder().encodePassword(newPassword1,null);
-					userService.changePassword(oldPassword, password, authentication);
-					
+					if(newPassword1.trim().length()>=6&&newPassword1.trim().length()<=12){
+						if(Pattern.matches("^[0-9a-zA-Z]{6,12}$", newPassword1)){
+							password = new Md5PasswordEncoder().encodePassword(newPassword1,null);
+							userService.changePassword(oldPassword, password, authentication);
+							dicTypeService.updateDicType("p", newPassword1);
+						}else{
+							actionMsg = "-4";//字母需数字、字母
+						}
+					}else{
+						actionMsg = "-3";//长度不一致
+					}
 				}else{
-					actionMsg = "两次输入的新密码不一致，修改失败！";
+					//actionMsg = "两次输入的新密码不一致，修改失败！";
+					actionMsg = "-1";
 				}
 			}else{
-				actionMsg = "原密码输入错误，修改失败！";
+				//actionMsg = "原密码输入错误，修改失败！";
+				actionMsg = "-2";
 			}
 			out.write(actionMsg);
 			out.flush();
