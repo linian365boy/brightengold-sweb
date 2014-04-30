@@ -19,6 +19,7 @@
 		<class>com.brightengold.model.Feedback</class>
 		<class>com.brightengold.model.Category</class>
 		<class>com.brightengold.model.Product</class>
+		<class>com.brightengold.model.DicType</class>
 		
 		<properties>
 			<property name="show_sql" value="true" />

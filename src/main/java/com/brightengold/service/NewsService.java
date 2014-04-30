@@ -62,19 +62,20 @@ public class NewsService {
 		}
 	}
 
-	public PageRainier<News> findAllPublish(int pageNo, int pageSize) {
-		Page<News> tempPage = newsDao.findAll(getAllPublish(), new PageRequest(pageNo-1, pageSize,new Sort(Direction.DESC, "publishDate")));
+	public PageRainier<News> findAllPublish(Integer pageNo, Integer pageSize) {
+		PageRequest request = new PageRequest(pageNo-1, pageSize,new Sort(Direction.DESC, "publishDate"));
+		Page<News> tempPage = newsDao.findAll(getAllPublishSpeci(), request);
 		PageRainier<News> page = new PageRainier<News>(tempPage.getTotalElements(), pageNo, pageSize);
 		page.setResult(tempPage.getContent());
 		return page;
 	}
 	
-	private Specification<News> getAllPublish(){
+	private Specification<News> getAllPublishSpeci(){
 		return new Specification<News>() {
 			@Override
 			public Predicate toPredicate(Root<News> root,
 					CriteriaQuery<?> query, CriteriaBuilder cb) {
-				return cb.notEqual(root.get("publishDate"), null);
+				return cb.isNotNull(root.get("publishDate"));
 			}
 		};
 	}

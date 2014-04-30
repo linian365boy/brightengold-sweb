@@ -10,6 +10,6 @@ import com.brightengold.model.Category;
 import com.brightengold.model.Product;
 
 public interface ProductDao extends AbstractDao<Product, Integer>{
-	@Query("select p from Product p where p.category.id = ?")
+	@Query("select p from Product p where p.category.id = ? and p.publish = true")
 	List<Product> findProductByCategory(Integer categoryId);
 }

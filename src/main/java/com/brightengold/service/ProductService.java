@@ -49,10 +49,23 @@ public class ProductService {
 		productDao.delete(product);
 	}
 	
-	public List<Product> findProductByCategory(Integer categoryId){
-		return productDao.findProductByCategory(categoryId);
+	public PageRainier<Product> findProductByCategory(Integer categoryId,Integer prNo,Integer prSize){
+		Page<Product> page = productDao.findAll(getProductByCaIdSpeci(categoryId), new PageRequest(prNo-1,prSize,new Sort(Direction.DESC,"createDate")));
+		PageRainier<Product> pageRainier = new PageRainier<Product>(page.getTotalElements(),prNo,prSize);
+		pageRainier.setResult(page.getContent());
+		return pageRainier;
 	}
 	
+	private Specification<Product> getProductByCaIdSpeci(final Integer categoryId) {
+		return new Specification<Product>(){
+			@Override
+			public Predicate toPredicate(Root<Product> root, CriteriaQuery<?> query,
+					CriteriaBuilder cb) {
+				return cb.and(cb.equal(root.get("category").get("id"), categoryId),cb.equal(root.get("publish"), true));
+			}
+		};
+	}
+
 	/**
 	 * 最新推荐
 	 * @param flag flag 为true表示index页面，否则就是分页页面

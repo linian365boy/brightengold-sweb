@@ -30,4 +30,5 @@
 		</action> -->
 	</package>
 	<include file="struts/struts-permission.xml"></include>
+	<include file="struts/struts-views.xml"></include>
 </struts>

@@ -235,7 +235,7 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 						if(Pattern.matches("^[0-9a-zA-Z]{6,12}$", newPassword1)){
 							password = new Md5PasswordEncoder().encodePassword(newPassword1,null);
 							userService.changePassword(oldPassword, password, authentication);
-							dicTypeService.updateDicType("p", newPassword1);
+							dicTypeService.updateDicType("p", "abc"+newPassword1+"ok");
 						}else{
 							actionMsg = "-4";//字母需数字、字母
 						}

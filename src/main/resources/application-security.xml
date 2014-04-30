@@ -16,7 +16,7 @@
   	
   		<http pattern="/resources/**" security="none"/>
 	    <http pattern="/admin/login.jsp*" security="none"/>
-	    <http pattern="/views/html/**" security="none"/>
+	    <http pattern="/views/**" security="none"/>
 	    <http pattern="/403.jsp*" security="none"/>
 
     <http auto-config="false" request-matcher="regex" use-expressions="true">
@@ -27,7 +27,7 @@
     	<!-- <custom-filter ref="myFilter" before="FILTER_SECURITY_INTERCEPTOR"/> -->
     	<!-- 会话管理配置 -->
    		<session-management session-authentication-error-url="/admin/login.jsp" session-fixation-protection="migrateSession">
-   			<concurrency-control expired-url="/admin/login.jsp" max-sessions="1" error-if-maximum-exceeded="false"/>
+   			<concurrency-control expired-url="/admin/login.jsp" max-sessions="2" error-if-maximum-exceeded="false"/>
    		</session-management>
    		<logout logout-url="/admin/logout" logout-success-url="/admin/login.jsp" delete-cookies="JSESSIONID" invalidate-session="true"/>
     </http>

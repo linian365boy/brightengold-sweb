@@ -3,10 +3,12 @@ package com.brightengold.controller;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
@@ -55,6 +57,9 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 	private CompanyService companyService;
 	@Autowired
 	private DicTypeService dicTypeService;
+	
+	private Integer prSize = 9;
+	private Integer prNo = 1;
 	
 	public String list(){
 		page = productService.findAll(pageNo, pageSize);
@@ -165,39 +170,69 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 		return "toList";
 	}
 	
+	public void checkPub(){
+		PrintWriter writer = null;
+		try {
+			HttpServletResponse response = ServletActionContext.getResponse();
+			response.setContentType("text/html; charset=UTF-8");
+			writer = response.getWriter();
+			if(model.getId()!=null){
+				model = productService.loadProductById(model.getId());
+				if(model.isPublish()){
+					writer.write("1");	//已发布
+				}else{
+					writer.write("-1");
+				}
+			}else{
+				writer.write("0");	//不存在商品
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+			if(writer!=null){
+				writer.close();
+			}
+		}
+	}
+	
 	public String publish(){
 		if(model.getId()!=null){
 			Product temp = productService.loadProductById(model.getId());
-			if(!checkPub(temp)){
-				HttpServletRequest request = ServletActionContext.getRequest();
-				User loginUser = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-				String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();				
-				String url=basePath+"/admin/goods/product_detail.do?id="+model.getId();
-				HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-				String path = this.getClass().getClassLoader().getResource("common.properties").getPath();
-				if(htmlGenerator.createHtmlPage(url,
-						request.getSession().getServletContext().getRealPath(temp.getUrl()),
-						loginUser.getUsername(),
-						dicTypeService.getDicType("p").getValue())){
-					temp.setPublish(true);
-				}else{
-					temp.setPublish(false);
-				}
-				productService.saveProduct(temp);
-				MsgUtil.setMsg("success", "产品发布成功！");
+			HttpServletRequest request = ServletActionContext.getRequest();
+			User loginUser = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+			String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();				
+			String url=basePath+"/admin/goods/product_detail.do?id="+model.getId();
+			HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
+			String value = dicTypeService.getDicType("p").getValue();
+			if(htmlGenerator.createHtmlPage(url,
+					request.getSession().getServletContext().getRealPath(temp.getUrl()),
+					loginUser.getUsername(),
+					value.substring(value.indexOf("abc")+3, value.lastIndexOf("ok")))){
+				temp.setPublish(true);
 			}else{
-				MsgUtil.setMsg("error", "产品已发布！");
+				temp.setPublish(false);
 			}
+			productService.saveProduct(temp);
+			MsgUtil.setMsg("success", "产品发布成功！");
+		}else{
+			MsgUtil.setMsg("error", "产品已发布！");
 		}
 		return "toList";
 	}
-
-	private boolean checkPub(Product product) {
-		if(product.isPublish()){
-			return true;
-		}else{
-			return false;
+	
+	
+	public String getProductByCateId(){
+		String cateId = ServletActionContext.getRequest().getParameter("cateid");
+		Company company = companyService.loadCompany();
+		List<Category> parentCats = categoryService.findParentCategory();
+		if(cateId!=null&&cateId.trim().length()>0){
+			Category category = categoryService.loadCategoryById(Integer.parseInt(cateId));
+			page = productService.findProductByCategory(category.getId(),prNo,prSize);
+			ServletActionContext.getRequest().setAttribute("cate", category);
 		}
+		ServletActionContext.getRequest().setAttribute("company", company);
+		ServletActionContext.getRequest().setAttribute("parentCats", parentCats);
+		return SUCCESS;
 	}
 
 	public Integer getPageSize() {
@@ -251,5 +286,21 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 
 	public void setPhotoFileName(String photoFileName) {
 		this.photoFileName = photoFileName;
+	}
+
+	public Integer getPrSize() {
+		return prSize;
+	}
+
+	public void setPrSize(Integer prSize) {
+		this.prSize = prSize;
+	}
+
+	public Integer getPrNo() {
+		return prNo;
+	}
+
+	public void setPrNo(Integer prNo) {
+		this.prNo = prNo;
 	}
 }

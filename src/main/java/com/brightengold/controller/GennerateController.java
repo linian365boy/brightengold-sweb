@@ -56,11 +56,12 @@ public class GennerateController extends ActionSupport implements Preparable{
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/admin/sys/gennerate_toHome.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
+		String value = dicTypeService.getDicType("p").getValue();
 		if(htmlGenerator.createHtmlPage(url,
 				request.getSession().getServletContext().getRealPath("index.html"),
 				loginUser.getUsername()
-				,dicTypeService.getDicType("p").getValue())){
-			MsgUtil.setMsg("succss", "恭喜您，生成Index页面成功！");
+				,value.substring(value.indexOf("abc")+3, value.lastIndexOf("ok")))){
+			MsgUtil.setMsg(SUCCESS, "恭喜您，生成Index页面成功！");
 		}else{
 			MsgUtil.setMsg("error", "对不起，生成Index页面失败！");
 		}
@@ -84,11 +85,12 @@ public class GennerateController extends ActionSupport implements Preparable{
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/admin/sys/gennerate_toAboutUs.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
+		String value = dicTypeService.getDicType("p").getValue();
 		if(htmlGenerator.createHtmlPage(url,
 				request.getSession().getServletContext().getRealPath("about.html"),
 				loginUser.getUsername(),
-				dicTypeService.getDicType("p").getValue())){
-			MsgUtil.setMsg("succss", "恭喜您，生成About Us页面成功！");
+				value.substring(value.indexOf("abc")+3, value.lastIndexOf("ok")))){
+			MsgUtil.setMsg(SUCCESS, "恭喜您，生成About Us页面成功！");
 		}else{
 			MsgUtil.setMsg("error", "对不起，生成About Us页面失败！");
 		}
@@ -106,12 +108,13 @@ public class GennerateController extends ActionSupport implements Preparable{
 		User loginUser = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/admin/sys/gennerate_toContactUs.do";
+		String value = dicTypeService.getDicType("p").getValue();
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
 		if(htmlGenerator.createHtmlPage(url,
 				request.getSession().getServletContext().getRealPath("contact.html"),
 				loginUser.getUsername(),
-				dicTypeService.getDicType("p").getValue())){
-			MsgUtil.setMsg("succss", "恭喜您，生成Contact Us页面成功！");
+				value.substring(value.indexOf("abc")+3, value.lastIndexOf("ok")))){
+			MsgUtil.setMsg(SUCCESS, "恭喜您，生成Contact Us页面成功！");
 		}else{
 			MsgUtil.setMsg("error", "对不起，生成Contact Us页面失败！");
 		}
@@ -130,11 +133,12 @@ public class GennerateController extends ActionSupport implements Preparable{
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/admin/sys/gennerate_toNews.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
+		String value = dicTypeService.getDicType("p").getValue();
 		if(htmlGenerator.createHtmlPage(url,
 				request.getSession().getServletContext().getRealPath("news.html"),
 				loginUser.getUsername(),
-				dicTypeService.getDicType("p").getValue())){
-			MsgUtil.setMsg("succss", "恭喜您，生成News页面成功！");
+				value.substring(value.indexOf("abc")+3, value.lastIndexOf("ok")))){
+			MsgUtil.setMsg(SUCCESS, "恭喜您，生成News页面成功！");
 		}else{
 			MsgUtil.setMsg("error", "对不起，生成News页面失败！");
 		}
@@ -145,7 +149,7 @@ public class GennerateController extends ActionSupport implements Preparable{
 	public String toNews(){
 		HttpServletRequest request = ServletActionContext.getRequest();
 		PageRainier<News> newsPage = newsService.findAllPublish(1,15);
-		request.setAttribute("newsPage", newsPage);
+		request.setAttribute("page", newsPage);
 		return "news";
 	}
 	
@@ -157,11 +161,12 @@ public class GennerateController extends ActionSupport implements Preparable{
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/admin/sys/gennerate_toFeedback.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
+		String value = dicTypeService.getDicType("p").getValue();
 		if(htmlGenerator.createHtmlPage(url,
-				request.getSession().getServletContext().getRealPath("feedback"),
+				request.getSession().getServletContext().getRealPath("feedback.html"),
 				loginUser.getUsername(),
-				dicTypeService.getDicType("p").getValue())){
-			MsgUtil.setMsg("succss", "恭喜您，生成Feedback页面成功！");
+				value.substring(value.indexOf("abc")+3, value.lastIndexOf("ok")))){
+			MsgUtil.setMsg(SUCCESS, "恭喜您，生成Feedback页面成功！");
 		}else{
 			MsgUtil.setMsg("error", "对不起，生成Feedback页面失败！");
 		}
@@ -180,11 +185,12 @@ public class GennerateController extends ActionSupport implements Preparable{
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/admin/sys/gennerate_toProduct.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
+		String value = dicTypeService.getDicType("p").getValue();
 		if(htmlGenerator.createHtmlPage(url,
 				request.getSession().getServletContext().getRealPath("product.html"),
 				loginUser.getUsername(),
-				dicTypeService.getDicType("p").getValue())){
-			MsgUtil.setMsg("succss", "恭喜您，生成Product页面成功！");
+				value.substring(value.indexOf("abc")+3, value.lastIndexOf("ok")))){
+			MsgUtil.setMsg(SUCCESS, "恭喜您，生成Product页面成功！");
 		}else{
 			MsgUtil.setMsg("error", "对不起，生成Product页面失败！");
 		}
