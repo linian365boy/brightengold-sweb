@@ -14,7 +14,7 @@
 <script type="text/javascript" src="${ctx }resources/js/jquery.metadata.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="${ctx }resources/css/style.css" />
-<title>编辑新闻</title>
+<title>编辑新闻|brightengold后台管理系统</title>
 <script type="text/javascript">
 	var valiResult;
 	$(document).ready(function(){

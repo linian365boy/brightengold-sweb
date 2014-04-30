@@ -13,6 +13,81 @@
 <style type="text/css">
 .left{ margin:0 50px 30px 0;}
 #etw_con .left,#etw_con .left1{width:100%; margin:0px;}
+
+
+.tool-list {
+    font-size: 14px;
+    padding-top: 5px;
+}
+ul, ol {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+}
+
+.tool-list li {
+    background: url("/resources/images/line1x3.gif") repeat-x scroll left bottom rgba(0, 0, 0, 0);
+    line-height: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.icon-no2 {
+    background-position: -20px -20px;
+}
+.icon-no3 {
+    background-position: -40px -20px;
+}
+.icon-no4 {
+    background-position: -60px -20px;
+}
+.icon-no5 {
+    background-position: -80px -20px;
+}
+.icon-no6 {
+    background-position: -100px -20px;
+}
+.icon-no7 {
+    background-position: -120px -20px;
+}
+.icon-no8 {
+    background-position: -140px -20px;
+}
+
+.icon-no9 {
+    background-position: -160px -20px;
+}
+.icon-no10 {
+    background-position: -180px -20px;
+}
+
+.tool-list li i {
+    margin: 3px 8px 0 0;
+}
+.tool-list li span {
+    float: right;
+    margin-right: 20px;
+}
+.icon-no1 {
+    background-position: 0 -20px;
+}
+[class^="icon-"], [class*=" icon-"] {
+    background-image: url("/resources/images/icon.png");
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 14px;
+    line-height: 14px;
+    vertical-align: text-top;
+    width: 14px;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+}
+
 </style>
 </head>
 <body>
@@ -36,25 +111,20 @@
 <div id="etw_right"> 
 	<div class="clear"></div>
 	<div id="etw_instruction" class="cer">
-	<ul class="news2">
-	<c:forEach items="${newsPage.result }" var="news" varStatus="status">
+	<ul class="tool-list te-hot">
+	<c:forEach items="${page.result }" var="news" varStatus="status">
 		 <li>
-		 <a href="${ctx }${news.url}" id="n1">>> ${news.title }</a>
-		 <a id="n2">${news.publishDate }</a>
+		 <i class="icon-no${status.index+1 }"></i>
+		 <a class="t-title" target="_blank" title="${news.title }" href="${ctx }${news.url}" id="n1">${news.title }</a>
+		 <span>${news.publishDate }</span>
 		 </li>
 	</c:forEach>
 	</ul>
 	<div id="pageDiv">
 	 <ul id="pagination-flickr">
-		<li class="previous-off">«Previous</li>
-		<li class="active">1</li>
-		<li><a href="?page=2">2</a></li>
-		<li><a href="?page=3">3</a></li>
-		<li><a href="?page=4">4</a></li>
-		<li><a href="?page=5">5</a></li>
-		<li><a href="?page=6">6</a></li>
-		<li><a href="?page=7">7</a></li>
-		<li class="next"><a href="?page=2">Next »</a></li>
+		<c:import url="/views/page.jsp">
+            <c:param name="url" value="views/getProduct.do"/>
+        </c:import>
 	</ul>
 	</div>
 </div>

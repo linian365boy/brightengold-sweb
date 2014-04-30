@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>反馈详情</title>
+<title>反馈详情|brightengold后台管理系统</title>
 <%@include file="/admin/commons/jsCss.jsp" %>
  <%@include file="/admin/commons/listJsCss.jsp" %>
  <link rel="stylesheet" type="text/css" href="${ctx }resources/css/style.css" />

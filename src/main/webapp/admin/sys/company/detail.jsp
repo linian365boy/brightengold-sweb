@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <%@include file="/admin/commons/listJsCss.jsp" %>
 <%@include file="/admin/commons/jsCss.jsp" %>
-<title>公司信息</title>
+<title>公司信息|brightengold后台管理系统</title>
 <link href="${ctx }resources/js/skins/blue.css" rel="stylesheet"/>
 <script type="text/javascript" src="${ctx }resources/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.metadata.js"></script>
@@ -86,6 +86,16 @@
             	title="公司logo" alt="公司logo" width="390px" height="130px" 
             	name="logo" />
             		<input type="file" name="logo" title="点击更换公司logo"/>
+            	</div>
+            </div>
+            
+            <div class="form-group">
+            	<label for="logo" class="col-sm-2 control-label">公司logo</label>
+            	<div class="col-sm-4">
+           	 	<img src="${ctx }resources/${model.logo }" 
+            	title="公司logoIco" alt="公司logoIco" width="390px" height="130px" 
+            	name="logoIco" />
+            		<input type="file" name="logoIco" title="点击更换公司logo"/>
             	</div>
             </div>
 

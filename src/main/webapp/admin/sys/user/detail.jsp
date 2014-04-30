@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户详情</title>
+<title>用户详情|brightengold后台管理系统</title>
 </head>
 <body>
 		<form id="form" class="form-horizontal" action="..." method="post">

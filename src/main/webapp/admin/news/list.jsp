@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <%@include file="/admin/commons/listJsCss.jsp" %>
  <%@include file="/admin/commons/jsCss.jsp" %>
-<title>新闻管理</title>
+<title>新闻管理|brightengold后台管理系统</title>
 <script type="text/javascript">
 	var update = function(obj){
 		var newsId = $(obj).attr("name");
@@ -31,41 +31,26 @@
 		//publish
 		var publish = function(obj){
 			var newsId = $(obj).attr("name");
+			var str = "确定发布此新闻？";
 			$.get("${ctx}admin/news/news_checkPub.do?id="+newsId,function(rs){
 				if(rs==1){
-					art.dialog.confirm('此新闻已发布，确定重新发布？',function(){
-						$.getJSON("${ctx}admin/news/news_publishNews.do?pageNo=${pageNo}&id="+newsId,function(data){
-							var json = $(data);
-							var dialog = art.dialog({
-								id:"publish",
-								lock:true
-							});
-							if(json[0].key==1){
-								dialog.content('恭喜您，发布成功！').time(2.5);
-								$("#"+newsId).html(json[0].value);
-							}else{
-								dialog.content('对不起，发布失败！').time(2.5);
-							}
-						});
-					});
-				}else{
-					art.dialog.confirm('确定发布此新闻？',function(){
-						var newsId = $(obj).attr("name");
-						$.getJSON("${ctx}admin/news/news_publishNews.do?pageNo=${pageNo}&id="+newsId,function(data){
-							var json = $(data);
-							var dialog = art.dialog({
-								id:"publish",
-								lock:true
-							});
-							 if(json[0].key==1){
-								dialog.content('恭喜您，发布成功！').time(2.5);
-								$("#"+newsId).html(json[0].value);
-							}else{
-								dialog.content('对不起，发布失败！').time(2.5);
-							} 
-						});
-					});
+					str = "此新闻已发布，确定重新发布？";
 				}
+				art.dialog.confirm(str,function(){
+					$.getJSON("${ctx}admin/news/news_publishNews.do?pageNo=${pageNo}&id="+newsId,function(data){
+						var json = $(data);
+						var dialog = art.dialog({
+							id:"publish",
+							lock:true
+						});
+						if(json[0].key==1){
+							dialog.content('恭喜您，发布成功！').time(2.5);
+							$("#"+newsId).html(json[0].value);
+						}else{
+							dialog.content('对不起，发布失败！').time(2.5);
+						}
+					});
+				});
 			});
 		};
 		
@@ -133,7 +118,7 @@
 			<tfoot>
 				<tr>
                 <td colspan="12">
-                	<div class="pagination">
+                	<div class="paginationD">
                 		<c:import url="/admin/commons/page.jsp">
                 			<c:param name="url" value="admin/news/news_list.do"/>
                 		</c:import>

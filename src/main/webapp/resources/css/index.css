@@ -656,11 +656,15 @@ ul, ol, li, dl {
 #footer-extra-wrapper {
     background: none repeat scroll 0 0 #181818;
     color: #606060;
+    border-top: 1px solid #DEDEDE;
     font-size: 10px;
     padding: 20px 0;
     text-transform: uppercase;
+    z-index: 3;
+    overflow: visible;
 }
 .full-width-wrapper {
+	margin: 0 auto;
     width: 100%;
 }
 .full-width-wrapper, .fixed-width-wrapper, #banner, #slider-wrapper {
@@ -671,10 +675,7 @@ ul, ol, li, dl {
     margin: 0 auto;
     width: 960px;
 }
-.full-width-wrapper, .fixed-width-wrapper, #banner, #slider-wrapper {
-    clear: both;
-    display: table;
-}
+
 #footer-extra-wrapper .logo {
     margin-right: 15px;
 }

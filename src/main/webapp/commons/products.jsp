@@ -6,11 +6,11 @@
 <c:forEach items="${hotPage.result }" var="hproduct" varStatus="status">
 	<ol class="hot_${status.index }">
 <li class="hotproductsphotos">
-<a href="${ctx }${hproduct.url}">
+<a target="_blank" href="${ctx }${hproduct.url}">
 <img src="/resources/${hproduct.picUrl }" title="${hproduct.enName }"></a>
 </li><li class="hotproductsname">
-<a href="${ctx }${hproduct.url}">${hproduct.enName }</a><p>${hproduct.introduce }</p>
-                <a href="${ctx }${hproduct.url}" class="more">View Details &gt;&gt;</a></li>
+<a target="_blank" href="${ctx }${hproduct.url}">${hproduct.enName }</a><p>${hproduct.introduce }</p>
+                <a href="${ctx }${hproduct.url}" target="_blank" class="more">View Details &gt;&gt;</a></li>
                 </ol>
 </c:forEach>
      </ul>

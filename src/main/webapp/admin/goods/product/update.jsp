@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>商品编辑</title>
+<title>商品编辑|brightengold后台管理系统</title>
 <%@include file="/admin/commons/jsCss.jsp" %>
  <%@include file="/admin/commons/listJsCss.jsp" %>
 <link href="${ctx }resources/js/skins/blue.css" rel="stylesheet"/>

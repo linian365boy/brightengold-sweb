@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>角色权限分配</title>
+<title>角色权限分配|brightengold后台管理系统</title>
 <link rel="stylesheet" type="text/css" href="${ctx}resources/css/dhtmlxtree.css"/>
 <link rel="stylesheet" type="text/css" href="${ctx}resources/css/style.css" />
 <script src="${ctx}resources/js/dhtmlxcommon.js"></script>

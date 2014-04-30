@@ -8,7 +8,7 @@
  <%@include file="/admin/commons/listJsCss.jsp" %>
  <%@include file="/admin/commons/jsCss.jsp" %>
  <script type="text/javascript" src="${ctx }resources/js/system.js"></script>
-<title>商品分类管理</title>
+<title>商品分类管理|brightengold后台管理系统</title>
 
 <script type="text/javascript">
 
@@ -38,9 +38,15 @@
 	
 	var publish = function(obj){
 		var productId = $(obj).attr("name");
-		art.dialog.confirm('确定发布此商品？',function(){
-			var url = '${ctx}admin/goods/product_publish.do?pageNo=${pageNo}&id='+productId;
-			window.location.href=url;
+		var str = "确定发布此新闻？";
+		$.get("${ctx}admin/goods/product_checkPub.do?id="+productId,function(rs){
+			if(rs==1){
+				str = "此商品已发布，确定重新发布？";
+			}
+			art.dialog.confirm(str,function(){
+				var url = '${ctx}admin/goods/product_publish.do?pageNo=${pageNo}&id='+productId;
+				window.location.href=url;
+			});
 		});
 	}
 	
@@ -108,7 +114,7 @@
 			<tfoot>
 				<tr>
                 <td colspan="12">
-                	<div class="pagination">
+                	<div class="paginationD">
                 		<c:import url="/admin/commons/page.jsp">
                 			<c:param name="url" value="admin/goods/product_list.do"/>
                 		</c:import>

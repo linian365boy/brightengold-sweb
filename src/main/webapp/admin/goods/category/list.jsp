@@ -8,7 +8,7 @@
  <%@include file="/admin/commons/listJsCss.jsp" %>
  <%@include file="/admin/commons/jsCss.jsp" %>
  <script type="text/javascript" src="${ctx }resources/js/system.js"></script>
-<title>商品分类管理</title>
+<title>商品分类管理|brightengold后台管理系统</title>
 
 <script type="text/javascript">
 	var update = function(obj){
@@ -87,7 +87,7 @@
 			<tfoot>
 				<tr>
                 <td colspan="12">
-                	<div class="pagination">
+                	<div class="paginationD">
                 		<c:import url="/admin/commons/page.jsp">
                 			<c:param name="url" value="admin/goods/category_list.do"/>
                 		</c:import>

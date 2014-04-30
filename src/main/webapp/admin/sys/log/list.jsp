@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <%@include file="/admin/commons/listJsCss.jsp" %>
  <%@include file="/admin/commons/jsCss.jsp" %>
-<title>日志管理</title>
+<title>日志管理|brightengold后台管理系统</title>
 </head>
 <body>
 	<jsp:include page="/admin/commons/header.jsp"/>
@@ -53,7 +53,7 @@
 			<tfoot>
 				<tr>
                 <td colspan="12">
-                	<div class="pagination">
+                	<div class="paginationD">
                 		<c:import url="/admin/commons/page.jsp">
                 			<c:param name="url" value="admin/sys/log_list.do"/>
                 		</c:import>

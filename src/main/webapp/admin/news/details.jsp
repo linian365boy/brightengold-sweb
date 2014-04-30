@@ -4,7 +4,7 @@
 <!DOCTYPE html >
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title>brightengold---${model.title }</title>
+    <title>${model.title }|brightengold后台管理系统</title>
 	<meta http-equiv="keywords" content="${model.keyWords }"/>
 	 <link href="${ctx }resources/css/basic.css" rel="stylesheet"/>
 	 <%@include file="/admin/commons/listJsCss.jsp" %>

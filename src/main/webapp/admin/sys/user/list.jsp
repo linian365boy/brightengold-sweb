@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <%@include file="/admin/commons/listJsCss.jsp" %>
  <%@include file="/admin/commons/jsCss.jsp" %>
-<title>用户管理</title>
+<title>用户管理|brightengold后台管理系统</title>
 
 <script type="text/javascript">
 
@@ -151,7 +151,7 @@
 			<tfoot>
 				<tr>
                 <td colspan="12">
-                	<div class="pagination">
+                	<div class="paginationD">
                 		<c:import url="/admin/commons/page.jsp">
                 			<c:param name="url" value="admin/sys/user_list.do"/>
                 		</c:import>

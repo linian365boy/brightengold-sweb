@@ -41,13 +41,13 @@
 <ul>
 <c:forEach items="${pages.result }" var="product" varStatus="status">
 	<li><ol ><li class="etw_pro_img">
-	<a href="${ctx }${product.url}">
+	<a href="${ctx }${product.url}" target="_blank">
 	<img src="/resources/${product.picUrl }" width="186px" height="126px" title="${product.enName }">
 	</a>
 	</li><li class="etw_pro_name">
-	<a href="${product.url }">${product.enName }</a>
+	<a href="${product.url }" target="_blank">${product.enName }</a>
 	<p>${product.introduce }</p>
-	 <a href="${product.url }" class="more">View Details &gt;&gt;</a>
+	 <a href="${product.url }" class="more" target="_blank">View Details &gt;&gt;</a>
 	 </li>
 	</ol>
 	 </li>

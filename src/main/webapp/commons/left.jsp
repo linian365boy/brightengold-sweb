@@ -8,7 +8,7 @@
       		<h3>${pCategory.enName } </h3>
       		<c:forEach items="${pCategory.children }" var="cCategory" varStatus="cindex">
       			<p style="display: none;"> 
-      				<a title="Robotica" target="_blank" href="${ctx }views/category.jsp?cateid=${cCategory.id}">${cCategory.enName }</a>
+      				<a title="${cCategory.enName }" href="${ctx }views/getProduct.do?cateid=${cCategory.id}">${cCategory.enName }</a>
       			</p>
       		</c:forEach>
       	</li>
