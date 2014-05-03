@@ -29,5 +29,16 @@ public class FeedbackService {
 	public void delete(Integer id) {
 		feedbackDao.delete(id);
 	}
+
+	public boolean saveFeedback(Feedback model) {
+		boolean flag = false;
+		try{
+			feedbackDao.save(model);
+			flag = true;
+		}catch(Exception e){
+			flag = false;
+		}
+		return flag;
+	}
 	
 }

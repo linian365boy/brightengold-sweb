@@ -1,9 +1,17 @@
 package com.brightengold.controller;
 
+import java.io.PrintWriter;
+import java.util.Date;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+
 import cn.rainier.nian.utils.PageRainier;
+
 import com.brightengold.model.Feedback;
 import com.brightengold.service.FeedbackService;
 import com.brightengold.service.LogUtil;
@@ -45,6 +53,22 @@ public class FeedbackController extends ActionSupport implements ModelDriven<Fee
 			LogUtil.getInstance().log(LogType.DEL, "联系方式为"+model.getTelePhone());
 		}
 		return "toList";
+	}
+	
+	public String saveFeedback(){
+			model.setCreateTime(new Date());
+			if(model.getName()!=null
+					&&model.getContent()!=null
+					&&model.getEmail()!=null
+					&&model.getTelePhone()!=null){
+				if(feedbackService.saveFeedback(model)){
+					return SUCCESS;
+				}else{
+					return ERROR;
+				}
+			}else{
+				return ERROR;
+			}
 	}
 
 	public Integer getPageSize() {
