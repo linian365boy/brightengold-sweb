@@ -7,6 +7,10 @@
 		<action name="getProduct" class="productController" method="getProductByCateId">
 			<result>/views/category.jsp</result>
 		</action>
+		<action name="submitFeedback" class="feedbackController" method="saveFeedback">
+			<result type="redirect">/feedback.html?error=false</result>
+			<result type="redirect" name="error">/feedback.html?error=true</result>
+		</action>
 	</package>
 	
 </struts>
