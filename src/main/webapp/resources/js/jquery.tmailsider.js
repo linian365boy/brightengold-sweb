@@ -189,7 +189,6 @@
 	
 	// 默认配置项
 	$.fn.Z_TMAIL_SIDER.defaults = {
-		target: $('#etw_hot_products'),//绑定倚靠右边容器的ID
 		fTop: 172, // 距离顶部距离
 		cTop: 100, // 滚动条滚动多少像素后开始折叠的高度
 		unitHeight: 80, // 每滚动多少距离折叠一个
