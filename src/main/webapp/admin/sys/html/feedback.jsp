@@ -8,12 +8,61 @@
 <meta name="description" content="Welcome to the home of Brightengold Furniture, a leader in contemporary furniture design in China! Our sofa suites, dining table and other furniture are well-received in hotels and restaurants.">
 <link href="${ctx }resources/css/index.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="${ctx }resources/js/jquery.validate.js"></script>
+<script type="text/javascript" src="${ctx }resources/js/jquery.metadata.js"></script>
+<link rel="stylesheet" type="text/css" href="${ctx }resources/css/style.css" />
+<link rel="stylesheet" type="text/css" href="${ctx }resources/css/feedback.css" />
 <title>Feedback|Brightengold Furniture</title>
-<style type="text/css">
-#etw_banner{background:url() no-repeat;}
-.left{ margin:0 50px 30px 0;}
-#etw_con .left,#etw_con .left1{width:100%; margin:0px;}
-</style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#form").validate({
+			rules:{
+				"name":{
+					required:true,
+					rangelength:[1,100],
+				},
+				"telePhone":{
+					required:true
+				},
+				"email":{
+					required:true,
+					email:true
+				},
+				"content":{
+					required:true
+				}
+			},
+			messages:{
+				"name":{
+					required:"Name can't be empty!",
+					rangelength:jQuery.format("Length is between {0} and {1}")
+				},
+				"telePhone":{
+					required:"Telephone can't be empty!"
+				},
+				"email":{
+					required:"email can't be empty!",
+					email:"email format error!"
+				},
+				"content":{
+					required:"Content can't be empty!"
+				}
+			}
+		});
+		var error = getQueryString("error");
+		if(error!=null){
+			if(error=="false"){
+				$("#alertDiv").removeClass("alert-info");
+				$("#alertDiv").addClass("alert-success");
+				$("#alertDiv").html("<strong>Well done!</strong>You successfully submit the message. ");
+			}else{
+				$("#alertDiv").removeClass("alert-info");
+				$("#alertDiv").addClass("alert-danger");
+				$("#alertDiv").html("<strong>Oh snap!</strong>Change a few things up and try submitting again.");
+			}
+		}
+	});
+</script>
 </head>
 <body>
 	<jsp:include page="/commons/top.jsp"></jsp:include>
@@ -31,35 +80,51 @@
   <script type="text/javascript" src="${ctx }resources/js/jquery.tmailsider.js"></script>
 <script type="text/javascript">
     $('#Z_TypeList').Z_TMAIL_SIDER();
+    function getQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); 
+    return null;
+    }
 </script>
 <div class="etw_hometitle"><img width="665px" height="28" border="0" src="/resources/images/feedback.jpg"/></div>
+<div class="alert alert-info" id="alertDiv">Please <strong>fill out</strong> the information <strong>truthfully</strong>!</div>
 <div id="etw_right"> 
 <div class="clear"></div>
 	<div>
-		<form action="#" method="post" name="feedbackForm">
-			<table cellpadding="0" border="0" cellspacing="0">
-			<tr style="height: 35px;">
-				<td align="right">Name:</td>
-				<td><input name="name" type="text"/></td>
-			</tr>
-			<tr style="height: 35px;">
-				<td align="right">Telephone:</td>
-				<td><input name="telephone" type="text"/></td>
-			</tr>
-			<tr style="height: 35px;">
-				<td align="right">E-mail:</td>
-				<td><input name="e-mail" type="text"/></td>
-			</tr>
-			<tr style="height: 35px;">
-				<td align="right">Content:</td>
-				<td><textarea name="content" cols="60" rows="5"></textarea></td>
-			</tr>
-			<tr style="height: 35px;">
-				<td>&nbsp;</td>
-				<td><input type="submit" value="Submit"/>&nbsp;&nbsp;&nbsp;
-				<input type="reset" value="Reset"/></td>
-			</tr>
-			</table>
+		<form class="form-horizontal" action="${ctx }views/submitFeedback.do" method="post" name="feedbackForm" id="form">
+			<div class="form-group">
+				<label for="name" class="col-xs-3 control-label" style="text-align: right;">Name</label>
+            	<div class="col-xs-3">
+            		<input id="name" class="form-control" style="width:55%;" name="name" placeholder="Name"  type="text"  autocomplete="off"/>
+            	</div>
+			</div>
+			<div class="form-group">
+				<label for="telephone" class="col-xs-3 control-label" style="text-align: right;">Telephone</label>
+            	<div class="col-xs-3">
+            		<input id="telephone" class="form-control" style="width:55%;" name="telePhone" placeholder="Telephone"  type="text" />
+            	</div>
+			</div>
+			<div class="form-group">
+				<label for="email" class="col-xs-3 control-label" style="text-align: right;">E-mail</label>
+            	<div class="col-xs-3">
+            		<input id="email" class="form-control" style="width:55%;" name="email" placeholder="E-mail"  type="text" />
+            	</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="content" class="col-xs-3 control-label" style="text-align: right;">Content</label>
+            	<div class="col-xs-3">
+            		<textarea id="content" class="form-control" style="width:75%;" name="content" rows="8"></textarea>
+            	</div>
+			</div>
+			
+			<div class="form-group">
+			<div class="col-xs-offset-3 col-sm-3">
+				<input type="submit" value="Submit"/>&nbsp;&nbsp;&nbsp;
+				<input type="reset" value="Reset"/>
+				</div>
+			</div>
 		</form>
 	</div>
 <div class="clear"></div>

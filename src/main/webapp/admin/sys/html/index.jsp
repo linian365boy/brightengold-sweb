@@ -14,11 +14,11 @@
 <div class="clear"></div>
 <div id="container"> 
   <div id="center"> 
-  <div style="left: 100px ! important;" class="Z_TypeList" id="Z_TypeList">
+   <div style="left: 100px ! important;" class="Z_TypeList" id="Z_TypeList">
     <h1 class="title">Product categories<s class="btn_group bleft"><a class="bleft"></a>
     <a class="bright"></a></s></h1>
     <jsp:include page="/commons/left.jsp"></jsp:include>
-  </div>
+  </div> 
   <script type="text/javascript" src="${ctx }resources/js/jquery.tmailsider.js"></script>
 <script type="text/javascript">
     $('#Z_TypeList').Z_TMAIL_SIDER();

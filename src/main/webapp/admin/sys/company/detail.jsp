@@ -37,7 +37,7 @@
 			},
 			messages:{
 				"name":{
-					required:"用户名不能为空！"
+					required:"公司名称不能为空！"
 				},
 				"logo":{
 					isImgFile:"请上传jpg|jpeg|bmp|gif|png图片格式文件！"
