@@ -3,6 +3,7 @@ package com.brightengold.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,8 +17,12 @@ import org.springframework.stereotype.Controller;
 import cn.rainier.nian.model.User;
 import cn.rainier.nian.utils.PageRainier;
 
+import com.brightengold.model.Category;
+import com.brightengold.model.Company;
 import com.brightengold.model.JsonEntity;
 import com.brightengold.model.News;
+import com.brightengold.service.CategoryService;
+import com.brightengold.service.CompanyService;
 import com.brightengold.service.DicTypeService;
 import com.brightengold.service.LogUtil;
 import com.brightengold.service.MsgUtil;
@@ -44,6 +49,10 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 	private News model = new News();
 	@Autowired
 	private DicTypeService dicTypeService;
+	@Autowired
+	private CompanyService companyService;
+	@Autowired
+	private CategoryService categoryService;
 	
 	public String list(){
 		page = newsService.findAll(pageNo, pageSize);
@@ -95,9 +104,13 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 	
 	public String detail(){
 		if(model.getId()!=null){
+			HttpServletRequest request = ServletActionContext.getRequest();
 			model = newsService.loadNews(model.getId());
-			//点击率
-			newsService.updateClicks(model);
+			newsService.updateClicks(model);	//点击率
+			Company company = companyService.loadCompany();
+			List<Category> parentCats = categoryService.findParentCategory();
+			request.setAttribute("company", company);
+			request.setAttribute("parentCats", parentCats);
 			return "details";
 		}
 		MsgUtil.setMsg(ERROR, "对不起，新闻不存在！");
@@ -166,10 +179,10 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 						loginUser.getUsername(),
 						value.substring(value.indexOf("abc")+3, value.lastIndexOf("ok")))){
 					model.setPublishDate(new Date());
-					LogUtil.getInstance().log(LogType.PUBLISH, "标题："+model.getTitle());
 					if(newsService.saveNews(model)!=null){
 						entity.setKey("1");
 						entity.setValue(Tools.formatDate(model.getPublishDate(), false));
+						LogUtil.getInstance().log(LogType.PUBLISH, "标题："+model.getTitle());
 					}else{
 						entity.setKey("-1");
 					}

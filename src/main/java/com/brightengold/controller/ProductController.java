@@ -59,7 +59,6 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 	private DicTypeService dicTypeService;
 	
 	private Integer prSize = 9;
-	private Integer prNo = 1;
 	
 	public String list(){
 		page = productService.findAll(pageNo, pageSize);
@@ -213,7 +212,8 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 				temp.setPublish(false);
 			}
 			productService.saveProduct(temp);
-			MsgUtil.setMsg("success", "产品发布成功！");
+			MsgUtil.setMsg("success", "\""+temp.getEnName()+"\"产品发布成功！");
+			LogUtil.getInstance().log(LogType.PUBLISH, temp.getEnName()+"产品发布");
 		}else{
 			MsgUtil.setMsg("error", "产品已发布！");
 		}
@@ -227,9 +227,10 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 		List<Category> parentCats = categoryService.findParentCategory();
 		if(cateId!=null&&cateId.trim().length()>0){
 			Category category = categoryService.loadCategoryById(Integer.parseInt(cateId));
-			page = productService.findProductByCategory(category.getId(),prNo,prSize);
+			page = productService.findProductByCategory(category.getId(),pageNo,prSize);
 			ServletActionContext.getRequest().setAttribute("cate", category);
 		}
+		ServletActionContext.getRequest().setAttribute("cateId", cateId);
 		ServletActionContext.getRequest().setAttribute("company", company);
 		ServletActionContext.getRequest().setAttribute("parentCats", parentCats);
 		return SUCCESS;
@@ -296,11 +297,4 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 		this.prSize = prSize;
 	}
 
-	public Integer getPrNo() {
-		return prNo;
-	}
-
-	public void setPrNo(Integer prNo) {
-		this.prNo = prNo;
-	}
 }
