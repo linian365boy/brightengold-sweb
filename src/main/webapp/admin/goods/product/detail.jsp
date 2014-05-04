@@ -9,12 +9,7 @@
 <meta name="description" content="Welcome to the home of Brightengold Furniture, a leader in contemporary furniture design in China! Our sofa suites, dining table and other furniture are well-received in hotels and restaurants.">
 <link href="${ctx }resources/css/index.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
-<title>${model.enName }||brightengold后台管理系统</title>
-<style type="text/css">
-#etw_banner{background:url() no-repeat;}
-.left{ margin:0 50px 30px 0;}
-#etw_con .left,#etw_con .left1{width:100%; margin:0px;}
-</style>
+<title>${model.enName }||Brightengold Furniture</title>
 </head>
 <body>
 	<jsp:include page="/commons/top.jsp"></jsp:include>
@@ -46,7 +41,7 @@
                           <td height="1">             
 							<table width="100%" border="0" cellspacing="0" cellpadding="0" id="table20">
                         <tbody><tr>
-                          <td width="452" height="25">&nbsp;<a href="${ctx }views/product.jsp?cateid=${model.category.id}">${model.category.enName }</a>&nbsp;&gt;&gt;&nbsp;${model.enName }</td>
+                          <td width="452" height="25">&nbsp;<a href="${ctx }views/getProduct.do?cateid=${model.category.id}">${model.category.enName }</a>&nbsp;&gt;&gt;&nbsp;${model.enName }</td>
                           <td width="98" valign="middle">&#12288;</td>
                         </tr>
                         <tr>

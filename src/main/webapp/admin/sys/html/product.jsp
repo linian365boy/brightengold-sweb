@@ -55,9 +55,13 @@
                </ul>
 				</div>
                 </div>
-                <div>
-                	First Previous Next Last Page No.:1/2page  12Products/page Turn to:
-                </div>
+               <div id="pageDiv">
+	 <ul id="pagination-flickr">
+		<c:import url="/views/page.jsp">
+            <c:param name="url" value="views/getProductList.do"/>
+        </c:import>
+	</ul>
+	</div>
 </div> 
   <div class="clear"></div>
 </div>
