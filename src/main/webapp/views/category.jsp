@@ -10,11 +10,6 @@
 <link href="${ctx }resources/css/index.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
 <title>${cate.enName }|Brightengold Furniture</title>
-<style type="text/css">
-#etw_banner{background:url() no-repeat;}
-.left{ margin:0 50px 30px 0;}
-#etw_con .left,#etw_con .left1{width:100%; margin:0px;}
-</style>
 </head>
 <body>
 	<jsp:include page="/commons/top.jsp"></jsp:include>
@@ -40,26 +35,25 @@
 <div class="productsformat_sub">
 <ul>
 <c:choose>
-	<c:when test="${page.total }">
-		
+	<c:when test="${page.totalRowNum>0 }">
+		<c:forEach items="${page.result }" var="product" varStatus="status">
+			<li><ol ><li class="etw_pro_img">
+			<a href="${ctx }${product.url}" >
+			<img src="${ctx }resources/${product.picUrl }" width="186px" height="126px" title="${product.enName }">
+			</a>
+			</li><li class="etw_pro_name">
+			<a href="${ctx }${product.url }" >${product.enName }</a>
+			<p>${product.introduce }</p>
+			 <a href="${ctx }${product.url }" class="more" >View Details &gt;&gt;</a>
+			 </li>
+			</ol>
+			 </li>
+		</c:forEach>
 	</c:when>
 	<c:otherwise>
-		
+		No information!
 	</c:otherwise>
 </c:choose>
-<c:forEach items="${page.result }" var="product" varStatus="status">
-	<li><ol ><li class="etw_pro_img">
-	<a href="${ctx }${product.url}" >
-	<img src="${ctx }resources/${product.picUrl }" width="186px" height="126px" title="${product.enName }">
-	</a>
-	</li><li class="etw_pro_name">
-	<a href="${ctx }${product.url }" >${product.enName }</a>
-	<p>${product.introduce }</p>
-	 <a href="${ctx }${product.url }" class="more" >View Details &gt;&gt;</a>
-	 </li>
-	</ol>
-	 </li>
-</c:forEach>
                </ul>
 				</div>
                 </div>
@@ -67,6 +61,7 @@
                 		<ul id="pagination-flickr">
 							<c:import url="/views/page.jsp">
 					            <c:param name="url" value="views/getProduct.do"/>
+					            <c:param name="cateId" value="${cateId }"/>
 					        </c:import>
 						</ul>
                 </div>
