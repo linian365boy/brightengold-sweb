@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
  <%@include file="../../../commons/include.jsp" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -36,7 +36,7 @@
 			 <div class="form-group" style="width:500px;">
             	<label for="desc" class="col-xs-3 control-label" style="text-align: right;">角色 </label>
             	<div class="col-xs-9">
-            		<input name="desc" class="form-control" style="width:55%;" type="text" id="desc"/>
+            		<input name="desc" class="form-control" placeholder="角色" style="width:55%;" type="text" id="desc"/>
             	</div>
             </div>
             <input type="hidden" value="${param.pageNo }" name="pageNo"/>

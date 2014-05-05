@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@include file="/commons/include.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -60,14 +60,14 @@
             <div class="form-group" style="width:500px;">
             	<label for="username" class="col-xs-3 control-label" style="text-align: right;">账号</label>
             	<div class="col-xs-9">
-	            	<input id="username" class="form-control" style="width:55%;" name="username" value="${model.username }" type="text"/>
+	            	<input id="username" class="form-control" style="width:55%;" placeholder="账号" name="username" value="${model.username }" type="text"/>
             	</div>
 			</div>
 			
             <div class="form-group" style="width:500px;">
             	<label for="realName" class="col-xs-3 control-label" style="text-align: right;">姓名</label>
             	<div class="col-xs-9">
-            		<input name="realName" class="form-control" style="width:55%;" value="${model.realName }" type="text"/>
+            		<input name="realName" class="form-control" style="width:55%;" placeholder="姓名" value="${model.realName }" type="text"/>
             	</div>
              </div>
              <c:forEach items="${model.roles }" var="myRole">

@@ -74,7 +74,7 @@
             <div class="form-group" style="width:500px;">
             	<label for="username" class="col-xs-3 control-label" style="text-align: right;">账号</label>
             	<div class="col-xs-9">
-            		<input id="username" class="form-control" style="width:55%;" name="username" placeholder="用户名"  type="text"  autocomplete="off"/>
+            		<input id="username" class="form-control" style="width:55%;" name="username" placeholder="账号"  type="text"  autocomplete="off"/>
             	</div>
 			</div>
 			

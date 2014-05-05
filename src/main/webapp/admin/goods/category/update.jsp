@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@include file="/commons/include.jsp" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -63,7 +63,7 @@ $(document).ready(function(){
             <div class="form-group" style="width:100%;">
             	<label for="enName" class="col-xs-3 control-label" style="text-align: right;">名称</label>
             	<div class="col-xs-9">
-	            	<input name="enName" id="enName" value="${model.enName }" class="form-control" style="width:55%;"  type="text" />
+	            	<input name="enName" id="enName" value="${model.enName }" class="form-control" placeholder="名称" style="width:55%;"  type="text" />
             	</div>
             </div>	
             <input type="hidden" value="${pageNo }" name="pageNo"/>
