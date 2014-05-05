@@ -61,7 +61,11 @@ public class ProductService {
 			@Override
 			public Predicate toPredicate(Root<Product> root, CriteriaQuery<?> query,
 					CriteriaBuilder cb) {
-				return cb.and(cb.equal(root.get("category").get("id"), categoryId),cb.equal(root.get("publish"), true));
+				return cb.and(
+					cb.or(cb.equal(root.get("category").get("id"), categoryId),
+					cb.equal(root.get("category").get("parent").get("id"), categoryId)
+					),
+					cb.equal(root.get("publish"), true));
 			}
 		};
 	}
