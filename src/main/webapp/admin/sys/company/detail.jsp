@@ -90,16 +90,6 @@
             </div>
             
             <div class="form-group">
-            	<label for="logo" class="col-sm-2 control-label">公司logo</label>
-            	<div class="col-sm-4">
-           	 	<img src="${ctx }resources/${model.logo }" 
-            	title="公司logoIco" alt="公司logoIco" width="390px" height="130px" 
-            	name="logoIco" />
-            		<input type="file" name="logoIco" title="点击更换公司logo"/>
-            	</div>
-            </div>
-
-            <div class="form-group">
             	<label for="phone" class="col-sm-2 control-label">热线图片</label>
             	<div class="col-sm-4">
             	<img src="${ctx }resources/${model.phonePic }" 
