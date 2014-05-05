@@ -74,7 +74,7 @@
 				$(this).find('p').slideToggle(500);
 			});
 		}
-
+		
 		function showSubList(thisLi) {
 			if(!isIE6) {
 				$(thisLi).append('<s class="menuIcon"></s>');
