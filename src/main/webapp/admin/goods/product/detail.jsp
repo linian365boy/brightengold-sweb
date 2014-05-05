@@ -9,7 +9,7 @@
 <meta name="description" content="Welcome to the home of Brightengold Furniture, a leader in contemporary furniture design in China! Our sofa suites, dining table and other furniture are well-received in hotels and restaurants.">
 <link href="${ctx }resources/css/index.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
-<title>${model.enName }||Brightengold Furniture</title>
+<title>${model.enName }|Brightengold Furniture</title>
 </head>
 <body>
 	<jsp:include page="/commons/top.jsp"></jsp:include>

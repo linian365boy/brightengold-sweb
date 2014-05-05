@@ -10,7 +10,7 @@
 <link href="${ctx }resources/css/index.css" type="text/css" rel="stylesheet">
 <link href="${ctx }resources/css/basic.css" type="text/css" rel="stylesheet"/>
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
-<title>${model.title }||Brightengold Furniture</title>
+<title>${model.title }|Brightengold Furniture</title>
 <script type="text/javascript">
 	var content=new Object;  
 	var context="";//HTML文本内容  
@@ -31,17 +31,18 @@
 	    pagesel="";  
 	    content=document.getElementById("nc_con");  //获取节点HTML文本内容，搜索所有分页标签出现位置  
 	    context=content.innerHTML;  
-	    var i=0;  
-	    var j=1;  
-	    var tmpp=0;  
-	    while(tmpp=context.indexOf('<div style="page-break-after: always',i)){  
-	        if(tmpp!=-1){  
-	            pgindex[j++]=tmpp;  
-	            i=tmpp+30;//30意为为越过此次搜到标签再开始搜索，实际可精确到此标签的长度  
-	        }else{  
-	            break;  
-	        }  
-		} 
+		var i=0;  
+		var j=1;  
+		var tmpp=0;  
+	    
+   	    while(tmpp=context.indexOf("<div style=\"page-break-after: always",i)){  
+   	        if(tmpp!=-1){  
+   	            pgindex[j++]=tmpp;  
+   	            i=tmpp+30;  
+   	        }else{  
+   	            break;  
+   	        }  
+   	    }     
 	}
 	
     function searchpg(){  
@@ -62,14 +63,12 @@
     function pagese(){  
         if(cont.length>0){  
             if(contpg==0){  
-                pagesel="Total "+cont.length+" pages &nbsp;&nbsp;Current is "+(contpg+1)+" page<br/><hr />First Previous <a href='#' onclick='nextpa()'>Next</a>  <a href='#' onclick='endpa()'>Last</a>";  
+                pagesel="First &nbsp;&nbsp; Previous &nbsp;&nbsp;<a href='#' onclick='nextpa()'>Next</a> &nbsp;&nbsp; <a href='#' onclick='endpa()'>Last</a>";  
             }else if(contpg!=0&&contpg<cont.length-1){  
-                pagesel="Total "+cont.length+" pages &nbsp;&nbsp;Current is "+(contpg+1)+" page<br/><hr /><a href='#' onclick='firstpa()'>首 页</a> <a href='#' onclick='prepa()'>Previous</a>  <a href='#' onclick='nextpa()'>Next</a> <a href='#' onclick='endpa()'>Last</a>";  
+                pagesel="<a href='#' onclick='firstpa()'>First</a>&nbsp;&nbsp; <a href='#' onclick='prepa()'>Previous</a> &nbsp;&nbsp; <a href='#' onclick='nextpa()'>Next</a>&nbsp;&nbsp; <a href='#' onclick='endpa()'>Last</a>";  
             }else if(contpg==cont.length-1){  
-                pagesel="Total "+cont.length+" pages &nbsp;&nbsp;Current is "+(contpg+1)+" page<br/><hr /><a href='#' onclick='firstpa()'>首 页</a> <a href='#' onclick='prepa()'>Previous</a> Next Last";  
+                pagesel="<a href='#' onclick='firstpa()'>First</a>&nbsp;&nbsp; <a href='#' onclick='prepa()'>Previous</a>&nbsp;&nbsp; Next &nbsp;&nbsp; Last";  
             }  
-        }else {  
-            pagesel="Total 1 page Current is 1 page<br/><hr />";  
         }  
     }
     
