@@ -51,12 +51,13 @@
 		</c:forEach>
 	</c:when>
 	<c:otherwise>
-		No information!
+		<div style="color:red;text-align: center">No information!</div>
 	</c:otherwise>
 </c:choose>
                </ul>
 				</div>
                 </div>
+                <c:if test="${page.totalRowNum>0 }">
                 <div id="pageDiv">
                 		<ul id="pagination-flickr">
 							<c:import url="/views/page.jsp">
@@ -65,7 +66,8 @@
 					        </c:import>
 						</ul>
                 </div>
-</div> 
+                </c:if>
+</div> 				
   <div class="clear"></div>
 </div>
   <div class="clear"></div>
