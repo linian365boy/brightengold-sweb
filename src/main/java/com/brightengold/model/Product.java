@@ -75,7 +75,7 @@ public class Product implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	@Column(length=30)
+	@Column(length=50)
 	public String getEnName() {
 		return enName;
 	}
@@ -90,7 +90,7 @@ public class Product implements Serializable{
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	@Column(length=100)
+	@Column(length=900)
 	public String getPicUrl() {
 		return picUrl;
 	}
