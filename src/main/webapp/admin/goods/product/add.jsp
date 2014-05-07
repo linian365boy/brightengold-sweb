@@ -17,7 +17,11 @@
 <style type="text/css">
 	select.form-control{
 		display: inline-block;
-		width:45%;
+		width:35%;
+	}
+	body{
+		font-size: 12px;
+		font-family: Arial, Tahoma, Verdana;
 	}
 </style>
 	<script type="text/javascript">
@@ -25,11 +29,13 @@
 		$.getJSON("${ctx}admin/goods/category_getParentByAjax.do?flag=0",function(returnJson){
 			var json = $(returnJson);
 			var str = "";
+			str+="<option value=''>--请选择分类--</option>";
 			for(var i=0;i<json.length;i++){
 				str+="<option value="+json.get(i)[0]+">"+json.get(i)[1]+"</option>";
 			}
 			$("#parentCs").append(str);
 		});
+		
 		$("#form").validate({
 			rules:{
 				"enName":{
@@ -38,6 +44,9 @@
 				"photo":{
 					required:true,
 					isImgFile:true
+				},
+				"childC":{
+					required:true
 				}
 			},
 			messages:{
@@ -47,13 +56,29 @@
 				"photo":{
 					required:"商品图片不能为空！",
 					isImgFile:"请上传jpg|jpeg|bmp|gif|png图片格式文件!"
+				},
+				"childC":{
+					required:"商品分类不能为空！"
 				}
 			}
 		});
 	});
 	
-		function changePC(){
-			var url = "${ctx}/admin/goods/";
+	
+		function changePC(obj){
+			if($(obj).val()!=""){
+				var url = "${ctx}admin/goods/category_getCCate.do?pid="+$(obj).val();
+				$.getJSON(url,function(returnJson){
+					var json = $(returnJson);
+					var str = "";
+					for(var i=0;i<json.length;i++){
+						str+="<option value="+json.get(i)[0]+">"+json.get(i)[1]+"</option>";
+					}
+					$("#childC").html(str);
+				});
+			}else{
+				$("#childC").html("<option value=''>--请选择分类--</option>");
+			}
 		}
 	</script>
 </head>
@@ -95,16 +120,18 @@
             
             <div class="form-group">
             	<label for="category" class="col-sm-2 control-label">商品分类</label>
-            	<div class="col-sm-4">
-            		<select class="form-control"  name="parentC" id="parentCs" onchange="changePC();"></select>
-            		<select class="form-control"  name="childC" id="childC"></select>
+            	<div class="col-sm-6">
+            		<select class="form-control"  name="parentC" id="parentCs" onchange="changePC(this);"></select>
+            		<select class="form-control"  name="childC" id="childC">
+            			<option value="" selected>--请选择分类--</option>
+            		</select>
             	</div>
             </div>
             <div class="form-group">
             	<div class="col-sm-offset-2 col-sm-10">
             		<div class="checkbox">
             			<label>
-		            		<input name="hot" type="checkbox"/>是否热门
+		            		<input name="hot" type="checkbox"/>是否热门（勾选表示热门）
 		            	</label>
             		</div>
             	</div>
