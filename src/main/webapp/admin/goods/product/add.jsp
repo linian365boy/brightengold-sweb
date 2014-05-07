@@ -14,8 +14,22 @@
 <script type="text/javascript" src="${ctx }resources/js/jquery.metadata.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/validatePlugin/jquery.validatePlugin.js"></script>
 <link rel="stylesheet" type="text/css" href="${ctx }resources/css/style.css" />
+<style type="text/css">
+	select.form-control{
+		display: inline-block;
+		width:45%;
+	}
+</style>
 	<script type="text/javascript">
 	$(document).ready(function(){
+		$.getJSON("${ctx}admin/goods/category_getParentByAjax.do?flag=0",function(returnJson){
+			var json = $(returnJson);
+			var str = "";
+			for(var i=0;i<json.length;i++){
+				str+="<option value="+json.get(i)[0]+">"+json.get(i)[1]+"</option>";
+			}
+			$("#parentCs").append(str);
+		});
 		$("#form").validate({
 			rules:{
 				"enName":{
@@ -38,14 +52,9 @@
 		});
 	});
 	
-		$.getJSON("${ctx}admin/goods/category_getParentByAjax.do?flag=0",function(returnJson){
-			var json = $(returnJson);
-			var str = "";
-			for(var i=0;i<json.length;i++){
-				str+="<option value="+json.get(i)[0]+">"+json.get(i)[1]+"</option>";
-			}
-			$("#parentCs").append(str);
-		});
+		function changePC(){
+			var url = "${ctx}/admin/goods/";
+		}
 	</script>
 </head>
 <body>
@@ -87,8 +96,8 @@
             <div class="form-group">
             	<label for="category" class="col-sm-2 control-label">商品分类</label>
             	<div class="col-sm-4">
-            	<select class="form-control" name="parentC" id="parentCs">
-            	</select>
+            		<select class="form-control"  name="parentC" id="parentCs" onchange="changePC();"></select>
+            		<select class="form-control"  name="childC" id="childC"></select>
             	</div>
             </div>
             <div class="form-group">
