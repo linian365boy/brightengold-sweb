@@ -62,7 +62,7 @@
                 		<ul id="pagination-flickr">
 							<c:import url="/views/page.jsp">
 					            <c:param name="url" value="views/getProduct.do"/>
-					            <c:param name="cateId" value="${cateId }"/>
+					            <c:param name="cateid" value="${cateId }"/>
 					        </c:import>
 						</ul>
                 </div>

@@ -4,8 +4,8 @@
 				<c:if test="${not empty page}">
 					<c:choose>
 						<c:when test="${page.hasPrev}">
-							<li class="previous-off">
-								<a href="${ctx}${param.url}?pageNo=${page.currentPageIndex - 1}${!empty cateId?'&cateId=':''}${cateId}">Previous</a>
+							<li class="previous">
+								<a href="${ctx}${param.url}?pageNo=${page.currentPageIndex - 1}${!empty cateId?'&cateid=':''}${cateId}">Previous</a>
 							</li>
 						</c:when>
 						<c:otherwise>
@@ -19,13 +19,13 @@
 								<li class="active">${i }</li>
 		 					</c:when>
 							<c:otherwise>
-								<li><a title="${i }" href="${ctx}${param.url}?pageNo=${i }${!empty cateId?'&cateId=':''}${cateId}">${i }</a></li>
+								<li><a title="${i }" href="${ctx}${param.url}?pageNo=${i }${!empty cateId?'&cateid=':''}${cateId}">${i }</a></li>
 							</c:otherwise>
 						</c:choose>
 					</c:forEach>
 					<c:choose>
 						<c:when test="${page.hasNext}">
-							<li class="next"><a href="${ctx}${param.url}?pageNo=${page.currentPageIndex+1 }${!empty cateId?'&cateId=':''}${cateId}">Next</a></li>
+							<li class="next"><a href="${ctx}${param.url}?pageNo=${page.currentPageIndex+1 }${!empty cateId?'&cateid=':''}${cateId}">Next</a></li>
 						</c:when>
 						<c:otherwise>
 							<li class="next-off">Next»</li>
