@@ -11,6 +11,9 @@
 			<result type="redirect">/feedback.html?error=false</result>
 			<result type="redirect" name="error">/feedback.html?error=true</result>
 		</action>
+		<action name="getNews" class="newsController" method="getNews">
+			<result>/news.html</result>
+		</action>
 	</package>
 	
 </struts>
