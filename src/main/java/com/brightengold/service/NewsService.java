@@ -63,7 +63,7 @@ public class NewsService {
 	}
 
 	public PageRainier<News> findAllPublish(Integer pageNo, Integer pageSize) {
-		PageRequest request = new PageRequest(pageNo-1, pageSize,new Sort(Direction.DESC, "publishDate"));
+		PageRequest request = new PageRequest(pageNo-1, pageSize,new Sort(Direction.DESC,"priority","publishDate"));
 		Page<News> tempPage = newsDao.findAll(getAllPublishSpeci(), request);
 		PageRainier<News> page = new PageRainier<News>(tempPage.getTotalElements(), pageNo, pageSize);
 		page.setResult(tempPage.getContent());
@@ -79,4 +79,5 @@ public class NewsService {
 			}
 		};
 	}
+
 }
