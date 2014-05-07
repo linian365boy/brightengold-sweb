@@ -199,6 +199,11 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 			}
 	}
 	
+	public String getNews(){
+		page = newsService.findAllPublish(pageNo,pageSize);
+		return SUCCESS;
+	}
+	
 	public Integer getPageSize() {
 		return pageSize;
 	}
