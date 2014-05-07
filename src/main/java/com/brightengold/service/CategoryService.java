@@ -60,6 +60,10 @@ public class CategoryService {
 	public List<Category> findParentCategory() {
 		return categoryDao.findParentCats();
 	}
+
+	public List<Object[]> getChildrenCategory(int pid) {
+		return this.categoryDao.findChildCategoryByAjax(pid);
+	}
 	
 	
 }

@@ -62,13 +62,20 @@ public class CategoryController extends ActionSupport implements ModelDriven<Cat
 	}
 	
 	public void getParentByAjax(){
+		HttpServletResponse res = ServletActionContext.getResponse();
+		PrintWriter writer = null;
 		try {
 			String flag = ServletActionContext.getRequest().getParameter("flag");
 			List<Object[]> parentsByAjax = this.getParent(flag);
 			Gson gson = new Gson();
-			ServletActionContext.getResponse().getWriter().write(gson.toJson(parentsByAjax));
+			writer = res.getWriter();
+			writer.write(gson.toJson(parentsByAjax));
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally{
+			if(writer!=null){
+				writer.close();
+			}
 		}
 	}
 	
@@ -176,6 +183,29 @@ public class CategoryController extends ActionSupport implements ModelDriven<Cat
 			}
 		}
 		return "toList";
+	}
+	
+	public void getCCate(){
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String pid = request.getParameter("pid");
+		HttpServletResponse res = ServletActionContext.getResponse();
+		PrintWriter writer = null;
+		try {
+			if(pid!=null){
+				List<Object[]> childCates = categoryService.getChildrenCategory(Integer.parseInt(pid));
+				Gson gson = new Gson();
+				writer = res.getWriter();
+				writer.write(gson.toJson(childCates));
+			}
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+			if(writer!=null){
+				writer.close();
+			}
+		}
 	}
 
 	public PageRainier<Category> getPage() {

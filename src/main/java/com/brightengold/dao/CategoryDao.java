@@ -20,5 +20,7 @@ public interface CategoryDao extends AbstractDao<Category, Integer>{
 	long checkHasChildren(@Param("category") Category category);
 	@Query("select c from Category c where c.parent is null")
 	List<Category> findParentCats();
+	@Query("select c.id,c.enName from Category c where c.parent.id = :pid")
+	List<Object[]> findChildCategoryByAjax(@Param("pid") int pid);
 	
 }

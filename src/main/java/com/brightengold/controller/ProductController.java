@@ -79,7 +79,7 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 		try {
 			if(model.getId()!=null){
 				Product tempProduct = productService.loadProductById(model.getId());
-				String categoryId = request.getParameter("parents");
+				String categoryId = request.getParameter("childC");
 				String hot = request.getParameter("hot");
 				if(hot!=null){
 					model.setHot(true);
@@ -116,7 +116,7 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 		User u = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		StringBuilder sb = new StringBuilder();
 		try {
-			String categoryId = request.getParameter("parentC");
+			String categoryId = request.getParameter("childC");
 			String hot = request.getParameter("hot");
 			if(hot!=null){
 				model.setHot(true);
