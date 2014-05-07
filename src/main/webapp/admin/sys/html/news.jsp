@@ -44,7 +44,7 @@
 	<div id="pageDiv">
 	 <ul id="pagination-flickr">
 		<c:import url="/views/page.jsp">
-            <c:param name="url" value="views/getNewsList.do"/>
+            <c:param name="url" value="views/getNews.do"/>
         </c:import>
 	</ul>
 	</div>
