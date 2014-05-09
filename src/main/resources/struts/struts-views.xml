@@ -12,7 +12,7 @@
 			<result type="redirect" name="error">/feedback.html?error=true</result>
 		</action>
 		<action name="getNews" class="newsController" method="getNews">
-			<result>/news.html</result>
+			<result>/views/news.jsp</result>
 		</action>
 	</package>
 	
