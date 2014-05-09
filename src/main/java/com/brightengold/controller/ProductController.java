@@ -98,6 +98,7 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 				content.append("产品名称："+model.getEnName());
 				model.setCategory(categoryService.loadCategoryById(Integer.parseInt(categoryId)));
 				model.setCreateDate(tempProduct.getCreateDate());
+				model.setUrl(tempProduct.getUrl());
 				model.setCreateUser(tempProduct.getCreateUser());
 				productService.saveProduct(model);
 				MsgUtil.setMsgUpdate("success");
