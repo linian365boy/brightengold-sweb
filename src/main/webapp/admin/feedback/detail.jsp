@@ -28,26 +28,26 @@
 		<div class="form-group">
 			<label for="name" class="col-sm-2 control-label">账号</label>
 			<div class="col-sm-6">
-            <input type="text" class="form-control"  value="${model.name }"/>
+            <input type="text" class="form-control" readonly="readonly"  value="${model.name }"/>
             </div>
         </div>
           <div class="form-group">
 		<label for="telePhone" class="col-sm-2 control-label">联系方式</label>
 		<div class="col-sm-6">
-          	<input type="text" class="form-control"  value="${model.telePhone }"/>
+          	<input type="text" class="form-control" readonly="readonly"  value="${model.telePhone }"/>
           	</div>
           </div>
           
           <div class="form-group">
 		<label for="email" class="col-sm-2 control-label">邮箱</label>
 		<div class="col-sm-6">
-          	<input type="text" class="form-control"  value="${model.email }"/>
+          	<input type="text" class="form-control" readonly="readonly"  value="${model.email }"/>
           	</div>
           </div>
           <div class="form-group">
 		<label for="content" class="col-sm-2 control-label">内容</label>
 		<div class="col-sm-6">
-          	<textarea class="form-control" rows="8" >${model.content }</textarea>
+          	<textarea class="form-control"  rows="8" readonly="readonly" >${model.content }</textarea>
           	</div>
           </div>
           <div class="form-group">

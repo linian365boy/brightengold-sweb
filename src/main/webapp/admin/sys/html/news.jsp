@@ -34,8 +34,16 @@
 	<div id="etw_instruction" class="cer">
 	<ul class="tool-list te-hot">
 	<c:forEach items="${page.result }" var="news" varStatus="status">
+	<c:set value="${(status.index+1)+(page.pageSize*(page.currentPageIndex-1)) }" var="newCount"/>
 		 <li>
-		 <i class="icon-no${status.index+1 }"></i>
+		  <c:choose>
+		 	<c:when test="${newCount<=10 }">
+				 <i class="icon-no${newCount }"></i>
+		 	</c:when>
+		 	<c:otherwise>
+		 		<i>${newCount }</i>
+		 	</c:otherwise>
+		 </c:choose>
 		 <a class="t-title" target="_blank" title="${news.title }" href="${ctx }${news.url}" id="n1">${news.title }</a>
 		 <span>${news.publishDate }</span>
 		 </li>

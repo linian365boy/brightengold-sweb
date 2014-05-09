@@ -21,7 +21,8 @@
 		valiResult = $("#form").validate({
 			rules:{
 				"title":{
-					required:true
+					required:true,
+					rangelength:[1,100]
 				},
 				"priority":{
 					number:true
@@ -29,7 +30,8 @@
 			},
 			messages:{
 				"title":{
-					required:"标题不能为空！"
+					required:"标题不能为空！",
+					rangelength:jQuery.format("标题长度在{0}与{1}之间")
 				},
 				"priority":{
 					number:"优先值为数字！"

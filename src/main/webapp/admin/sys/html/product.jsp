@@ -39,7 +39,7 @@
 <div id="productsformat">
 <div class="productsformat_sub">
 <ul>
-<c:forEach items="${pages.result }" var="product" varStatus="status">
+<c:forEach items="${page.result }" var="product" varStatus="status">
 	<li><ol ><li class="etw_pro_img">
 	<a href="${ctx }${product.url}" target="_blank">
 	<img src="/resources/${product.picUrl }" width="186px" height="126px" title="${product.enName }">
@@ -58,7 +58,7 @@
                <div id="pageDiv">
 	 <ul id="pagination-flickr">
 		<c:import url="/views/page.jsp">
-            <c:param name="url" value="views/getProductList.do"/>
+            <c:param name="url" value="views/getProduct.do"/>
         </c:import>
 	</ul>
 	</div>

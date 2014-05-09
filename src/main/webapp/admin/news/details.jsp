@@ -126,15 +126,15 @@
         <div class="fl cFloat" id="left">
         	<div class="info_text">
             	<h1>${model.title}</h1>
-                <div class="titBar">点击率：<span id="clickcount">${model.clicks }</span> | 发表时间：<fmt:formatDate value="${model.publishDate}" pattern="yyyy-MM-dd"/></div>
+                <div class="titBar">Hits:<span id="clickcount">${model.clicks }</span> | Publish Date：<fmt:formatDate value="${model.publishDate}" pattern="yyyy-MM-dd"/></div>
                 <div class="bd cFloat">
-                	                	<div class="introduction"><strong>摘要：</strong>&#12288;&#12288;${model.introduce }</div>
+                	                	<div class="introduction"><strong>Abstract:</strong>&#12288;&#12288;${model.introduce }</div>
 					                    <div id="nc_con" class="bd-content" style="word-wrap: break-word;word-break: normal; ">
 					                    ${model.content }
                     </div>
                     <div class="info-text-foot cFloat">
                 		<div class="fl">
-                		标签：<c:forTokens items="${model.keyWords }" delims=";" var="keyword" varStatus="n">
+                		Tag:<c:forTokens items="${model.keyWords }" delims=";" var="keyword" varStatus="n">
                 			<%-- <a href="${ctx }cu/news/news_li.do?title=${keyword}"> --%>${keyword }<!-- </a> -->&nbsp;&nbsp;
                 			<c:if test="${!n.last }">
                 				|&nbsp;&nbsp;

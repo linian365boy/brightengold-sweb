@@ -50,7 +50,21 @@
                               <tbody><tr>
                                 <td width="344" height="2">
 								</td>
-                                <td valign="top" rowspan="2">
+                              </tr>
+                              <tr>
+                                <td width="344"><div align="center">
+                                  <a target="_blank" href="/resources/${model.picUrl }">
+									<img width="500px" height="500px" border="0" style="BORDER-LEFT-COLOR: #cccccc; BORDER-BOTTOM-COLOR: #cccccc; BORDER-TOP-COLOR: #cccccc; BORDER-RIGHT-COLOR: #cccccc" src="/resources/${model.picUrl }"></a>
+                                </div></td>
+                              </tr>
+                              <tr>
+                                <td width="344" height="9">&nbsp;</td>
+                                <td height="9"></td>
+                              </tr>
+                          </tbody></table></td>
+                        </tr>
+                        <tr>
+                          <td>
 								<table width="100%" border="0" cellspacing="0" cellpadding="0" id="table24">
 									<tbody><tr>
 										<td height="2"></td>
@@ -64,22 +78,9 @@
 									<tr>
 										<td height="40">&#12288;</td>
 									</tr>
-								</tbody></table>
-								</td>
-                              </tr>
-                              <tr>
-                                <td width="344"><div align="center">
-                                  <a target="_blank" href="/resources/${model.picUrl }">
-									<img width="260" height="260" border="0" style="BORDER-LEFT-COLOR: #cccccc; BORDER-BOTTOM-COLOR: #cccccc; BORDER-TOP-COLOR: #cccccc; BORDER-RIGHT-COLOR: #cccccc" src="/resources/${model.picUrl }"></a>
-                                                                  
-                                </div></td>
-                              </tr>
-                              
-                              <tr>
-                                <td width="344" height="9">&nbsp;</td>
-                                <td height="9"></td>
-                              </tr>
-                          </tbody></table></td>
+								</tbody>
+								</table>
+							</td>
                         </tr>
                         <tr>
                           <td height="37" colspan="2" class="title_right">&nbsp;&nbsp; <span style="font-weight: bold">Product description</span></td>
