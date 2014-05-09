@@ -103,12 +103,15 @@ public class ProductService {
 	 * @return
 	 */
 	public PageRainier<Product> findHotProducts(boolean flag,Integer pageNo,Integer pageSize){
+		Page<Product> productsPage = null;
 		if(flag){
 			pageNo = 1;
 			pageSize = 6;
+			productsPage = productDao.findAll(getHotProductsSpeci(),new PageRequest(pageNo-1, pageSize, new Sort(Direction.DESC,"createDate")));
+		}else{
+			productsPage = productDao.findAll(getPublishProductsSpeci(),new PageRequest(pageNo-1, pageSize, new Sort(Direction.DESC,"hot","createDate")));
 		}
-		Page<Product> productsPage = productDao.findAll(getHotProductsSpeci(),new PageRequest(pageNo-1, pageSize, new Sort(Direction.DESC,"createDate")));
-		PageRainier<Product> page = new PageRainier<Product>(productsPage.getTotalElements(),1,6);
+		PageRainier<Product> page = new PageRainier<Product>(productsPage.getTotalElements(),pageNo,pageSize);
 		page.setResult(productsPage.getContent());
 		return page;
 	}
@@ -119,6 +122,16 @@ public class ProductService {
 			public Predicate toPredicate(Root<Product> root,
 					CriteriaQuery<?> query, CriteriaBuilder cb) {
 				return cb.and(cb.equal(root.get("publish"),true),cb.equal(root.get("hot"),true));
+			}
+		};
+	}
+	
+	private Specification<Product> getPublishProductsSpeci() {
+		return new Specification<Product>() {
+			@Override
+			public Predicate toPredicate(Root<Product> root,
+					CriteriaQuery<?> query, CriteriaBuilder cb) {
+				return cb.equal(root.get("publish"),true);
 			}
 		};
 	}

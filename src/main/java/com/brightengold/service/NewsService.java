@@ -26,7 +26,7 @@ public class NewsService {
 	private NewsDao newsDao;
 	
 	public PageRainier<News> findAll(Integer pageNo, Integer pageSize) {
-		Page<News> tempPage = newsDao.findAll(new PageRequest(pageNo-1,pageSize,new Sort(Direction.DESC,"id","priority")));
+		Page<News> tempPage = newsDao.findAll(new PageRequest(pageNo-1,pageSize,new Sort(Direction.DESC,"priority","id")));
 		PageRainier<News> page = new PageRainier<News>(tempPage.getTotalElements(),pageNo,pageSize);
 		page.setResult(tempPage.getContent());
 		return page;
