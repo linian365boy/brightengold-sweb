@@ -148,7 +148,7 @@ public class GennerateController extends ActionSupport implements Preparable{
 	//生成news的静态页面
 	public String toNews(){
 		HttpServletRequest request = ServletActionContext.getRequest();
-		PageRainier<News> newsPage = newsService.findAllPublish(1,10);
+		PageRainier<News> newsPage = newsService.findAllPublish(1,15);
 		request.setAttribute("page", newsPage);
 		return "news";
 	}
@@ -200,7 +200,7 @@ public class GennerateController extends ActionSupport implements Preparable{
 	public String toProduct(){
 		PageRainier<Product> pages = productService.findHotProducts(false, 1, 9);
 		HttpServletRequest request = ServletActionContext.getRequest();
-		request.setAttribute("pages", pages);
+		request.setAttribute("page", pages);
 		return "product";
 	}
 

@@ -200,7 +200,12 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 	}
 	
 	public String getNews(){
-		page = newsService.findAllPublish(pageNo,pageSize);
+		HttpServletRequest request = ServletActionContext.getRequest();
+		Company company = companyService.loadCompany();
+		List<Category> parentCats = categoryService.findParentCategory();
+		page = newsService.findAllPublish(pageNo,15);
+		request.setAttribute("company", company);
+		request.setAttribute("parentCats", parentCats);
 		return SUCCESS;
 	}
 	

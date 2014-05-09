@@ -230,6 +230,8 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 			Category category = categoryService.loadCategoryById(Integer.parseInt(cateId));
 			page = productService.findProductByCategory(category.getId(),pageNo,prSize);
 			ServletActionContext.getRequest().setAttribute("cate", category);
+		}else{
+			page = productService.findHotProducts(false, pageNo, 9);
 		}
 		ServletActionContext.getRequest().setAttribute("cateId", cateId);
 		ServletActionContext.getRequest().setAttribute("company", company);
