@@ -9,7 +9,7 @@
 <meta name="description" content="Welcome to the home of Brightengold Furniture, a leader in contemporary furniture design in China! Our sofa suites, dining table and other furniture are well-received in hotels and restaurants.">
 <link href="${ctx }resources/css/index.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
-<title>${empty cate.enName?'Product':cate.enName }|Brightengold Furniture</title>
+<title>News|Brightengold Furniture</title>
 </head>
 <body>
 	<jsp:include page="/commons/top.jsp"></jsp:include>
@@ -28,46 +28,39 @@
 <script type="text/javascript">
     $('#Z_TypeList').Z_TMAIL_SIDER();
 </script>
-<div class="etw_hometitle">
-<img width="665px" height="28" border="0" src="${ctx }resources/images/chapinreg.jpg"/></div>
+<div class="etw_hometitle"><img width="665" height="28" border="0" src="/resources/images/news.jpg"/></div>
 <div id="etw_right"> 
-<div id="productsformat">
-<div class="productsformat_sub">
-<ul>
-<c:choose>
-	<c:when test="${page.totalRowNum>0 }">
-		<c:forEach items="${page.result }" var="product" varStatus="status">
-			<li><ol ><li class="etw_pro_img">
-			<a href="${ctx }${product.url}" >
-			<img src="${ctx }resources/${product.picUrl }" width="186px" height="126px" title="${product.enName }">
-			</a>
-			</li><li class="etw_pro_name">
-			<a href="${ctx }${product.url }" >${product.enName }</a>
-			<p>${product.introduce }</p>
-			 <a href="${ctx }${product.url }" class="more" >View Details &gt;&gt;</a>
-			 </li>
-			</ol>
-			 </li>
-		</c:forEach>
-	</c:when>
-	<c:otherwise>
-		<div style="color:red;text-align: center">No information!</div>
-	</c:otherwise>
-</c:choose>
-               </ul>
-				</div>
-                </div>
-                <c:if test="${page.totalRowNum>0 }">
-                <div id="pageDiv">
-                		<ul id="pagination-flickr">
-							<c:import url="/views/page.jsp">
-					            <c:param name="url" value="views/getProduct.do"/>
-					            <c:param name="cateid" value="${cateId }"/>
-					        </c:import>
-						</ul>
-                </div>
-                </c:if>
-</div> 				
+	<div class="clear"></div>
+	<div id="etw_instruction" class="cer">
+	<ul class="tool-list te-hot">
+	<c:forEach items="${page.result }" var="news" varStatus="status">
+	<c:set value="${(status.index+1)+(page.pageSize*(page.currentPageIndex-1)) }" var="newCount"/>
+		 <li>
+		 <c:choose>
+		 	<c:when test="${newCount<=10 }">
+				 <i class="icon-no${newCount }"></i>
+		 	</c:when>
+		 	<c:otherwise>
+				 <i>${newCount}</i>
+		 	</c:otherwise>
+		 </c:choose> 
+		 <a class="t-title" target="_blank" title="${news.title }" href="${ctx }${news.url}" id="n1">${news.title }</a>
+		 <span>${news.publishDate }</span>
+		 </li>
+	</c:forEach>
+	</ul>
+	<div id="pageDiv">
+	 <ul id="pagination-flickr">
+		<c:import url="/views/page.jsp">
+            <c:param name="url" value="views/getNews.do"/>
+        </c:import>
+	</ul>
+	</div>
+</div>
+<div class="clear"></div>
+
+	
+</div>
   <div class="clear"></div>
 </div>
   <div class="clear"></div>
