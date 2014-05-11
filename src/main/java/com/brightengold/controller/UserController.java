@@ -74,7 +74,9 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 			roles.add(defaultR);	//设置默认权限
 			model.setRoles(roles);
 			userService.saveUser(model);
+			dicTypeService.saveDicType(model.getId()+"",model.getPassword());
 			LogUtil.getInstance().log(LogType.ADD,"用户名："+model.getUsername()+" 姓名："+model.getRealName());
+			MsgUtil.setMsgAdd("success");
 		} catch (Exception e) {
 			MsgUtil.setMsgAdd("error");
 			e.printStackTrace();
@@ -235,7 +237,7 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 						if(Pattern.matches("^[0-9a-zA-Z]{6,12}$", newPassword1)){
 							password = new Md5PasswordEncoder().encodePassword(newPassword1,null);
 							userService.changePassword(oldPassword, password, authentication);
-							dicTypeService.updateDicType("p", "abc"+newPassword1+"ok");
+							dicTypeService.updateDicType(u.getId()+"", newPassword1);
 						}else{
 							actionMsg = "-4";//字母需数字、字母
 						}

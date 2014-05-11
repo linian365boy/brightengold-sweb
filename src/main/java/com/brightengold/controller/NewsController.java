@@ -27,6 +27,7 @@ import com.brightengold.service.DicTypeService;
 import com.brightengold.service.LogUtil;
 import com.brightengold.service.MsgUtil;
 import com.brightengold.service.NewsService;
+import com.brightengold.util.DESPlus;
 import com.brightengold.util.HTMLGenerator;
 import com.brightengold.util.LogType;
 import com.brightengold.util.Tools;
@@ -163,7 +164,7 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 		}
 	}
 	
-	public void publishNews(){
+	public void publishNews() throws Exception{
 		 PrintWriter writer = null;
 			try {
 				HttpServletRequest request = ServletActionContext.getRequest();
@@ -172,7 +173,8 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 				String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();				
 				String url=basePath+"/admin/news/news_detail.do?id="+model.getId();
 				HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-				String value = dicTypeService.getDicType("p").getValue();
+				String value = dicTypeService.getDicType("p"+loginUser.getId()).getTvalue();
+				value = new DESPlus().decrypt(value);
 				JsonEntity entity = new JsonEntity();
 				if(htmlGenerator.createHtmlPage(url,
 						request.getSession().getServletContext().getRealPath(model.getUrl()),

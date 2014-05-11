@@ -24,6 +24,7 @@ import com.brightengold.service.DicTypeService;
 import com.brightengold.service.MsgUtil;
 import com.brightengold.service.NewsService;
 import com.brightengold.service.ProductService;
+import com.brightengold.util.DESPlus;
 import com.brightengold.util.HTMLGenerator;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
@@ -50,13 +51,14 @@ public class GennerateController extends ActionSupport implements Preparable{
 	private static final long serialVersionUID = 7877633844080802220L;
 	
 	@Secured("ROLE_SUPER")
-	public String index(){
+	public String index() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		User loginUser = (User)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/admin/sys/gennerate_toHome.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-		String value = dicTypeService.getDicType("p").getValue();
+		String value = dicTypeService.getDicType("p"+loginUser.getId()).getTvalue();
+		value = new DESPlus().decrypt(value);
 		if(htmlGenerator.createHtmlPage(url,
 				request.getSession().getServletContext().getRealPath("index.html"),
 				loginUser.getUsername()
@@ -79,13 +81,14 @@ public class GennerateController extends ActionSupport implements Preparable{
 	}
 	
 	@Secured("ROLE_SUPER")
-	public String aboutUs(){
+	public String aboutUs() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		User loginUser = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/admin/sys/gennerate_toAboutUs.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-		String value = dicTypeService.getDicType("p").getValue();
+		String value = dicTypeService.getDicType("p"+loginUser.getId()).getTvalue();
+		value = new DESPlus().decrypt(value);
 		if(htmlGenerator.createHtmlPage(url,
 				request.getSession().getServletContext().getRealPath("about.html"),
 				loginUser.getUsername(),
@@ -103,12 +106,13 @@ public class GennerateController extends ActionSupport implements Preparable{
 	}
 	
 	@Secured("ROLE_SUPER")
-	public String contactUs(){
+	public String contactUs() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		User loginUser = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/admin/sys/gennerate_toContactUs.do";
-		String value = dicTypeService.getDicType("p").getValue();
+		String value = dicTypeService.getDicType("p"+loginUser.getId()).getTvalue();
+		value = new DESPlus().decrypt(value);
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
 		if(htmlGenerator.createHtmlPage(url,
 				request.getSession().getServletContext().getRealPath("contact.html"),
@@ -127,13 +131,14 @@ public class GennerateController extends ActionSupport implements Preparable{
 	}
 	
 	@Secured("ROLE_SUPER")
-	public String news(){
+	public String news() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		User loginUser = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/admin/sys/gennerate_toNews.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-		String value = dicTypeService.getDicType("p").getValue();
+		String value = dicTypeService.getDicType("p"+loginUser.getId()).getTvalue();
+		value = new DESPlus().decrypt(value);
 		if(htmlGenerator.createHtmlPage(url,
 				request.getSession().getServletContext().getRealPath("news.html"),
 				loginUser.getUsername(),
@@ -155,13 +160,14 @@ public class GennerateController extends ActionSupport implements Preparable{
 	
 	
 	@Secured("ROLE_SUPER")
-	public String feedback(){
+	public String feedback() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		User loginUser = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/admin/sys/gennerate_toFeedback.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-		String value = dicTypeService.getDicType("p").getValue();
+		String value = dicTypeService.getDicType("p"+loginUser.getId()).getTvalue();
+		value = new DESPlus().decrypt(value);
 		if(htmlGenerator.createHtmlPage(url,
 				request.getSession().getServletContext().getRealPath("feedback.html"),
 				loginUser.getUsername(),
@@ -179,13 +185,14 @@ public class GennerateController extends ActionSupport implements Preparable{
 	}
 	
 	@Secured("ROLE_SUPER")
-	public String products(){
+	public String products() throws Exception {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		User loginUser = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 		String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
 		String url=basePath+"/admin/sys/gennerate_toProduct.do";
 		HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-		String value = dicTypeService.getDicType("p").getValue();
+		String value = dicTypeService.getDicType("p"+loginUser.getId()).getTvalue();
+		value = new DESPlus().decrypt(value);
 		if(htmlGenerator.createHtmlPage(url,
 				request.getSession().getServletContext().getRealPath("product.html"),
 				loginUser.getUsername(),

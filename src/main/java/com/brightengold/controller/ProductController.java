@@ -29,6 +29,7 @@ import com.brightengold.service.DicTypeService;
 import com.brightengold.service.LogUtil;
 import com.brightengold.service.MsgUtil;
 import com.brightengold.service.ProductService;
+import com.brightengold.util.DESPlus;
 import com.brightengold.util.HTMLGenerator;
 import com.brightengold.util.LogType;
 import com.brightengold.util.Tools;
@@ -195,7 +196,7 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 		}
 	}
 	
-	public String publish(){
+	public String publish() throws Exception{
 		if(model.getId()!=null){
 			Product temp = productService.loadProductById(model.getId());
 			HttpServletRequest request = ServletActionContext.getRequest();
@@ -203,7 +204,8 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 			String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();				
 			String url=basePath+"/admin/goods/product_detail.do?id="+model.getId();
 			HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
-			String value = dicTypeService.getDicType("p").getValue();
+			String value = dicTypeService.getDicType("p"+loginUser.getId()).getTvalue();
+			value = new DESPlus().decrypt(value);
 			if(htmlGenerator.createHtmlPage(url,
 					request.getSession().getServletContext().getRealPath(temp.getUrl()),
 					loginUser.getUsername(),
