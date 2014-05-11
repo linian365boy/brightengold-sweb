@@ -3,6 +3,7 @@ package com.brightengold.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -52,18 +53,21 @@ public class Feedback implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+	@Column(length=50)
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
+	@Column(length=20)
 	public String getTelePhone() {
 		return telePhone;
 	}
 	public void setTelePhone(String telePhone) {
 		this.telePhone = telePhone;
 	}
+	@Column(length=100)
 	public String getEmail() {
 		return email;
 	}

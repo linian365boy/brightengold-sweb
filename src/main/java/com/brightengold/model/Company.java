@@ -44,6 +44,10 @@ public class Company implements Serializable{
 	 */
 	private String address;
 	/**
+	 * 工厂地址
+	 */
+	private String facAddress;
+	/**
 	 * 公司邮箱
 	 */
 	private String email;
@@ -84,28 +88,28 @@ public class Company implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	@Column(length=80)
+	@Column(length=100)
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	@Column(length=14)
+	@Column(length=20)
 	public String getTelPhone() {
 		return telPhone;
 	}
 	public void setTelPhone(String telPhone) {
 		this.telPhone = telPhone;
 	}
-	@Column(length=140)
+	@Column(length=300)
 	public String getAddress() {
 		return address;
 	}
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	@Column(length=30)
+	@Column(length=50)
 	public String getEmail() {
 		return email;
 	}
@@ -118,7 +122,7 @@ public class Company implements Serializable{
 	public void setIntroduce(String introduce) {
 		this.introduce = introduce;
 	}
-	@Column(length=20)
+	@Column(length=255)
 	public String getLogo() {
 		return logo;
 	}
@@ -169,6 +173,7 @@ public class Company implements Serializable{
 	public void setPerson(String person) {
 		this.person = person;
 	}
+	@Column(length=20)
 	public String getMobile() {
 		return mobile;
 	}
@@ -180,6 +185,13 @@ public class Company implements Serializable{
 	}
 	public void setFax(String fax) {
 		this.fax = fax;
+	}
+	@Column(length=300)
+	public String getFacAddress() {
+		return facAddress;
+	}
+	public void setFacAddress(String facAddress) {
+		this.facAddress = facAddress;
 	}
 	
 }

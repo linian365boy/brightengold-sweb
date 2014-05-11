@@ -10,7 +10,6 @@ import com.brightengold.model.DicType;
 
 public interface DicTypeDao extends AbstractDao<DicType, String>{
 	@Modifying
-	@Query("update DicType set value = :value where key = :key")
+	@Query("update DicType set tvalue = :value where tkey = :key")
 	void updateDicTypeValue(@Param("key") String key,@Param("value") String value);
-
 }

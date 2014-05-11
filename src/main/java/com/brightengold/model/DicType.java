@@ -21,12 +21,19 @@ public class DicType implements Serializable{
 	/**
 	 * key值
 	 */
-	private String key;
+	private String tkey;
 	/**
 	 * value值
 	 */
-	private String value;
+	private String tvalue;
 	
+	public DicType(){
+	}
+	
+	public DicType(String key, String value) {
+		this.tkey = key;
+		this.tvalue = value;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -34,17 +41,16 @@ public class DicType implements Serializable{
 		this.id = id;
 	}
 	@Id
-	@GeneratedValue
-	public String getKey() {
-		return key;
+	public String getTkey() {
+		return tkey;
 	}
-	public void setKey(String key) {
-		this.key = key;
+	public void setTkey(String tkey) {
+		this.tkey = tkey;
 	}
-	public String getValue() {
-		return value;
+	public String getTvalue() {
+		return tvalue;
 	}
-	public void setValue(String value) {
-		this.value = value;
+	public void setTvalue(String tvalue) {
+		this.tvalue = tvalue;
 	}
 }

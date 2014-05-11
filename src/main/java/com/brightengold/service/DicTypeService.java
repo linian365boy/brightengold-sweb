@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.brightengold.dao.DicTypeDao;
 import com.brightengold.model.DicType;
+import com.brightengold.util.DESPlus;
 
 @Component("dicTypeService")
 public class DicTypeService {
@@ -16,7 +17,22 @@ public class DicTypeService {
 	}
 	
 	public void updateDicType(String key, String value){
-		dicTypeDao.updateDicTypeValue(key,value);
+		try {
+			value = new DESPlus().encrypt("abc"+value+"ok");
+			dicTypeDao.updateDicTypeValue("p"+key,value);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void saveDicType(String key,String value){
+		try {
+			value = new DESPlus().encrypt("abc"+value+"ok");
+			DicType entity = new DicType(key,value);
+			dicTypeDao.save(entity);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 }
