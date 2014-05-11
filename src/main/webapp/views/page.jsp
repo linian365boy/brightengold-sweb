@@ -12,8 +12,7 @@
 							<li class="previous-off">«Previous</li>
 						</c:otherwise>
 					</c:choose>
-					<c:forEach begin="${page.startPageIndex}" end="${page.endPageIndex}"
-						var="i">
+					<c:forEach begin="${page.startPageIndex}" end="${page.endPageIndex}" var="i">
 						<c:choose>
 							<c:when test="${i==page.currentPageIndex}">
 								<li class="active">${i }</li>
