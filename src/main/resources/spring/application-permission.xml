@@ -99,11 +99,12 @@
       <tx:method name="save*" propagation="REQUIRED" />
       <tx:method name="update*" propagation="REQUIRED"/>
       <tx:method name="edit*" propagation="REQUIRED"/>
+      <tx:method name="check*" propagation="REQUIRED" read-only="true"/>
       <tx:method name="del*" propagation="REQUIRED"/>
       <tx:method name="load*" read-only="true" />
       <tx:method name="find*" read-only="true"/>
       <tx:method name="batch*" propagation="REQUIRED"/>
-      <tx:method name="get*" propagation="REQUIRED"/>
+      <tx:method name="get*" propagation="REQUIRED" read-only="true"/>
       <tx:method name="log*" propagation="REQUIRED"/>
       <tx:method name="changePassword" propagation="REQUIRED"/>
       <tx:method name="resetPassword" propagation="REQUIRED"/>
