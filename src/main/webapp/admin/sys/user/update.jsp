@@ -76,7 +76,7 @@
 	            	</c:if>
 	            </c:forEach>
             <div class="form-group" style="width:500px;">
-            	<label for="roles" class="col-xs-3 control-label" style="text-align: right;">角色分配</label>
+            	<label for="roles" class="col-xs-3 control-label" style="text-align: right;">角色</label>
             	<div class="col-xs-9">
 	            <select name="role" id="roles" style="width:55%;" class="form-control">
 	            	<c:forEach items="${rolesAjax }" var="r">

@@ -93,7 +93,7 @@
             </div>
             
             <div class="form-group" style="width:500px;">
-            	<label for="role" class="col-xs-3 control-label" style="text-align: right;">角色分配</label>
+            	<label for="role" class="col-xs-3 control-label" style="text-align: right;">角色</label>
             	<div class="col-xs-9">
 	            <select name="role" id="roles" style="width:55%;" class="form-control">
 	              <%--<option value="0">=====角色分配=====</option>--%>

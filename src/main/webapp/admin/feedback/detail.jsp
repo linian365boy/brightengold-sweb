@@ -9,6 +9,12 @@
 <%@include file="/admin/commons/jsCss.jsp" %>
  <%@include file="/admin/commons/listJsCss.jsp" %>
  <link rel="stylesheet" type="text/css" href="${ctx }resources/css/style.css" />
+ <style type="text/css">
+body{
+		font-size: 12px;
+		font-family: Arial, Tahoma, Verdana;
+	}
+</style>
 </head>
 <body>
 <jsp:include page="/admin/commons/header.jsp"/>

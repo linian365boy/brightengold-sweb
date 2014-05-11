@@ -38,7 +38,7 @@
 	
 	var publish = function(obj){
 		var productId = $(obj).attr("name");
-		var str = "确定发布此新闻？";
+		var str = "确定发布此商品？";
 		$.get("${ctx}admin/goods/product_checkPub.do?id="+productId,function(rs){
 			if(rs==1){
 				str = "此商品已发布，确定重新发布？";

@@ -21,6 +21,8 @@
 	$(document).ready(function(){
 		initpg();
 		searchpg();
+		getHits();
+		updateHits();
 	});
 	
     function initpg(){
@@ -98,7 +100,14 @@
     	document.getElementById("nc_page").innerHTML=pagesel;
     }
     
-	
+	function updateHits(){
+		$.post("${ctx}views/updateHit.do",{"id":"${model.id}"});
+	}
+	function getHits(){
+		$.post("${ctx}views/getHit.do",{"id":"${model.id}"},function(click){
+			$("#clickcount").html(click);
+		});
+	}
 </script>
 </head>
   <body>
@@ -126,7 +135,7 @@
         <div class="fl cFloat" id="left">
         	<div class="info_text">
             	<h1>${model.title}</h1>
-                <div class="titBar">Hits:<span id="clickcount">${model.clicks }</span> | Publish Date：<fmt:formatDate value="${model.publishDate}" pattern="yyyy-MM-dd"/></div>
+                <div class="titBar">Hits:<span id="clickcount">0</span> | Publish Date：<fmt:formatDate value="${model.publishDate}" pattern="yyyy-MM-dd"/></div>
                 <div class="bd cFloat">
                 	                	<div class="introduction"><strong>Abstract:</strong>&#12288;&#12288;${model.introduce }</div>
 					                    <div id="nc_con" class="bd-content" style="word-wrap: break-word;word-break: normal; margin:40px ">
