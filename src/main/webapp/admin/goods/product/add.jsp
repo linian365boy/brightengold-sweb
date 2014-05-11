@@ -39,7 +39,8 @@
 		$("#form").validate({
 			rules:{
 				"enName":{
-					required:true
+					required:true,
+					rangelength:[1,50]
 				},
 				"photo":{
 					required:true,
@@ -51,7 +52,8 @@
 			},
 			messages:{
 				"enName":{
-					required:"商品名称不能为空！"
+					required:"商品名称不能为空！",
+					rangelength:jQuery.format("名称长度在{0}与{1}之间")
 				},
 				"photo":{
 					required:"商品图片不能为空！",
@@ -114,7 +116,7 @@
             <div class="form-group">
             	<label for="photo" class="col-sm-2 control-label">商品图片</label>
             	<div class="col-sm-4">
-	            	<input type="file" name="photo"/>
+	            	<input type="file" name="photo" id="photo"/>
             	</div>
             </div>
             

@@ -22,11 +22,13 @@
 					rangelength:[1,100],
 				},
 				"telePhone":{
-					required:true
+					required:true,
+					rangelength:[1,20]
 				},
 				"email":{
 					required:true,
-					email:true
+					email:true,
+					rangelength:[1,100]
 				},
 				"content":{
 					required:true
@@ -38,11 +40,13 @@
 					rangelength:jQuery.format("Length is between {0} and {1}")
 				},
 				"telePhone":{
-					required:"Telephone can't be empty!"
+					required:"Telephone can't be empty!",
+					rangelength:jQuery.format("Length is between {0} and {1}")
 				},
 				"email":{
 					required:"email can't be empty!",
-					email:"email format error!"
+					email:"email format error!",
+					rangelength:jQuery.format("Length is between {0} and {1}")
 				},
 				"content":{
 					required:"Content can't be empty!"

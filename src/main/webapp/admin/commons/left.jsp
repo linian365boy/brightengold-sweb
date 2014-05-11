@@ -133,30 +133,7 @@
 			</article>
 		</div>
 	</section><!-- end of secondary bar -->
-	
 	<aside id="sidebar" class="column" style="height: 100%;">
-		<%-- 
-		<h3>商品管理</h3>
-		<ul class="toggle">
-			<li class="icn_categories"><a href="${ctx }admin/goods/category/categorys/1">分类管理</a></li>
-			<li class="icn_edit_article"><a href="${ctx }admin/goods/product/products/1">商品管理</a></li>
-		</ul>
-		<h3>新闻管理</h3>
-		<ul class="toggle">
-			<li class="icn_add_user"><a href="${ctx }admin/news/news/1">新闻管理</a></li>
-		</ul>
-		<h3>反馈管理</h3>
-		<ul class="toggle">
-			<li class="icn_folder"><a href="${ctx }admin/feedback/feedbacks/1">反馈管理</a></li>
-		</ul>
-		<h3>系统管理</h3>
-		<ul class="toggle">
-			<li class="icn_settings"><a href="${ctx }admin/sys/user/users/1">用户管理</a></li>
-			<li class="icn_security"><a href="${ctx }admin/sys/role/roles/1">角色管理</a></li>
-			<li class="icn_jump_back"><a href="${ctx }admin/sys/log/logs/1">日志管理</a></li>
-			<li class="icn_jump_back"><a href="${ctx }admin/sys/company/">公司管理</a></li>
-			<li class="icn_settings"><a href="${ctx }admin/sys/html/">生成管理</a></li>
-		</ul> --%>
 		<footer id="footer">
 			<hr />
 			<%

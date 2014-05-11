@@ -53,7 +53,7 @@
           <div class="form-group">
 		<label for="createTime" class="col-sm-2 control-label">反馈时间</label>
 		<div class="col-sm-6">
-          	<input type="text" disabled class="form-control"  disabled="disabled" value="${model.createTime }"/>
+          	<input type="text" id="createTime" disabled class="form-control"  disabled="disabled" value="${model.createTime }"/>
           	</div>
           </div>
 		</form>

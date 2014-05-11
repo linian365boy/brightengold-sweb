@@ -29,7 +29,8 @@ $(document).ready(function(){
 	$("#form").validate({
 		rules:{
 			"enName":{
-				required:true
+				required:true,
+				rangelength:[1,50]
 			},
 			"childC":{
 				required:true
@@ -37,7 +38,8 @@ $(document).ready(function(){
 		},
 		messages:{
 			"enName":{
-				required:"商品名称不能为空！"
+				required:"商品名称不能为空！",
+				rangelength:jQuery.format("名称长度在{0}与{1}之间")
 			},
 			"childC":{
 				required:"商品分类不能为空！"
@@ -94,7 +96,7 @@ function changePC(pid){
             	<label for="photo" class="col-sm-2 control-label">商品图片</label>
             	<div class="col-sm-10">
             		<img alt="${model.enName }" width="50px" height="50px" title="${model.enName }" src="${ctx }resources/${model.picUrl}" >
-	            	<input type="file" name="photo" title="点击更换商品图片"/>
+	            	<input type="file" name="photo" id="photo" title="点击更换商品图片"/>
             	</div>
             </div>
             <div class="form-group">

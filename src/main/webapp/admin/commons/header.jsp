@@ -24,7 +24,6 @@
 	</header> <!-- end of header bar -->
 	<script type="text/javascript">
 		function modifyPass(){
-			var flag = false;
 			var modifyDialog = art.dialog.load('${ctx}/admin/sys/user/modifyPass.jsp',{
 				title: '修改密码',
 				width:350,
@@ -53,9 +52,6 @@
 								res = "新密码需字母、数字组成！";
 							}
 							dialog.content("<span style='color:red;'>"+res+"</span>").time(2);
-							if(res==1){
-								modifyDialog.close();
-							}
 						},
 						error:function(res){
 							art.dialog({
@@ -65,7 +61,6 @@
 							});
 						}
 					});
-					return flag;
 				},
 				cancel:true
 			},false);

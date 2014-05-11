@@ -129,7 +129,7 @@
                 <div class="titBar">Hits:<span id="clickcount">${model.clicks }</span> | Publish Date：<fmt:formatDate value="${model.publishDate}" pattern="yyyy-MM-dd"/></div>
                 <div class="bd cFloat">
                 	                	<div class="introduction"><strong>Abstract:</strong>&#12288;&#12288;${model.introduce }</div>
-					                    <div id="nc_con" class="bd-content" style="word-wrap: break-word;word-break: normal; ">
+					                    <div id="nc_con" class="bd-content" style="word-wrap: break-word;word-break: normal; margin:40px ">
 					                    ${model.content }
                     </div>
                     <div class="info-text-foot cFloat">

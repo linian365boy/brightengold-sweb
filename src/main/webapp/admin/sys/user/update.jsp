@@ -44,11 +44,11 @@
 					required:"账号不能为空！",
 					chrnum:"账号需数字、字母！",
 					remote:"账号已存在！",
-					rangelength:jQuery.format("账号长度在{0}与{1}之间")
+					rangelength:jQuery.format("长度在{0}与{1}之间")
 				},
 				"realName":{
 					required:"姓名不能为空！",
-					rangelength:jQuery.format("姓名字数在{0}与{1}之间！")
+					rangelength:jQuery.format("字数在{0}与{1}之间！")
 				}
 			}
 		});
@@ -67,7 +67,7 @@
             <div class="form-group" style="width:500px;">
             	<label for="realName" class="col-xs-3 control-label" style="text-align: right;">姓名</label>
             	<div class="col-xs-9">
-            		<input name="realName" class="form-control" style="width:55%;" placeholder="姓名" value="${model.realName }" type="text"/>
+            		<input id="realName" name="realName" class="form-control" style="width:55%;" placeholder="姓名" value="${model.realName }" type="text"/>
             	</div>
              </div>
              <c:forEach items="${model.roles }" var="myRole">
@@ -76,7 +76,7 @@
 	            	</c:if>
 	            </c:forEach>
             <div class="form-group" style="width:500px;">
-            	<label for="role" class="col-xs-3 control-label" style="text-align: right;">角色分配</label>
+            	<label for="roles" class="col-xs-3 control-label" style="text-align: right;">角色分配</label>
             	<div class="col-xs-9">
 	            <select name="role" id="roles" style="width:55%;" class="form-control">
 	            	<c:forEach items="${rolesAjax }" var="r">

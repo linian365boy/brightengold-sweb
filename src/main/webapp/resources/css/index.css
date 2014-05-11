@@ -35,7 +35,7 @@ ul,li,ol{ list-style:none;}
 .etw_contact_title a{color:#ff8f0a; font-weight:bold; line-height:60px; font-size:22px; padding-left:50px;}
 .etw_contact_title a:hover{ text-decoration:underline;}
 
-#etw_right{ height:auto; float:right;padding-left: 30px;
+#etw_right{ min-height:600px; float:right;padding-left: 30px;
     width: 645px;background: url("../images/bg_line_t.png") repeat-y scroll 0 0 #FFFFFF;}
 
 #etw_hot_products{ width:645px; height:auto; float:right; background:url("../images/bg_line_t.png") repeat-y scroll 0 0 #FFFFFF; padding-left:30px; }
@@ -510,3 +510,10 @@ a {
 .productsformat_sub ul.th_sub_pro li.th_sub_pro_child a:hover{color:#c6010a; text-decoration:none;}
 .productsformat_sub a.etw_pro_a_link{ color:#333; display:block; line-height:16px;padding-bottom:5px; text-decoration:underline; font-weight:normal;}
 .productsformat_sub a:hover.etw_pro_a_link{ text-decoration:none; color:#c6010a;}
+
+#etw_instruction {
+    float: left;
+    height: auto;
+    margin-bottom: 5px;
+    width: 100%;
+}

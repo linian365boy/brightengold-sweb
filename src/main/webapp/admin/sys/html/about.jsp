@@ -9,11 +9,6 @@
 <link href="${ctx }resources/css/index.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
 <title>About Us|Brightengold Furniture</title>
-<style type="text/css">
-#etw_banner{background:url() no-repeat;}
-.left{ margin:0 50px 30px 0;}
-#etw_con .left,#etw_con .left1{width:100%; margin:0px;}
-</style>
 </head>
 <body>
 	<jsp:include page="/commons/top.jsp"></jsp:include>
@@ -35,7 +30,7 @@
 <div class="etw_hometitle"><img width="665px" height="28" border="0" src="/resources/images/jieshaoreg.jpg"/></div>
 <div id="etw_right"> 
 	<div class="clear"></div>
-	<div id="etw_instruction" class="cer">
+	<div id="etw_instruction" class="cer" style="word-wrap: break-word;word-break: normal; margin-top:10px;margin-left:-10px">
 	${company.introduce }
 	</div>
 <div class="clear"></div>

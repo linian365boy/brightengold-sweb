@@ -35,7 +35,8 @@
 <div class="etw_hometitle"><img width="665px" height="28" border="0" src="/resources/images/contact.jpg"/></div>
 <div id="etw_right"> 
 <div class="clear"></div>
-<div id="etw_instruction" class="cer">
+<div id="etw_instruction" class="cer" style="margin-top: 10px;">
+<p>Factory add: ${company.facAddress }</p>
 <p>Office add: ${company.address }</p>
 <p>Tel: ${company.telPhone }</p>
 <p>Mobile: ${company.mobile }</p>

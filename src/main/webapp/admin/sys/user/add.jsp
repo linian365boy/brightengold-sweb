@@ -54,15 +54,15 @@
 					required:"账号不能为空",
 					chrnum:"账号需数字、字母",
 					remote:"账号已存在",
-					rangelength:jQuery.format("账号长度在{0}与{1}之间")
+					rangelength:jQuery.format("长度在{0}与{1}之间")
 				},
 				"password":{
 					required:"密码不能为空",
-					rangelength:jQuery.format("密码长度在{0}与{1}之间")
+					rangelength:jQuery.format("长度在{0}与{1}之间")
 				},
 				"realName":{
 					required:"姓名不能为空",
-					rangelength:jQuery.format("姓名字数在{0}与{1}之间")
+					rangelength:jQuery.format("字数在{0}与{1}之间")
 				}
 			}
 		});
@@ -81,7 +81,7 @@
             <div class="form-group" style="width:500px;">
             	<label for="password" class="col-xs-3 control-label" style="text-align: right;">密码 </label>
             	<div class="col-xs-9">
-            		<input name="password" class="form-control" style="width:55%;" autocomplete="off" type="password"/>
+            		<input name="password" id="password" class="form-control" style="width:55%;" placeholder="密码" autocomplete="off" type="password"/>
             	</div>
             </div>
             
@@ -107,7 +107,7 @@
 		            	<input type="checkbox" name="enabled"/>是否启用账号
 		            	</label>
 					</div>
-			</div>
+				</div>
             </div>
             
             <input type="hidden" value="${param.pageNo }" name="pageNo"/>

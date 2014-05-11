@@ -36,7 +36,7 @@
 			 <div class="form-group" style="width:500px;">
             	<label for="desc" class="col-xs-3 control-label" style="text-align: right;">角色 </label>
             	<div class="col-xs-9">
-            		<input name="desc" class="form-control" placeholder="角色" style="width:55%;" type="text" id="desc"/>
+            		<input name="desc" id="desc" class="form-control" placeholder="角色" style="width:55%;" type="text" id="desc"/>
             	</div>
             </div>
             <input type="hidden" value="${param.pageNo }" name="pageNo"/>

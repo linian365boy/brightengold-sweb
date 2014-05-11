@@ -12,8 +12,13 @@
  <script type="text/javascript" src="${ctx }resources/js/ckEditor/lang/zh-cn.js"></script>
  <script type="text/javascript" src="${ctx }resources/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.metadata.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="${ctx }resources/css/style.css" />
+<link rel="stylesheet" type="text/css" href="${ctx }resources/css/style.css" />
+<style type="text/css">
+body{
+		font-size: 12px;
+		font-family: Arial, Tahoma, Verdana;
+	}
+</style>
 <title>编辑新闻|brightengold后台管理系统</title>
 <script type="text/javascript">
 	var valiResult;

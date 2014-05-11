@@ -15,6 +15,12 @@
 <script src="${ctx}resources/js/jquery-1.8.3.js" type="text/javascript"></script>
 <link href="${ctx }resources/css/bootstrap.min.css" rel="stylesheet"/>
 <link rel="stylesheet" type="text/css" href="${ctx}resources/css/style.css" />
+<style type="text/css">
+body{
+		font-size: 12px;
+		font-family: Arial, Tahoma, Verdana;
+	}
+</style>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$.getJSON("${ctx}admin/sys/role_getRolesByAjax.do", function(data) {

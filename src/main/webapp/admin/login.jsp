@@ -28,7 +28,7 @@
   	<%
   		Calendar now = Calendar.getInstance(TimeZone.getDefault(),Locale.getDefault());
   	%>
-      Copyright &copy; <%=now.get(Calendar.YEAR) %> linian365boy#sina.com。把#换成@
+      Copyright &copy; <%=now.get(Calendar.YEAR) %> linian365boy#foxmail.com。把#换成@
     </div>
   </form>
 </body>
