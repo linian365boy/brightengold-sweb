@@ -74,7 +74,7 @@ public class UserController extends ActionSupport implements ModelDriven<User>{
 			roles.add(defaultR);	//设置默认权限
 			model.setRoles(roles);
 			userService.saveUser(model);
-			dicTypeService.saveDicType(model.getId()+"",model.getPassword());
+			dicTypeService.saveDicType(model.getId(),model.getPassword());
 			LogUtil.getInstance().log(LogType.ADD,"用户名："+model.getUsername()+" 姓名："+model.getRealName());
 			MsgUtil.setMsgAdd("success");
 		} catch (Exception e) {

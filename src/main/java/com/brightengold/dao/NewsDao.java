@@ -12,5 +12,7 @@ public interface NewsDao extends AbstractDao<News, Integer>{
 	@Modifying
 	@Query("update News set clicks = ?2 where id = ?1")
 	public void updateClicks(Integer newsId,Integer clicks);
+	@Query("select clicks from News n where n.id = ?")
+	public int getClicks(Integer id);
 
 }

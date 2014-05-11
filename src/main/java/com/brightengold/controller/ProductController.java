@@ -146,9 +146,21 @@ public class ProductController extends ActionSupport implements ModelDriven<Prod
 	}
 	
 	public String del(){
+		HttpServletRequest request = ServletActionContext.getRequest();
 		if(model.getId()!=null){
 			StringBuilder sb = new StringBuilder();
 			model = productService.loadProductById(model.getId());
+			String url = model.getUrl();
+			String picUrl = model.getPicUrl();
+			String path = null;
+			if(url!=null){
+				path = request.getSession().getServletContext().getRealPath("/"+url);
+				Tools.delFile(path);
+			}
+			if(picUrl!=null){
+				path = request.getSession().getServletContext().getRealPath("/resources/"+picUrl);
+				Tools.delFile(path);
+			}
 			productService.delProduct(model);
 			sb.append("名称："+model.getEnName());
 			MsgUtil.setMsgDelete("success");

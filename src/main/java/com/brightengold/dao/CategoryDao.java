@@ -22,5 +22,7 @@ public interface CategoryDao extends AbstractDao<Category, Integer>{
 	List<Category> findParentCats();
 	@Query("select c.id,c.enName from Category c where c.parent.id = :pid")
 	List<Object[]> findChildCategoryByAjax(@Param("pid") int pid);
+	@Query("select count(id) from Product p where p.category is :category")
+	long checkHasProduct(@Param("category") Category model);
 	
 }

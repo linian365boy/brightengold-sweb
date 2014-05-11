@@ -25,10 +25,10 @@ public class DicTypeService {
 		}
 	}
 	
-	public void saveDicType(String key,String value){
+	public void saveDicType(Long key,String value){
 		try {
 			value = new DESPlus().encrypt("abc"+value+"ok");
-			DicType entity = new DicType(key,value);
+			DicType entity = new DicType("p"+key,value);
 			dicTypeDao.save(entity);
 		} catch (Exception e) {
 			e.printStackTrace();

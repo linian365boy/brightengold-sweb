@@ -107,7 +107,8 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 		if(model.getId()!=null){
 			HttpServletRequest request = ServletActionContext.getRequest();
 			model = newsService.loadNews(model.getId());
-			newsService.updateClicks(model);	//点击率
+			//model.setPublishDate(new Date());
+			//newsService.updateClicks(model);	//点击率
 			Company company = companyService.loadCompany();
 			List<Category> parentCats = categoryService.findParentCategory();
 			request.setAttribute("company", company);
@@ -116,6 +117,34 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 		}
 		MsgUtil.setMsg(ERROR, "对不起，新闻不存在！");
 		return "toList";
+	}
+	
+	public void getHits(){
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter writer = null;
+		try {
+			int clicks = 0;
+			if(model.getId()!=null){
+				clicks = newsService.getClicks(model.getId());
+			}
+			writer = response.getWriter();
+			writer.write(clicks+"");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally{
+			if(writer!=null){
+				writer.close();
+			}
+		}
+		
+	}
+	
+	public void updateHits(){
+		if(model.getId()!=null){
+			model = newsService.loadNews(model.getId());
+			newsService.updateClicks(model);	//点击率
+		}
 	}
 	
 	public String del(){
@@ -171,6 +200,7 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 				model = newsService.loadNews(model.getId());
 				User loginUser = ((User)SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 				String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();				
+				model.setPublishDate(new Date());
 				String url=basePath+"/admin/news/news_detail.do?id="+model.getId();
 				HTMLGenerator htmlGenerator = new HTMLGenerator(basePath);
 				String value = dicTypeService.getDicType("p"+loginUser.getId()).getTvalue();
@@ -180,7 +210,6 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 						request.getSession().getServletContext().getRealPath(model.getUrl()),
 						loginUser.getUsername(),
 						value.substring(value.indexOf("abc")+3, value.lastIndexOf("ok")))){
-					model.setPublishDate(new Date());
 					if(newsService.saveNews(model)!=null){
 						entity.setKey("1");
 						entity.setValue(Tools.formatDate(model.getPublishDate(), false));

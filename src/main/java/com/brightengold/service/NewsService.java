@@ -80,4 +80,8 @@ public class NewsService {
 		};
 	}
 
+	public int getClicks(Integer id) {
+		return newsDao.getClicks(id);
+	}
+
 }

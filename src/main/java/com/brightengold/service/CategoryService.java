@@ -64,6 +64,10 @@ public class CategoryService {
 	public List<Object[]> getChildrenCategory(int pid) {
 		return this.categoryDao.findChildCategoryByAjax(pid);
 	}
+
+	public boolean checkHasProduct(Category model) {
+		return categoryDao.checkHasProduct(model)>0?true:false;
+	}
 	
 	
 }

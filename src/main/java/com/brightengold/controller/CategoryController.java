@@ -176,10 +176,14 @@ public class CategoryController extends ActionSupport implements ModelDriven<Cat
 			if(categoryService.checkHasChildren(model)){
 				MsgUtil.setMsg("error", "请先删除该分类下的子分类");
 			}else{
-				categoryService.delCategory(model.getId());
-				MsgUtil.setMsg("success", "删除分类成功！");
-				//日志记录
-				LogUtil.getInstance().log(LogType.DEL, model.getEnName()+"删除了");
+				if(categoryService.checkHasProduct(model)){
+					MsgUtil.setMsg("error", "请先删除该分类下的商品");
+				}else{
+					categoryService.delCategory(model.getId());
+					MsgUtil.setMsg("success", "删除分类成功！");
+					//日志记录
+					LogUtil.getInstance().log(LogType.DEL, model.getEnName()+"删除了");
+				}
 			}
 		}
 		return "toList";
