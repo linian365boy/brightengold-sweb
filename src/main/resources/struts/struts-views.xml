@@ -14,6 +14,8 @@
 		<action name="getNews" class="newsController" method="getNews">
 			<result>/views/news.jsp</result>
 		</action>
+		<action name="updateHit" class="newsController" method="updateHits"/>
+		<action name="getHit" class="newsController" method="getHits"/>
 	</package>
 	
 </struts>
