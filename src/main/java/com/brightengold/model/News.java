@@ -20,31 +20,31 @@ public class News implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer id;
 	/**
-	 * 新闻标题
+	 * 项目标题
 	 */
 	private String title;
 	/**
-	 * 新闻摘要
+	 * 项目摘要
 	 */
 	private String introduce;
 	/**
-	 * 新闻内容
+	 * 项目内容
 	 */
 	private String content;
 	/**
-	 * 新闻优先值
+	 * 项目优先值
 	 */
 	private Integer priority;
 	/**
-	 * 新闻url,静态页面发布以后才有
+	 * 项目url,静态页面发布以后才有
 	 */
 	private String url;
 	/**
-	 * 新闻创建日期
+	 * 项目创建日期
 	 */
 	private Date createDate;
 	/**
-	 * 新闻发布日期
+	 * 项目发布日期
 	 */
 	private Date publishDate;
 	/**
