@@ -95,7 +95,7 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 				content.append("优先值由\""+temp.getPriority()+"\"修改为\""+model.getPriority()+"\"");
 			}
 			if("".equals(content.toString().trim())){
-				content.append("修改了标题为"+model.getTitle()+"新闻");
+				content.append("修改了标题为"+model.getTitle()+"项目项目");
 			}
 			MsgUtil.setMsgUpdate("success");
 			LogUtil.getInstance().log(LogType.EDIT, content.toString());
@@ -115,7 +115,7 @@ public class NewsController extends ActionSupport implements ModelDriven<News>{
 			request.setAttribute("parentCats", parentCats);
 			return "details";
 		}
-		MsgUtil.setMsg(ERROR, "对不起，新闻不存在！");
+		MsgUtil.setMsg(ERROR, "对不起，项目项目不存在！");
 		return "toList";
 	}
 	
