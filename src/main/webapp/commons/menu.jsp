@@ -8,7 +8,7 @@
 </a>
 <a class="link_menu" href="${ctx }product.html">Products<br>
 </a>
-<a class="link_menu" href="${ctx }news.html">News<br>
+<a class="link_menu" href="${ctx }news.html">Projects<br>
 </a>
 <a class="link_menu" href="${ctx }feedback.html">Feedback<br>
 </a>
@@ -16,5 +16,4 @@
 <br>
 </a>
 </div>
-  <div class="clear"></div>
 </div> 

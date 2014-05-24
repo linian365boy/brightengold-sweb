@@ -2,13 +2,13 @@
     pageEncoding="UTF-8"%>
   <div id="etw_service1">
   <ul class="recommand_home_content" id="recommand_home_content_1">
-  <li><a href="http://www.glmfurniture.com/profile/after-sales-service.html/155450/0">Contact Us</a></li>
-  <li style="padding-left:0px;background: url('/resources/images/lianxibg.jpg')">
+  <li><a href="${ctx }contact.html">Contact Us</a></li>
+  <li style="padding-left:0px;">
  <p class="left">
-          <strong>Contact Us:</strong>${company.name }<br>
-          <strong>Contact Person:</strong> ${company.person }<br>
+          <strong>${company.name }</strong><br>
+          <br>
+          <strong>${company.person }</strong> <br>
           <strong>Mobile:</strong> ${company.mobile }<br>
-          <strong>Tel:</strong> ${company.telPhone }<br>
-          <strong>Fax:</strong> ${company.fax }<br>
-          <strong>Email:</strong> ${company.email }</p>
+          <strong>&nbsp;Phone:</strong> ${company.telPhone }<br>
+          <strong>&nbsp;&nbsp;&nbsp;Email:</strong> ${company.email }</p>
  </li></ul></div> 

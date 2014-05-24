@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
     <%@include file="/commons/include.jsp" %>
 <div id="etw_contact">
-<div class="etw_contact_title1"><a href="http://www.glmfurniture.com/add/contact">Latest Recommended</a></div>
+<div class="etw_contact_title1"><a href="javascript:void(0);" >Latest Recommended</a></div>
 <div class="clear"></div>
 <div id="etw_contactin" class="scrolllist">
         <a class="abtn aleft" href="#left" title="move to left"></a>
