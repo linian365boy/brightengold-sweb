@@ -56,7 +56,7 @@ background: none repeat scroll 0 0 #FFFFFF;
 }
 #etw_service1 ul{ width:100%; height:auto; float:left;}
 #etw_service1 ul li{ width:100%; height:auto; float:left;}
-#etw_service1 ul li a{color:#0099FF; line-height:30px; font-size:20px; padding-bottom:8px; font-family:"Times New Roman", Times, serif; font-weight:bold;}
+#etw_service1 ul li a{color:rgb(38,91,133); line-height:30px; font-size:20px; padding-bottom:8px; font-family:"Times New Roman", Times, serif; font-weight:bold;}
 #etw_service1 ul li a:hover{ color:#db8c23; text-decoration:underline;}
 #etw_service1 ul li p{ color:#black; padding-top:22px;}
 
@@ -309,11 +309,7 @@ A:link {
     text-decoration: none;
 }
 a:link, a:visited {
-    color: #575757;
-    text-decoration: none;
-}
-a:link, a:visited {
-    color: #C41D23;
+    color: rgb(38,91,133);
     text-decoration: none;
 }
 .logo, .social-network, .social-network li a, ul.simple-drop-down-menu li a, #g-search button, #get-in-touch .via-phone-number .icon, .back-to-top, a.read-more, .flick-gallery li a, ul.zigzag li strong, ul.point li a, ul.point li a em, #content {
