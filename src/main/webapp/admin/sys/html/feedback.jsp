@@ -71,7 +71,6 @@
 <body>
 	<jsp:include page="/commons/top.jsp"></jsp:include>
 <jsp:include page="/commons/menu.jsp"></jsp:include>
-<div class="clear"></div>
 <div id="container"> 
   <div id="center"> 
   <div style="left: 100px ! important;" class="Z_TypeList" id="Z_TypeList">
