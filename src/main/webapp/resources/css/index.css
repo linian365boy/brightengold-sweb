@@ -15,7 +15,7 @@ h2{line-height:23px;color:#000;font-weight:normal;font-size:18px; padding-bottom
 *{margin:0;padding:0;}
 p{ padding-bottom:12px;} 
 img{ border:none;}
-.clear{ clear:both; line-height:0; font-size:0; height:0;} 
+.clear{ clear:both; line-height:0; font-size:0; height:3px;} 
 a.mail{color:#fe0000; text-decoration:underline;}  
 ul,li,ol{ list-style:none;}
 
