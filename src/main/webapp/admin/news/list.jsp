@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <%@include file="/admin/commons/listJsCss.jsp" %>
  <%@include file="/admin/commons/jsCss.jsp" %>
-<title>新闻管理|brightengold后台管理系统</title>
+<title>项目管理|brightengold后台管理系统</title>
 <script type="text/javascript">
 	var update = function(obj){
 		var newsId = $(obj).attr("name");
@@ -17,7 +17,7 @@
 		//del
 		var del = function(obj){
 			var newsId = $(obj).attr("name");
-			art.dialog.confirm('确定删除此新闻？',function(){
+			art.dialog.confirm('确定删除此项目？',function(){
 				var url = '${ctx}admin/news/news_del.do?pageNo=${pageNo}&id='+newsId;
 				window.location.href=url;
 			});
@@ -31,10 +31,10 @@
 		//publish
 		var publish = function(obj){
 			var newsId = $(obj).attr("name");
-			var str = "确定发布此新闻？";
+			var str = "确定发布此项目？";
 			$.get("${ctx}admin/news/news_checkPub.do?id="+newsId,function(rs){
 				if(rs==1){
-					str = "此新闻已发布，确定重新发布？";
+					str = "此项目已发布，确定重新发布？";
 				}
 				art.dialog.confirm(str,function(){
 					$.getJSON("${ctx}admin/news/news_publishNews.do?pageNo=${pageNo}&id="+newsId,function(data){
@@ -60,15 +60,15 @@
 	<jsp:include page="/admin/commons/header.jsp"/>
 	<jsp:include page="/admin/commons/left.jsp">
 		<jsp:param value="10" name="menuId"/>
-		<jsp:param value="新闻管理" name="menuName"/>
+		<jsp:param value="项目管理" name="menuName"/>
 	</jsp:include>
 	<section id="main" class="column">
 	<jsp:include page="/admin/commons/message.jsp"/>
 		<article class="module width_full">
 		<header>
-		<h3 class="tabs_involved">新闻列表</h3>
+		<h3 class="tabs_involved">项目列表</h3>
 		<ul class="tabs">
-   			<li><a href="${ctx}admin/news/add.jsp" >新增新闻</a></li>
+   			<li><a href="${ctx}admin/news/add.jsp" >新增项目</a></li>
 		</ul>
 		</header>
 
@@ -78,7 +78,7 @@
 			<thead> 
 				<tr> 
     				<th >序号</th>
-					<th >新闻标题</th>
+					<th >项目标题</th>
 					<th >创建日期</th>
 					<th >发布日期</th>
 					<th >优先值</th>
