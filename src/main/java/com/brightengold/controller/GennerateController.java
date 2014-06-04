@@ -140,12 +140,12 @@ public class GennerateController extends ActionSupport implements Preparable{
 		String value = dicTypeService.getDicType("p"+loginUser.getId()).getTvalue();
 		value = new DESPlus().decrypt(value);
 		if(htmlGenerator.createHtmlPage(url,
-				request.getSession().getServletContext().getRealPath("news.html"),
+				request.getSession().getServletContext().getRealPath("projects.html"),
 				loginUser.getUsername(),
 				value.substring(value.indexOf("abc")+3, value.lastIndexOf("ok")))){
-			MsgUtil.setMsg(SUCCESS, "恭喜您，生成News页面成功！");
+			MsgUtil.setMsg(SUCCESS, "恭喜您，生成Projects页面成功！");
 		}else{
-			MsgUtil.setMsg("error", "对不起，生成News页面失败！");
+			MsgUtil.setMsg("error", "对不起，生成Projects页面失败！");
 		}
 		return "html";
 	}
