@@ -22,10 +22,6 @@
 			<result name="list">/admin/sys/log/list.jsp</result>
 		</action>
 		
-		<action name="gennerate_*" class="gennerateController" method="{1}">
-			<result name="html">/admin/sys/html/gennerate.jsp</result>
-		</action>
-		
 		<action name="company_*" class="companyController" method="{1}">
 			<result name="detail">/admin/sys/company/detail.jsp</result>
 			<result name="toDetail" type="redirect">/admin/sys/company_detail.do</result>
@@ -36,7 +32,7 @@
 			<result name="index">/admin/sys/html/index.jsp</result>
 			<result name="aboutUs">/admin/sys/html/about.jsp</result>
 			<result name="contactUs">/admin/sys/html/contact.jsp</result>
-			<result name="news">/admin/sys/html/news.jsp</result>
+			<result name="news">/admin/sys/html/projects.jsp</result>
 			<result name="feedback">/admin/sys/html/feedback.jsp</result>
 			<result name="product">/admin/sys/html/product.jsp</result>
 		</action>
