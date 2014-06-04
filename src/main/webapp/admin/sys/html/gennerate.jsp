@@ -37,8 +37,8 @@
 					<input type="button" class="btn btn-danger" value="生成Products页面" onclick="gennerateProducts();" title="生成Products静态页面"/>
 				</div>
 				<div style="margin: 10px 50px;">
-					<input type="button" class="btn btn-danger" value="预览Projects页面" onclick="purviewNews();" title="预览News静态页面"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<input type="button" class="btn btn-danger" value="生成Projects页面" onclick="gennerateNews();" title="生成News静态页面"/>
+					<input type="button" class="btn btn-danger" value="预览Projects页面" onclick="purviewNews();" title="预览Projects静态页面"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="button" class="btn btn-danger" value="生成Projects页面" onclick="gennerateNews();" title="生成Projects静态页面"/>
 				</div>
 				<div style="margin: 10px 50px;">
 					<input type="button" class="btn btn-danger" value="预览Feedback页面" onclick="purviewFeedback();" title="预览Feedback静态页面"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

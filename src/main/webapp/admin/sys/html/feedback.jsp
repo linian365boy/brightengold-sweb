@@ -13,6 +13,8 @@
 <link rel="stylesheet" type="text/css" href="${ctx }resources/css/style.css" />
 <link rel="stylesheet" type="text/css" href="${ctx }resources/css/feedback.css" />
 <title>Feedback|Brightengold Furniture</title>
+<link rel="icon" href="${ctx }/resources/images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="${ctx }/resources/images/favicon.ico" type="image/x-icon" />
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#form").validate({

@@ -9,6 +9,8 @@
 <link href="${ctx }resources/css/index.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
 <title>About Us|Brightengold Furniture</title>
+<link rel="icon" href="${ctx }/resources/images/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="${ctx }/resources/images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 	<jsp:include page="/commons/top.jsp"></jsp:include>

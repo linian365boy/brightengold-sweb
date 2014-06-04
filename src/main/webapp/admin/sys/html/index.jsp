@@ -6,6 +6,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <jsp:include page="/commons/includeIndex.jsp"></jsp:include>
 <title>Brightengold Furniture</title>
+<link rel="icon" href="${ctx }/resources/images/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="${ctx }/resources/images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
 <jsp:include page="/commons/top.jsp"></jsp:include>
