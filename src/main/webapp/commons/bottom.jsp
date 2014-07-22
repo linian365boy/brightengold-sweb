@@ -4,9 +4,9 @@
   <div class="fixed-width-wrapper">
     <div id="copyright"><a title="" class="logo float-left" href="#"><img alt="" width="49" height="36" src="/resources/${company.logo}"></a>
       <ul>
-        <li>(c) 2014 Allright Our Team </li>
-        <li><a title="All rights reserved" href="http://my.csdn.net/linianshigehaohaizi">All rights reserved</a></li>
-        <li><a title="Terms and Conditions" href="http://my.csdn.net/linianshigehaohaizi">Terms and Conditions</a></li>
+        <li>(c) 2014 GELAIMEI Furniture Industrial All Rights Reserved</li>
+        <li><a title="Privacy" href="#"></a>Privacy</li>
+        <li><a title="Terms and Conditions" href="#">Terms and Conditions</a></li>
       </ul>
       <a title="Back to top" class="back-to-top sprite" href="#">Back to top</a></div>
   </div>

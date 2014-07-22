@@ -5,8 +5,7 @@
   <li><a href="${ctx }contact.html">Contact Us</a></li>
   <li style="padding-left:0px;">
  <p class="left">
-          <strong>${company.name }</strong><br>
-          <br>
+          <strong>${company.name }</strong><br><br>
           <strong>${company.person }</strong> <br>
           <strong>Mobile:</strong> ${company.mobile }<br>
           <strong>&nbsp;Phone:</strong> ${company.telPhone }<br>

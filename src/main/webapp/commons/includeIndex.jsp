@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<meta name="keywords" content="brightengold furniture,brightengold,furniture, Hotel furniture, dining tables, restaurant furniture, hotel furniture accessories, decorative furniture">
-<meta name="description" content="Welcome to the home of Brightengold Furniture, a leader in contemporary furniture design in China! Our sofa suites, dining table and other furniture are well-received in hotels and restaurants.">
+<meta name="keywords" content="GELAIMEI furniture industrial, GELAIMEI, furniture, hotel furniture, bedroom furniture, hotel dining table and chair, hotel sofa, lobby sofa and occasional table, lounge chair, bar chair, door, hospitality furniture supplier, FF&E supplier, hotel loose furniture supplier, casegoods and furniture.">
+<meta name="description" content="Welcome to the home of GELAIMEI hotel furniture industrial, a leader in contemporary star grade furniture design and manufacturing in China! Our hotel bedroom furniture, sofa suites, dining table and other furniture are well-received in hotels, restaurants, apartments and other hospitality sectors.">
 <link href="/resources/css/index.css" type="text/css" rel="stylesheet"/>
-<link rel="icon" href="${ctx }/resources/images/favicon.ico" type="image/x-icon">
-<link rel="shortcut icon" href="${ctx }/resources/images/favicon.ico" type="image/x-icon" />
 <style type="text/css">
 #etw_banner{background:url() no-repeat;}
 .left{ margin:0 50px 30px 0;}
