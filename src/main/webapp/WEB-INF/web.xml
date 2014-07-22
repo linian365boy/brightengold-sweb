@@ -4,10 +4,10 @@
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 						>
-  <display-name>brightengold</display-name>
+  <display-name>GELAIMEI Furniture</display-name>
   <context-param>
     <param-name>webAppRootKey</param-name>
-    <param-value>webApp.brightengold</param-value>
+    <param-value>webApp.GELAIMEI Furniture</param-value>
   </context-param>
   <context-param>
     <param-name>log4jConfigLocation</param-name>
