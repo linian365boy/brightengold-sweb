@@ -107,14 +107,14 @@ body{
 		            <input id="name" class="form-control" name="name" value="${model.name }" type="text"/>
             	</div>
              </div>
-             
+            
             <div class="form-group">
-            	<label for="logo" class="col-sm-2 control-label">公司logo</label>
+            	<label for="log" class="col-sm-2 control-label">公司logo</label>
             	<div class="col-sm-4">
            	 	<img src="${ctx }resources/${model.logo }" 
-            	title="公司logo" alt="公司logo" width="390px" height="130px" 
-            	name="logo" />
-            		<input type="file" name="logo" title="点击更换公司logo"/>
+            	title="公司logo" alt="公司log" width="390px" height="130px" 
+            	name="log" />
+            		<input type="file" name="log" title="点击更换公司logo"/>
             	</div>
             </div>
             
