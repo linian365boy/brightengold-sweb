@@ -35,7 +35,7 @@
 	
 		var del = function(obj){
 			var feedbackId = $(obj).attr("name");
-			art.dialog.confirm('确定删除此反馈项目',function(){
+			art.dialog.confirm('确定删除此反馈',function(){
 				var url = '${ctx}admin/feedback/feedback_del.do?pageNo=${pageNo}&id='+feedbackId;
 				window.location.href=url;
 			});
