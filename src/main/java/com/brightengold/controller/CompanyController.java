@@ -2,12 +2,16 @@ package com.brightengold.controller;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+
 import com.brightengold.model.Company;
 import com.brightengold.service.CompanyService;
 import com.brightengold.service.LogUtil;
@@ -31,9 +35,9 @@ public class CompanyController extends ActionSupport implements ModelDriven<Comp
 	private String phoneFileName;
 	private String phoneContentType;
 	
-	private File logo;
-	private String logoFileName;
-	private String logoContentType;
+	private File log;
+	private String logFileName;
+	private String logContentType;
 	
 	public String detail() {
 		model = companyService.loadCompany();
@@ -44,10 +48,10 @@ public class CompanyController extends ActionSupport implements ModelDriven<Comp
 		Company temp = companyService.loadCompany();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		try{
-			if(logo!=null){
+			if(log!=null){
 				String realPath = request.getSession().getServletContext().getRealPath("/resources/upload/company");
-				String newFileName = realPath+"/"+Tools.getRndFilename()+Tools.getExtname(getLogoFileName());
-				FileUtils.copyInputStreamToFile(new FileInputStream(getLogo()), new File(newFileName));
+				String newFileName = realPath+"/"+Tools.getRndFilename()+Tools.getExtname(getLogFileName());
+				FileUtils.copyInputStreamToFile(new FileInputStream(getLog()), new File(newFileName));
 				String url = newFileName.substring(realPath.lastIndexOf("upload"));
 				model.setLogo(url.replace("\\", "/"));
 			}else{
@@ -62,7 +66,6 @@ public class CompanyController extends ActionSupport implements ModelDriven<Comp
 			}else{
 				model.setPhonePic(temp.getPhonePic());
 			}
-			model.setCreateDate(temp.getCreateDate());
 			StringBuilder content = new StringBuilder();
 			if(!temp.getName().equals(model.getName())){
 				content.append("公司名称由\""+temp.getName()+"\"修改为\""+model.getName()+"\"");
@@ -114,28 +117,46 @@ public class CompanyController extends ActionSupport implements ModelDriven<Comp
 		this.phoneContentType = phoneContentType;
 	}
 
-	public File getLogo() {
-		return logo;
+	/**
+	 * @return the log
+	 */
+	public File getLog() {
+		return log;
 	}
 
-	public void setLogo(File logo) {
-		this.logo = logo;
+	/**
+	 * @param log the log to set
+	 */
+	public void setLog(File log) {
+		this.log = log;
 	}
 
-	public String getLogoFileName() {
-		return logoFileName;
+	/**
+	 * @return the logFileName
+	 */
+	public String getLogFileName() {
+		return logFileName;
 	}
 
-	public void setLogoFileName(String logoFileName) {
-		this.logoFileName = logoFileName;
+	/**
+	 * @param logFileName the logFileName to set
+	 */
+	public void setLogFileName(String logFileName) {
+		this.logFileName = logFileName;
 	}
 
-	public String getLogoContentType() {
-		return logoContentType;
+	/**
+	 * @return the logContentType
+	 */
+	public String getLogContentType() {
+		return logContentType;
 	}
 
-	public void setLogoContentType(String logoContentType) {
-		this.logoContentType = logoContentType;
+	/**
+	 * @param logContentType the logContentType to set
+	 */
+	public void setLogContentType(String logContentType) {
+		this.logContentType = logContentType;
 	}
 	
 }
