@@ -4,17 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="keywords" content="brightengold furniture,brightengold,furniture, Hotel furniture, dining tables, restaurant furniture, hotel furniture accessories, decorative furniture">
-<meta name="description" content="Welcome to the home of Brightengold Furniture, a leader in contemporary furniture design in China! Our sofa suites, dining table and other furniture are well-received in hotels and restaurants.">
+<meta name="keywords" content="GELAIMEI furniture industrial, GELAIMEI, furniture, hotel furniture, bedroom furniture, hotel dining table and chair, hotel sofa, lobby sofa and occasional table, lounge chair, bar chair, door, hospitality furniture supplier, FF&E supplier, hotel loose furniture supplier, casegoods and furniture.">
+<meta name="description" content="Welcome to the home of GELAIMEI hotel furniture industrial, a leader in contemporary star grade furniture design and manufacturing in China! Our hotel bedroom furniture, sofa suites, dining table and other furniture are well-received in hotels, restaurants, apartments and other hospitality sectors.">
 <link href="${ctx }resources/css/index.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" src="${ctx }resources/js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.validate.js"></script>
 <script type="text/javascript" src="${ctx }resources/js/jquery.metadata.js"></script>
 <link rel="stylesheet" type="text/css" href="${ctx }resources/css/style.css" />
 <link rel="stylesheet" type="text/css" href="${ctx }resources/css/feedback.css" />
-<title>Feedback|Brightengold Furniture</title>
-<link rel="icon" href="${ctx }/resources/images/favicon.ico" type="image/x-icon">
-	<link rel="shortcut icon" href="${ctx }/resources/images/favicon.ico" type="image/x-icon" />
+<title>Feedback|GELAIMEI Furniture</title>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#form").validate({

@@ -8,7 +8,7 @@
  <%@include file="/admin/commons/listJsCss.jsp" %>
  <%@include file="/admin/commons/jsCss.jsp" %>
  <script type="text/javascript" src="${ctx }resources/js/system.js"></script>
-<title>反馈管理|brightengold后台管理系统</title>
+<title>反馈管理|GELAIMEI Furniture后台管理系统</title>
 
 <script type="text/javascript">
 	var detail = function(id){

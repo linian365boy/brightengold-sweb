@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <%@include file="/admin/commons/listJsCss.jsp" %>
  <%@include file="/admin/commons/jsCss.jsp" %>
-<title>项目管理|brightengold后台管理系统</title>
+<title>项目管理|GELAIMEI Furniture后台管理系统</title>
 <script type="text/javascript">
 	var update = function(obj){
 		var newsId = $(obj).attr("name");

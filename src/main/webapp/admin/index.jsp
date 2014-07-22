@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<title>后台欢迎页面|brightengold后台管理系统</title>
+	<title>后台欢迎页面|GELAIMEI Furniture后台管理系统</title>
 	<link href="${ctx }resources/css/bootstrap.min.css" rel="stylesheet"/>
 	<jsp:include page="commons/jsCss.jsp"/>
 </head>

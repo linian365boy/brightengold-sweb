@@ -19,7 +19,7 @@ body{
 		font-family: Arial, Tahoma, Verdana;
 	}
 </style>
-<title>添加项目项目|brightengold后台管理系统</title>
+<title>添加项目|GELAIMEI Furniture后台管理系统</title>
 <script type="text/javascript">
 	var valiResult;
 	$(document).ready(function(){
@@ -66,7 +66,7 @@ body{
 <jsp:include page="/admin/commons/header.jsp"/>
 	<jsp:include page="/admin/commons/left.jsp">
 		<jsp:param value="10" name="menuId"/>
-		<jsp:param value="项目项目管理" name="menuName"/>
+		<jsp:param value="项目管理" name="menuName"/>
 		<jsp:param value="添加项目" name="menuSubName"/>
 	</jsp:include>
 	<section id="main" class="column">

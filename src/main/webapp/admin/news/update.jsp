@@ -19,7 +19,7 @@ body{
 		font-family: Arial, Tahoma, Verdana;
 	}
 </style>
-<title>编辑项目|brightengold后台管理系统</title>
+<title>编辑项目|GELAIMEI Furniture后台管理系统</title>
 <script type="text/javascript">
 	var valiResult;
 	$(document).ready(function(){

@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
  <%@include file="/admin/commons/listJsCss.jsp" %>
 <%@include file="/admin/commons/jsCss.jsp" %>
-<title>生成管理|brightengold后台管理系统</title>
+<title>生成管理|GELAIMEI Furniture后台管理系统</title>
 </head>
 <body>
 	<jsp:include page="/admin/commons/header.jsp"/>
