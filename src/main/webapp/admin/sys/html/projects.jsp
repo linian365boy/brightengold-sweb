@@ -44,7 +44,7 @@
 		 	</c:otherwise>
 		 </c:choose>
 		 <a class="t-title" target="_blank" title="${news.title }" href="${ctx }${news.url}" id="n1">${news.title }</a>
-		 <span>${news.publishDate }</span>
+		 <%-- <span>${news.publishDate }</span> --%>
 		 </li>
 	</c:forEach>
 	</ul>

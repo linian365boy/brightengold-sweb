@@ -4,9 +4,9 @@
   <div class="fixed-width-wrapper">
     <div id="copyright"><a title="" class="logo float-left" href="#"><img alt="" width="49" height="36" src="/resources/${company.logo}"></a>
       <ul>
-        <li>(c) 2014 GELAIMEI Furniture Industrial All Rights Reserved</li>
-        <li><a title="Privacy" href="#"></a>Privacy</li>
-        <li><a title="Terms and Conditions" href="#">Terms and Conditions</a></li>
+        <li>© 2014 Gelaimei Furniture Industrial. All Rights Reserved</li>
+        <li>Privacy</li>
+        <li>Terms and Conditions</li>
       </ul>
       <a title="Back to top" class="back-to-top sprite" href="#">Back to top</a></div>
   </div>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 设置Action的请求后缀为.action,防止Struts2.3将无后缀请求亦当成正常的Action请求处理 -->
+	<constant name="struts.action.extension" value="do"/>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 设置Web应用的默认Locale为zh_CN -->
+	<constant name="struts.locale" value="zh_CN" />
+	<constant name="struts.devMode" value="false"></constant>
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<!-- 设置Struts2.3默认的ObjectFactory为spring -->
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+	<!-- 设置最大上传文件是300M -->
+	<constant name="struts.multipart.maxSize" value="314572800"/>
+	
+	<package name="sweb" extends="struts-default">
+		<global-results>
+			<result name="excep">/403.jsp</result>
+			<!-- <result name="exception">/500.jsp</result> -->
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="excep" exception="org.springframework.security.access.AccessDeniedException"/>
+			<!-- <exception-mapping result="exception" exception="java.lang.Exception"/> -->
+		</global-exception-mappings>
+		<!-- <action name="isExpired" class="userAction" method="isExpired">
+			<result>/isExpired.html</result>
+		</action> -->
+	</package>
+	<include file="struts/struts-permission.xml"></include>
+	<include file="struts/struts-views.xml"></include>
+</struts>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="views" extends="sweb" namespace="/views">
+		<action name="getProduct" class="productController" method="getProductByCateId">
+			<result>/views/category.jsp</result>
+		</action>
+		<action name="submitFeedback" class="feedbackController" method="saveFeedback">
+			<result type="redirect">/feedback.html?error=false</result>
+			<result type="redirect" name="error">/feedback.html?error=true</result>
+		</action>
+		<action name="getNews" class="newsController" method="getNews">
+			<result>/views/news.jsp</result>
+		</action>
+		<action name="updateHit" class="newsController" method="updateHits"/>
+		<action name="getHit" class="newsController" method="getHits"/>
+	</package>
+	
+</struts>

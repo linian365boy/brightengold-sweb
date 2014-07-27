@@ -4,7 +4,7 @@
 <span style="float: left; display: inline;" id="head_login"><img src="/resources/${company.logo}" alt="GELAIMEI Furniture" title="GELAIMEI Furniture"/> </span>
 
 <span style="float: right; display: inline;">
-<a href="javascript:void(0);" title="GELAIMEI Furniture" style="color:#0750D9;text-decoration: none;" 
+<a title="GELAIMEI Furniture" style="color:#0750D9;text-decoration: none;" 
 rel="nofollow">
 <img src="/resources/${company.phonePic}" height="130px" alt="GELAIMEI Furniture" title="GELAIMEI Furniture"/></a>
 </span></div>
